@@ -5,85 +5,6 @@ const $$ = (selector, node = document) => node.querySelectorAll(selector);
 
 // ==================================================================
 
-function initCarousel() {
-  // Carousel functionality
-  let curr = 0;
-  let interval = null;
-
-  const hero = $('#hero');
-  const carousel = $('.Carousel', hero);
-  const slides = $$('.CarouselSlide', carousel);
-  const totSlides = slides.length;
-  const nextBtn = $('.CarouselNextSlide', carousel);
-  const prevBtn = $('.CarouselPrevSlide', carousel);
-  const indicators = $$('.CarouselIndicators>button.CarouselDot', carousel);
-
-  function updateCarousel() {
-    let offset = (0 - curr) * 100;
-    slides.forEach(slide => {
-      slide.style.transform = `translateX(${offset}%)`;
-      offset += 100;
-    });
-
-    indicators.forEach((indicator, index) => {
-      if (index === curr) {
-        indicator.classList.remove('CarouselDot');
-        indicator.classList.add('CarouselDotActive');
-        indicator.setAttribute('aria-current', 'true');
-      } else {
-        indicator.classList.remove('CarouselDotActive');
-        indicator.classList.add('CarouselDot');
-        indicator.removeAttribute('aria-current');
-      }
-    });
-  }
-
-  function nextSlide() {
-    stopCarousel();
-    curr = (curr + 1) % totSlides;
-    updateCarousel();
-    startCarousel();
-  }
-
-  function prevSlide() {
-    stopCarousel();
-    curr = (curr - 1 + totSlides) % totSlides;
-    updateCarousel();
-    startCarousel();
-  }
-
-  function toSlide(index) {
-    if (index < 0 || index >= totSlides) return;
-    stopCarousel();
-    curr = index;
-    updateCarousel();
-    startCarousel();
-  }
-
-  function startCarousel() {
-    interval = setInterval(nextSlide, 8000);
-  }
-
-  function stopCarousel() {
-    if (!interval) return;
-    clearInterval(interval);
-    interval = null;
-  }
-
-  // Carousel navigation event listeners
-  nextBtn.addEventListener('click', () => nextSlide());
-  prevBtn.addEventListener('click', () => prevSlide());
-  indicators.forEach((indicator, index) =>
-    indicator.addEventListener('click', () => toSlide(index))
-  );
-
-  // Initialize carousel
-  updateCarousel();
-  startCarousel();
-}
-
-// ==================================================================
-
 function initHeader() {
   // Header scroll effect
   const hero = $('#hero');
@@ -280,7 +201,6 @@ function initErrorBoundaries() {
 // ==================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCarousel();
   initHeader();
   initContactForm();
   initAnchorScrolling();
