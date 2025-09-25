@@ -529,11 +529,11 @@
   }
 
   footer.Footer p.Text {
-    @apply text-lg text-stone-400 md:leading-relaxed;
+    @apply text-stone-400 md:leading-relaxed;
   }
 
-  footer.Footer h4.Title {
-    @apply text-white text-lg font-semibold mb-4;
+  footer.Footer h3.Title {
+    @apply text-white font-semibold mb-4;
   }
 
   footer.Footer ul.List>li {
