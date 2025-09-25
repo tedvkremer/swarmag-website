@@ -504,7 +504,7 @@
     @apply grid lg:grid-cols-2 gap-8;
   }
 
-  div.ContactInfo {
+  div.ContactLayout div.ContactInfo {
     @apply space-y-8;
   }
 
@@ -516,11 +516,11 @@
     @apply py-12;
   }
 
-  footer.Footer>div.Container {
+  footer.Footer div.FooterContainer {
     @apply container mx-auto px-4 max-w-6xl;
   }
 
-  footer.Footer div.Layout {
+  footer.Footer div.FooterLayout {
     @apply grid md:grid-cols-3 gap-4 md:gap-8;
   }
 
