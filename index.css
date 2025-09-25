@@ -331,7 +331,7 @@
   /* ===== Container ================================ */
 
   div.Container {
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 1s ease-out, transform 0.6s ease-out;
     @apply container mx-auto px-6 md:px-10 max-w-4xl opacity-0 translate-y-24;
   }
 
