@@ -252,10 +252,6 @@
     @apply relative h-screen overflow-hidden;
   }
 
-  section.Hero div.ActionLayout {
-    @apply text-center mt-48;
-  }
-
   /* ===== Carousel ================================ */
 
   div.Carousel {
