@@ -513,7 +513,7 @@
   footer.Footer {
     background-color: var(--motif-dark-brown);
     color: var(--motif-bright-white);
-    @apply py-12;
+    @apply text-base py-12;
   }
 
   footer.Footer div.FooterContainer {
@@ -529,15 +529,15 @@
   }
 
   footer.Footer p.Text {
-    @apply text-stone-400 md:leading-relaxed;
+    @apply text-base text-stone-400 md:leading-relaxed;
   }
 
   footer.Footer h3.Title {
-    @apply text-white font-semibold mb-4;
+    @apply text-base text-white font-semibold mb-4;
   }
 
   footer.Footer ul.List>li {
-    @apply text-stone-400;
+    @apply text-base text-stone-400;
   }
 
   footer.Footer div.Bottom {
