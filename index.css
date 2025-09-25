@@ -34,7 +34,7 @@
   }
 
   div.ActionLayout {
-    @apply text-center mt-16;
+    @apply text-center pt-8;
   }
 
   a.CallToAction {
@@ -42,7 +42,7 @@
     background-color: var(--motif-orange);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    @apply capitalize font-semibold text-white px-6 md:px-16 py-4 text-lg md:text-xl rounded-full;
+    @apply inline-block font-semibold text-white px-6 md:px-16 py-4 text-lg md:text-xl rounded-full;
   }
 
   a.CallToAction:hover {
@@ -151,7 +151,7 @@
   /* ===== List ================================ */
 
   ul.List {
-    @apply text-base md:text-lg leading-snug space-y-4 mb-6;
+    @apply text-base md:text-lg leading-snug space-y-4;
   }
 
   ul.List>li {
@@ -170,7 +170,7 @@
 
   ol.List {
     counter-reset: benefits-counter;
-    @apply text-base md:text-lg leading-snug space-y-4 mb-6;
+    @apply text-base md:text-lg leading-snug space-y-4;
   }
 
   ol.List>li {
@@ -206,11 +206,11 @@
     @apply fixed p-2 md:px-12 shadow-lg;
   }
 
-  div.HeaderContainer {
+  header.Header div.HeaderContainer {
     @apply container mx-auto flex justify-between items-center;
   }
 
-  img.HeaderLogo {
+  header.Header img.HeaderLogo {
     @apply h-14 md:h-16 brightness-0 invert transition-all duration-300;
   }
 
@@ -219,7 +219,7 @@
     @apply h-12;
   }
 
-  div.HeaderPhone {
+  header.Header div.HeaderPhone {
     @apply flex h-14 md:h-16 items-center gap-1 md:gap-2;
   }
 
@@ -227,7 +227,7 @@
     @apply h-12;
   }
 
-  svg.HeaderPhoneIcon {
+  header.Header svg.HeaderPhoneIcon {
     color: var(--motif-bright-white);
     @apply w-5 h-5;
   }
@@ -236,7 +236,7 @@
     color: var(--motif-orange);
   }
 
-  span.HeaderPhoneText {
+  header.Header span.HeaderPhoneText {
     color: var(--motif-bright-white);
     @apply text-lg md:text-xl font-bold;
   }
@@ -262,97 +262,97 @@
     @apply relative w-full h-full;
   }
 
-  div.CarouselContainer {
+  div.Carousel div.CarouselContainer {
     @apply relative w-full h-full overflow-hidden;
   }
 
-  div.CarouselSlide {
+  div.Carousel div.CarouselSlide {
     @apply absolute inset-0 transition-transform duration-700 ease-in-out will-change-transform;
   }
 
-  div.CarouselSlide:nth-child(1) {
+  div.Carousel div.CarouselSlide:nth-child(1) {
     transform: translateX(0%);
   }
 
-  div.CarouselSlide:nth-child(2) {
+  div.Carousel div.CarouselSlide:nth-child(2) {
     transform: translateX(100%);
   }
 
-  div.CarouselSlide:nth-child(3) {
+  div.Carousel div.CarouselSlide:nth-child(3) {
     transform: translateX(100%);
   }
 
-  video.CarouselSlideVideo {
+  div.Carousel video.CarouselSlideVideo {
     @apply w-full h-full object-cover;
   }
 
-  img.CarouselSlideImage {
+  div.Carousel img.CarouselSlideImage {
     @apply w-full h-full object-cover;
   }
 
-  div.CarouselSlideOverlay {
+  div.Carousel div.CarouselSlideOverlay {
     @apply absolute inset-0 flex items-center justify-center z-10 bg-black/35;
   }
 
-  div.CarouselSlideLayout {
+  div.Carousel div.CarouselSlideLayout {
     @apply text-center md:text-left max-w-4xl px-8;
   }
 
-  div.CarouselSlideLayout>h1.Title {
+  div.Carousel div.CarouselSlideLayout>h1.Title {
     font-family: 'Playfair Display', serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     color: var(--motif-bright-white);
     @apply text-4xl md:text-5xl font-extrabold mb-6 text-center text-pretty;
   }
 
-  div.CarouselSlideLayout>img.Title {
+  div.Carousel div.CarouselSlideLayout>img.Title {
     @apply mb-6 mx-auto brightness-0 invert h-32 md:h-40;
   }
 
-  div.CarouselSlideLayout>p.Text {
+  div.Carousel div.CarouselSlideLayout>p.Text {
     color: var(--motif-bright-white);
     @apply text-xl md:text-2xl mb-8 text-pretty;
   }
 
-  button.CarouselPrevSlide {
+  div.Carousel button.CarouselPrevSlide {
     @apply absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors;
   }
 
-  button.CarouselPrevSlide:focus {
+  div.Carousel button.CarouselPrevSlide:focus {
     @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
   }
 
-  button.CarouselPrevSlide>svg {
+  div.Carousel button.CarouselPrevSlide>svg {
     color: var(--motif-bright-white);
     @apply w-6 h-6;
   }
 
-  button.CarouselNextSlide {
+  div.Carousel button.CarouselNextSlide {
     @apply absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors;
   }
 
-  button.CarouselNextSlide:focus {
+  div.Carousel button.CarouselNextSlide:focus {
     @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
   }
 
-  button.CarouselNextSlide>svg {
+  div.Carousel button.CarouselNextSlide>svg {
     color: var(--motif-bright-white);
     @apply w-6 h-6;
   }
 
-  div.CarouselIndicators {
+  div.Carousel div.CarouselIndicators {
     @apply absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20;
   }
 
-  button.CarouselDot {
+  div.Carousel button.CarouselDot {
     @apply w-3 h-3 rounded-full transition-colors bg-white/50;
   }
 
-  button.CarouselDotActive {
+  div.Carousel button.CarouselDotActive {
     @apply w-3 h-3 rounded-full transition-colors bg-white;
   }
 
-  button.CarouselDot:focus, button.CarouselDotActive:focus {
+  div.Carousel button.CarouselDot:focus, button.CarouselDotActive:focus {
     @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
   }
 
@@ -410,7 +410,7 @@
     @apply container mx-auto px-6 md:px-10 max-w-4xl opacity-0 translate-y-24;
   }
 
-  .Container.fade-in-up {
+  div.Container.fade-in-up {
     @apply opacity-100 translate-y-0;
   }
 
@@ -446,6 +446,10 @@
   }
 
   /* ===== Services Section ================================ */
+
+  section.Section#services-catalog div.Card {
+    padding: 0;
+  }
 
   table.ServicesTable {
     color: var(--motif-brown);

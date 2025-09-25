@@ -280,7 +280,7 @@ function initErrorBoundaries() {
 // ==================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // initCarousel();
+  initCarousel();
   initHeader();
   initContactForm();
   initAnchorScrolling();
