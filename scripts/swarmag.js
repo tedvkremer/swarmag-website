@@ -3,14 +3,14 @@
 const $ = (selector, node = document) => node.querySelector(selector);
 const $$ = (selector, node = document) => node.querySelectorAll(selector);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const hero = $('#hero');
+// ==================================================================
 
+function initCarousel() {
   // Carousel functionality
-  /*
   let curr = 0;
   let interval = null;
 
+  const hero = $('#hero');
   const carousel = $('.Carousel', hero);
   const slides = $$('.CarouselSlide', carousel);
   const totSlides = slides.length;
@@ -80,16 +80,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize carousel
   updateCarousel();
   startCarousel();
-  */
+}
 
+// ==================================================================
+
+function initHeader() {
   // Header scroll effect
+  const hero = $('#hero');
   const header = $('#header');
   window.addEventListener('scroll', () => {
     const trigger = hero.offsetTop + Math.trunc(hero.offsetHeight / 4);
     const sticky = window.scrollY > trigger;
     sticky ? header.classList.add('Sticky') : header.classList.remove('Sticky');
   });
+}
 
+// ==================================================================
+
+function initContactForm() {
   // Form validation
   const contactForm = $('#contact-form');
   contactForm.addEventListener('submit', e => {
@@ -216,7 +224,11 @@ document.addEventListener('DOMContentLoaded', () => {
       input.classList.add('border-gray-300');
     });
   }
+}
 
+// ==================================================================
+
+function initAnchorScrolling() {
   // Smooth scrolling for anchor links
   $$('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -228,8 +240,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+}
 
+// ==================================================================
 
+function initFadeInUpScrolling() {
+  // Fade in up animation on scroll
+  const intersections = (entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('fade-in-up');
+        observer.unobserve(e.target);
+      }
+    })
+  };
+  const options = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  const observer = new IntersectionObserver(intersections, options);
+  $$('div.Container').forEach(c => observer.observe(c));
+}
+
+// ==================================================================
+
+function initErrorBoundaries() {
   // Add loading states and error boundaries
   window.addEventListener('error', e => {
     console.error('JavaScript error:', e.error);
@@ -240,4 +275,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Unhandled promise rejection:', e.reason);
     // Could send to error tracking service
   });
+}
+
+// ==================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  // initCarousel();
+  initHeader();
+  initContactForm();
+  initAnchorScrolling();
+  initFadeInUpScrolling();
+  initErrorBoundaries();
 });

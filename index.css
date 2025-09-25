@@ -25,6 +25,14 @@
     background-color: var(--motif-eggshell);
   }
 
+  .BackgroundEven {
+    background-color: var(--motif-eggshell);
+  }
+
+  .BackgroundOdd {
+    background-color: var(--motif-soft-green);
+  }
+
   div.ActionLayout {
     @apply text-center mt-16;
   }
@@ -79,17 +87,8 @@
     transform: translateY(-2px);
   }
 
-
   p.FormHelp {
     @apply text-sm text-center;
-  }
-
-  .BackgroundEven {
-    background-color: var(--motif-eggshell);
-  }
-
-  .BackgroundOdd {
-    background-color: var(--motif-soft-green);
   }
 
   .Title {
@@ -135,6 +134,8 @@
     @apply text-center
   }
 
+  /* ===== Artwork ================================ */
+
   div.ArtworkLayout {
     @apply text-center mt-16 space-x-4;
   }
@@ -146,6 +147,8 @@
   img.Artwork.HideSmall {
     @apply hidden md:inline-block;
   }
+
+  /* ===== List ================================ */
 
   ul.List {
     @apply text-base md:text-lg leading-snug space-y-4 mb-6;
@@ -359,16 +362,6 @@
     @apply py-10;
   }
 
-  /* ===== Container ================================ */
-
-  div.Container {
-    @apply container mx-auto px-6 md:px-10 max-w-4xl;
-  }
-
-  div.Container.Wide {
-    @apply max-w-6xl;
-  }
-
   /* ===== Section Separator ================================ */
 
   div.SectionSeparator {
@@ -408,6 +401,21 @@
   div.SectionTopWave.ColorOdd::before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='%23f0fdf4'%3E%3C/path%3E%3C/svg%3E") no-repeat center top;
     background-size: cover;
+  }
+
+  /* ===== Container ================================ */
+
+  div.Container {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    @apply container mx-auto px-6 md:px-10 max-w-4xl opacity-0 translate-y-24;
+  }
+
+  .Container.fade-in-up {
+    @apply opacity-100 translate-y-0;
+  }
+
+  div.Container.Wide {
+    @apply max-w-6xl;
   }
 
   /* ===== Drone Section ================================ */
