@@ -249,6 +249,10 @@
     @apply relative h-screen overflow-hidden;
   }
 
+  section.Hero div.ActionLayout {
+    @apply text-center mt-48;
+  }
+
   /* ===== Carousel ================================ */
 
   div.Carousel {
@@ -288,7 +292,7 @@
   }
 
   div.CarouselSlideLayout {
-    @apply text-center md:text-left max-w-4xl px-16;
+    @apply text-center md:text-left max-w-4xl px-8;
   }
 
   div.CarouselSlideLayout>h1.Title {

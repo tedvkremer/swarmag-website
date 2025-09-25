@@ -4,11 +4,13 @@ const $ = (selector, node = document) => node.querySelector(selector);
 const $$ = (selector, node = document) => node.querySelectorAll(selector);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const hero = $('#hero');
+
   // Carousel functionality
+  /*
   let curr = 0;
   let interval = null;
 
-  const hero = $('#hero');
   const carousel = $('.Carousel', hero);
   const slides = $$('.CarouselSlide', carousel);
   const totSlides = slides.length;
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize carousel
   updateCarousel();
   startCarousel();
+  */
 
   // Header scroll effect
   const header = $('#header');
