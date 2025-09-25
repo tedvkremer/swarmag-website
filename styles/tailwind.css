@@ -1,0 +1,576 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Motif ================================ */
+
+:root {
+  --motif-eggshell: #f9f1e4;
+  --motif-orange: #dcab4f;
+  --motif-green: #95ac63;
+  --motif-soft-blue: #e3f2fd;
+  --motif-soft-white: #f5f5f4;
+  --motif-softer-white: #fafaf9;
+  --motif-bright-white: #ffffff;
+  --motif-soft-green: #f0fdf4;
+  --motif-brown: #57534e;
+  --motif-dark-brown: #1c1917;
+}
+
+@layer components {
+
+  /* ===== General ================================ */
+
+  body {
+    background-color: var(--motif-eggshell);
+  }
+
+  div.ActionLayout {
+    @apply text-center mt-16;
+  }
+
+  a.CallToAction {
+    background-color: var(--motif-orange);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    @apply capitalize font-semibold text-white px-6 md:px-16 py-4 text-lg md:text-xl rounded-full;
+  }
+
+  a.CallToAction:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  p, span, li, label {
+    color: var(--motif-brown);
+  }
+
+  label {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    @apply block text-sm font-medium mb-2;
+  }
+
+  input, select, textarea {
+    @apply bg-white w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500;
+  }
+
+  select>option[value=""] {
+    @apply text-gray-400;
+  }
+
+  form.Form {
+    @apply space-y-4;
+  }
+
+  div.Form2ColLayout {
+    @apply grid md:grid-cols-2 gap-4;
+  }
+
+  form.Form button {
+    background-color: var(--motif-orange);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    @apply w-full text-white py-2 text-lg rounded-md;
+  }
+
+  form.Form button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+
+  p.FormHelp {
+    @apply text-sm text-center;
+  }
+
+  .BackgroundEven {
+    background-color: var(--motif-eggshell);
+  }
+
+  .BackgroundOdd {
+    background-color: var(--motif-soft-green);
+  }
+
+  .Title {
+    color: var(--motif-brown);
+    font-family: 'Playfair Display', serif;
+    @apply font-bold mb-4 md:mb-6;
+  }
+
+  h1.Title {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2.Title {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3.Title {
+    @apply text-xl md:text-2xl;
+  }
+
+  p.Subtitle {
+    color: var(--motif-green);
+    @apply text-base md:text-lg leading-snug md:leading-relaxed font-semibold mb-6;
+  }
+
+  p.Text {
+    @apply text-lg md:text-xl leading-relaxed mb-3;
+  }
+
+  p.Text.DropCap:first-letter {
+    color: var(--motif-softer-white);
+    background-color: var(--motif-brown);
+    font-family: 'Playfair Display', serif;
+    @apply text-5xl font-extrabold float-left mr-2 leading-none px-2 pb-1 rounded-md;
+  }
+
+  div.Card {
+    background-color: var(--motif-softer-white);
+    @apply p-4 border rounded-md shadow-lg;
+  }
+
+  div.AlignCenter {
+    @apply text-center
+  }
+
+  div.ArtworkLayout {
+    @apply text-center mt-16 space-x-4;
+  }
+  
+  img.Artwork {
+    @apply h-32 w-auto inline-block;
+  }
+
+  img.Artwork.HideSmall {
+    @apply hidden md:inline-block;
+  }
+
+  ul.List {
+    @apply text-base md:text-lg leading-snug space-y-4 mb-6;
+  }
+
+  ul.List>li {
+    @apply flex items-center gap-2 md:gap-4;
+  }
+
+  ul.List>li>div.Bullet {
+    background-color: var(--motif-orange);
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+  }
+
+  ul.List>li>svg.Icon {
+    color: var(--motif-orange);
+    @apply w-5 h-5 inline-block;
+  }
+
+  ol.List {
+    counter-reset: benefits-counter;
+    @apply text-base md:text-lg leading-snug space-y-4 mb-6;
+  }
+
+  ol.List>li {
+    @apply flex items-center gap-2 md:gap-4;
+    counter-increment: benefits-counter;
+    list-style: none;
+  }
+
+  ol.List>li::before {
+    content: counter(benefits-counter);
+    background-color: var(--motif-green);
+    color: var(--motif-bright-white);
+    @apply flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold;
+  }
+
+  ol.List.Color1>li::before {
+    background-color: var(--motif-green);
+  }
+
+  ol.List.Color2>li::before {
+    background-color: var(--motif-orange);
+  }
+
+  /* ===== Header ================================ */
+
+  header.Header {
+    @apply absolute p-4 md:py-8 md:px-16 bg-transparent w-full z-50 transition-all duration-300;
+  }
+
+  header.Header.Sticky {
+    opacity: 90%;
+    background-color: var(--motif-bright-white);
+    @apply fixed p-2 md:px-12 shadow-lg;
+  }
+
+  div.HeaderContainer {
+    @apply container mx-auto flex justify-between items-center;
+  }
+
+  img.HeaderLogo {
+    @apply h-14 md:h-16 brightness-0 invert transition-all duration-300;
+  }
+
+  header.Header.Sticky img.HeaderLogo {
+    filter: none;
+    @apply h-12;
+  }
+
+  div.HeaderPhone {
+    @apply flex h-14 md:h-16 items-center gap-1 md:gap-2;
+  }
+
+  header.Header.Sticky div.HeaderPhone {
+    @apply h-12;
+  }
+
+  svg.HeaderPhoneIcon {
+    color: var(--motif-bright-white);
+    @apply w-5 h-5;
+  }
+
+  header.Header.Sticky svg.HeaderPhoneIcon {
+    color: var(--motif-orange);
+  }
+
+  span.HeaderPhoneText {
+    color: var(--motif-bright-white);
+    @apply text-lg md:text-xl font-bold;
+  }
+
+  header.Header.Sticky span.HeaderPhoneText {
+    color: var(--motif-brown);
+    @apply text-base;
+  }
+
+  /* ===== Hero ================================ */
+  
+  section.Hero {
+    @apply relative h-screen overflow-hidden;
+  }
+
+  /* ===== Carousel ================================ */
+
+  div.Carousel {
+    @apply relative w-full h-full;
+  }
+
+  div.CarouselContainer {
+    @apply relative w-full h-full overflow-hidden;
+  }
+
+  div.CarouselSlide {
+    @apply absolute inset-0 transition-transform duration-700 ease-in-out will-change-transform;
+  }
+
+  div.CarouselSlide:nth-child(1) {
+    transform: translateX(0%);
+  }
+
+  div.CarouselSlide:nth-child(2) {
+    transform: translateX(100%);
+  }
+
+  div.CarouselSlide:nth-child(3) {
+    transform: translateX(100%);
+  }
+
+  video.CarouselSlideVideo {
+    @apply w-full h-full object-cover;
+  }
+
+  img.CarouselSlideImage {
+    @apply w-full h-full object-cover;
+  }
+
+  div.CarouselSlideOverlay {
+    @apply absolute inset-0 flex items-center justify-center z-10 bg-black/35;
+  }
+
+  div.CarouselSlideLayout {
+    @apply text-center md:text-left max-w-4xl px-16;
+  }
+
+  div.CarouselSlideLayout>h1.Title {
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: var(--motif-bright-white);
+    @apply text-4xl md:text-5xl font-extrabold mb-6 text-center text-pretty;
+  }
+
+  div.CarouselSlideLayout>img.Title {
+    @apply mb-6 mx-auto brightness-0 invert h-32 md:h-40;
+  }
+
+  div.CarouselSlideLayout>p.Text {
+    color: var(--motif-bright-white);
+    @apply text-xl md:text-2xl mb-8 text-pretty;
+  }
+
+  button.CarouselPrevSlide {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors;
+  }
+
+  button.CarouselPrevSlide:focus {
+    @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
+  }
+
+  button.CarouselPrevSlide>svg {
+    color: var(--motif-bright-white);
+    @apply w-6 h-6;
+  }
+
+  button.CarouselNextSlide {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors;
+  }
+
+  button.CarouselNextSlide:focus {
+    @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
+  }
+
+  button.CarouselNextSlide>svg {
+    color: var(--motif-bright-white);
+    @apply w-6 h-6;
+  }
+
+  div.CarouselIndicators {
+    @apply absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20;
+  }
+
+  button.CarouselDot {
+    @apply w-3 h-3 rounded-full transition-colors bg-white/50;
+  }
+
+  button.CarouselDotActive {
+    @apply w-3 h-3 rounded-full transition-colors bg-white;
+  }
+
+  button.CarouselDot:focus, button.CarouselDotActive:focus {
+    @apply focus:ring-2 focus:ring-white/50 focus:outline-none;
+  }
+
+  /* ===== Section ================================ */
+
+  section.Section {
+    @apply py-10;
+  }
+
+  /* ===== Container ================================ */
+
+  div.Container {
+    @apply container mx-auto px-6 md:px-10 max-w-4xl;
+  }
+
+  div.Container.Wide {
+    @apply max-w-6xl;
+  }
+
+  /* ===== Section Separator ================================ */
+
+  div.SectionSeparator {
+    @apply flex items-center max-w-3xl mx-auto;
+  }
+
+  div.SectionSeparator>img.Artwork {
+    @apply h-16 md:h-20 w-auto;
+  }
+
+  hr.SectionSeparatorLine {
+    @apply mx-8 flex-1 border-t border-stone-300;
+  }
+
+  /* ===== Section Top Wave ================================ */
+
+  div.SectionTopWave {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+  }
+
+  div.SectionTopWave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  div.SectionTopWave.ColorEven::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='%23f9f1e4'%3E%3C/path%3E%3C/svg%3E") no-repeat center top;
+    background-size: cover;
+  }
+
+  div.SectionTopWave.ColorOdd::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='%23f0fdf4'%3E%3C/path%3E%3C/svg%3E") no-repeat center top;
+    background-size: cover;
+  }
+
+  /* ===== Drone Section ================================ */
+
+  section.Section#drone-spraying-and-spreading {
+    @apply pt-20;
+  }
+
+  /* ===== Benefits Section ================================ */
+
+  div.BenefitsLayout {
+    @apply grid lg:grid-cols-2 gap-8;
+  }
+
+  /* ===== Equipment Section ================================ */
+
+  div.EquipmentLayout {
+    @apply grid md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  div.EquipmentLayout svg.EquipmentIcon {
+    color: var(--motif-orange);
+    @apply w-12 h-12 mb-4;
+  }
+
+  div.EquipmentLayout p.Text {
+    @apply text-lg;
+  }
+
+  /* ===== Services Section ================================ */
+
+  table.ServicesTable {
+    color: var(--motif-brown);
+    border-radius: .375rem .375rem 0 0;
+    @apply w-full text-left border-collapse overflow-hidden;
+  }
+
+  table.ServicesTable>thead {
+    color: var(--motif-bright-white);
+    background-color: var(--motif-brown);
+    opacity: 85%;
+  }
+
+  table.ServicesTable>thead>tr>th {
+    @apply p-1;
+  }
+
+  table.ServicesTable>thead>tr>th:first-of-type {
+    @apply md:pl-2;
+  }
+
+  table.ServicesTable>tbody>tr.Section {
+    color: var(--motif-bright-white);
+    background-color: var(--motif-green);
+    opacity: 85%;
+  }
+
+  table.ServicesTable>tbody>tr>td {
+    @apply text-sm p-1;
+  }
+
+  table.ServicesTable>tbody>tr>td:nth-child(1) {
+    @apply md:pl-4 font-semibold;
+  }
+
+  table.ServicesTable>tbody>tr>td:nth-child(3) {
+    white-space: nowrap;
+    @apply font-mono;
+  }
+
+  table.ServicesTable>tbody>tr.Section>td {
+    @apply md:pl-2 text-sm font-bold;
+  }
+
+  table.ServicesTable>tbody>tr.Even {
+    background-color: var(--motif-bright-white);
+  }
+
+  table.ServicesTable>tbody>tr.Odd {
+    background-color: var(--motif-soft-blue);
+  }
+
+  /* ===== Contact Section ================================ */
+
+  div.ContactLayout {
+    @apply grid lg:grid-cols-2 gap-8;
+  }
+
+  div.ContactInfo {
+    @apply space-y-8;
+  }
+
+  /* ===== Footer ================================ */
+
+  footer.Footer {
+    background-color: var(--motif-dark-brown);
+    color: var(--motif-bright-white);
+    @apply py-12;
+  }
+
+  footer.Footer>div.Container {
+    @apply container mx-auto px-4 max-w-6xl;
+  }
+
+  footer.Footer div.Layout {
+    @apply grid md:grid-cols-3 gap-4 md:gap-8;
+  }
+
+  footer.Footer img.Logo {
+    @apply h-10 mb-4 brightness-0 invert;
+  }
+
+  footer.Footer p.Text {
+    @apply text-lg text-stone-400 md:leading-relaxed;
+  }
+
+  footer.Footer h4.Title {
+    @apply text-white text-lg font-semibold mb-4;
+  }
+
+  footer.Footer ul.List>li {
+    @apply text-stone-400;
+  }
+
+  footer.Footer div.Bottom {
+    @apply border-t border-stone-800 mt-8 pt-8 text-center;
+  }
+
+  footer.Footer div.FooterBottom>p {
+    @apply text-stone-400;
+  }
+}
+
+/* Performance optimizations */
+@layer utilities {
+
+  /* Will-change for animated elements */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Contain layout for better performance */
+  .contain-layout {
+    contain: layout style paint;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .smooth-hover {
+      transition: none;
+    }
+
+    * {
+      animation-duration: 0.01ms;
+      animation-iteration-count: 1;
+      transition-duration: 0.01ms;
+    }
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+}
