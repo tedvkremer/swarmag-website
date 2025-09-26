@@ -206,7 +206,7 @@
   }
 
   header.Header div.HeaderPhone {
-    @apply flex h-14 md:h-16 items-center gap-1 md:gap-2;
+    @apply flex h-14 md:h-16 items-center content-center flex-wrap gap-1 md:gap-2;
   }
 
   header.Header.Sticky div.HeaderPhone {
@@ -215,21 +215,22 @@
 
   header.Header svg.HeaderPhoneIcon {
     color: var(--motif-bright-white);
-    @apply w-5 h-5;
-  }
-
-  header.Header.Sticky svg.HeaderPhoneIcon {
-    color: var(--motif-orange);
+    @apply mt-2 w-5 h-5;
   }
 
   header.Header span.HeaderPhoneText {
     color: var(--motif-bright-white);
-    @apply text-lg md:text-xl font-bold;
+    @apply mt-2 leading-none md:leading-none md:text-xl font-bold;
+  }
+
+  header.Header.Sticky svg.HeaderPhoneIcon {
+    color: var(--motif-orange);
+    @apply mt-2;
   }
 
   header.Header.Sticky span.HeaderPhoneText {
     color: var(--motif-brown);
-    @apply text-base;
+    @apply mt-2 text-base leading-none;
   }
 
   /* ===== Hero ================================ */
@@ -294,7 +295,7 @@
   }
 
   div.SectionSeparator>img {
-    @apply w-40 h-auto;
+    @apply w-32 h-auto;
   }
 
   div.SectionSeparator>hr {
@@ -470,13 +471,27 @@
   }
 
   footer.Footer div.Bottom {
-    @apply border-t border-stone-800 mt-8 pt-8 text-center;
+    @apply grid md:grid-cols-2 gap-4 md:gap-8 border-t border-stone-800 mt-8 pt-8 text-center;
   }
 
   footer.Footer div.Bottom>p {
+    @apply text-stone-500;
+  }
+
+  footer.Footer div.Bottom>p strong {
+    font-weight: normal;
     @apply text-stone-400;
   }
+
+  footer.Footer div.Bottom>p.SiteBy a {
+    @apply underline;
+  }
+
+  footer.Footer div.Bottom>p.SiteBy a:hover {
+    @apply text-stone-300;
+  }
 }
+
 
 /* Performance optimizations */
 @layer utilities {
