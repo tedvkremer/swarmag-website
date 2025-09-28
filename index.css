@@ -451,7 +451,7 @@
   }
 
   footer.Footer div.FooterLayout {
-    @apply grid md:grid-cols-3 gap-4 md:gap-8;
+    @apply grid md:grid-cols-[40%_1fr_1fr] md:grid-cols-3 gap-4 md:gap-8;
   }
 
   footer.Footer img.Logo {
