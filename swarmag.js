@@ -1,36 +1,36 @@
-'use strict';
-
-const $ = (selector, node = document) => node.querySelector(selector);
+const $  = (selector, node = document) => node.querySelector(selector);
 const $$ = (selector, node = document) => node.querySelectorAll(selector);
 
-// ==================================================================
+/*************************************
+  Header scroll effect
+ *************************************/
 
-function initHeader() {
-  // Header scroll effect
-  const hero = $('#hero');
+  function initHeader() {
+  const hero   = $('#hero');
   const header = $('#header');
   window.addEventListener('scroll', () => {
     const trigger = hero.offsetTop + Math.trunc(hero.offsetHeight / 4);
-    const sticky = window.scrollY > trigger;
+    const sticky  = window.scrollY > trigger;
     sticky ? header.classList.add('Sticky') : header.classList.remove('Sticky');
   });
 }
 
-// ==================================================================
+/*************************************
+  Form validation
+ *************************************/
 
 function initContactForm() {
-  // Form validation
   const contactForm = $('#contact-form');
   contactForm.addEventListener('submit', e => {
     e.preventDefault();
 
     if (validateForm()) {
       // Simulate form submission
-      const submitBtn = $('button[type="submit"]', contactForm);
+      const submitBtn    = $('button[type="submit"]', contactForm);
       const originalText = submitBtn.textContent;
 
       submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
+      submitBtn.disabled    = true;
 
       // Simulate API call
       setTimeout(() => {
@@ -40,7 +40,7 @@ function initContactForm() {
 
         setTimeout(() => {
           submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
+          submitBtn.disabled    = false;
           submitBtn.classList.remove('bg-green-600');
           submitBtn.classList.add('bg-green-700', 'hover:bg-green-800');
           contactForm.reset();
@@ -83,13 +83,13 @@ function initContactForm() {
 
   function validateField(field) {
     const value = field.value.trim();
-    const fieldName = field.name;
+    const fieldName  = field.name;
     let errorElement = document.getElementById(`${field.id}-error`);
 
     // Create error element dynamically if it doesn't exist
     if (!errorElement) {
-      errorElement = document.createElement('div');
-      errorElement.id = `${field.id}-error`;
+      errorElement           = document.createElement('div');
+      errorElement.id        = `${field.id}-error`;
       errorElement.className = 'text-red-500 text-sm mt-1 hidden';
       errorElement.setAttribute('role', 'alert');
       field.parentNode.insertBefore(errorElement, field.nextSibling);
@@ -147,10 +147,11 @@ function initContactForm() {
   }
 }
 
-// ==================================================================
+/*************************************
+  Smooth scrolling for anchor links
+ *************************************/
 
 function initAnchorScrolling() {
-  // Smooth scrolling for anchor links
   $$('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -163,10 +164,11 @@ function initAnchorScrolling() {
   });
 }
 
-// ==================================================================
+/*************************************
+  Fade in up animation on scroll
+ *************************************/
 
 function initFadeInUpScrolling() {
-  // Fade in up animation on scroll
   const intersections = (entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -183,10 +185,11 @@ function initFadeInUpScrolling() {
   $$('div.Container').forEach(c => observer.observe(c));
 }
 
-// ==================================================================
+/*************************************
+  Add loading states and error boundaries
+ *************************************/
 
 function initErrorBoundaries() {
-  // Add loading states and error boundaries
   window.addEventListener('error', e => {
     console.error('JavaScript error:', e.error);
     // Could send to error tracking service
@@ -198,7 +201,9 @@ function initErrorBoundaries() {
   });
 }
 
-// ==================================================================
+/*************************************
+  Initialize Application
+ *************************************/
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
