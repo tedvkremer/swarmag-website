@@ -1146,6 +1146,7 @@ div.HeroContainer div.HeroLayout>p.Text {
   color: var(--motif-bright-white);
   margin-bottom: 2rem;
   text-wrap: pretty;
+  text-align: center;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }

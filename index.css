@@ -267,7 +267,7 @@
 
   div.HeroContainer div.HeroLayout>p.Text {
     color: var(--motif-bright-white);
-    @apply text-xl md:text-2xl mb-8 text-pretty;
+    @apply text-xl md:text-2xl mb-8 text-pretty text-center;
   }
 
   /* ===== Section ================================ */
