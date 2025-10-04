@@ -1462,6 +1462,10 @@ div.ContactLayout div.ContactInfo > :not([hidden]) ~ :not([hidden]) {
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.ContactInfo .Card h3.Title:not(:first-of-type) {
+  margin-top: 1rem;
+}
+
 /* ===== Footer ================================ */
 
 footer.Footer {
