@@ -152,13 +152,14 @@ class Swarm {
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     user-select: none;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
     margin: 0;
     padding: 0;
     color: #fff; 
-    z-index: 99;
     `;
   static HIDE = Swarm.STYLE +
     `

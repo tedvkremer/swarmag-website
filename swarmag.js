@@ -183,11 +183,11 @@ function initFadeInUpScrolling() {
     })
   };
   const options = {
-    threshold: 0.1,
+    threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
   };
   const observer = new IntersectionObserver(intersections, options);
-  $$('div.Container').forEach(c => observer.observe(c));
+  $$('.Effect').forEach(c => observer.observe(c));
 }
 
 /*************************************

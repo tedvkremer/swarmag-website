@@ -15,10 +15,28 @@
   <link rel="icon" type="image/x-icon" href="assets/swarmag-logo-tree.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" />
   <link rel="stylesheet" href="swarmag.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "swarmAg",
+    "description": "Providing North Texas precision agricultural services with cutting-edge technology and proven methods.",
+    "url": "https://swarmag.com",
+    "telephone": "(214) 420-7990",
+    "email": "info@swarmag.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "North Texas",
+      "addressCountry": "US"
+    },
+    "serviceType": ["Drone Spraying & Spreading", "Mesquite & Brush Mitigation"],
+    "areaServed": "North Texas Pastures & Rangeland"
+  }
+  </script>
 </head>
 
 <body>
-  <header id="header" class="Header">
+  <header id="header" class="Header" role="banner">
     <div class="HeaderContainer">
       <img src="assets/swarmag-logo-wordmark.png" alt="swarmAg Logo" class="HeaderLogo" />
       <div class="HeaderPhone">
@@ -38,7 +56,8 @@
         <source src="assets/hero.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div id="swarm-container" class="HeroOverlay">
+      <div id="swarm-container"></div>
+      <div class="HeroOverlay">
         <div class="HeroLayout">
           <img id="swarm-home" class="Title" src="assets/swarmag-logo-wordmark.png" alt="swarmAg">
           <p class="Text">
@@ -54,7 +73,7 @@
   </section>
 
   <section id="drone-spraying-and-spreading" class="Section BackgroundOdd">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h1 class="Title">Drone Spraying & Spreading</h1>
         <p class="Subtitle">
@@ -71,7 +90,7 @@
         and more. We can spread dry products like lime and gypsum or feed the fish in your cattle-pond, too!
       </p>
       <div class="SectionArtwork">
-        <img src="assets/clipart-drones.png" alt="Drone illustration" />
+        <img src="assets/clipart-drones.png" alt="Drone illustration" loading="lazy" />
       </div>
     </div>
   </section>
@@ -79,7 +98,7 @@
   <div class="SectionTopWave BackgroundOdd ColorEven"></div>
 
   <section id="the-advantages-of-using-drones" class="Section BackgroundEven">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h2 class="Title">The advantages of using drones</h2>
         <p class="Subtitle">
@@ -99,7 +118,7 @@
   <div class="SectionTopWave BackgroundEven ColorOdd"></div>
 
   <section id="mequite-and-brush-mitigation" class="Section BackgroundOdd">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h1 class="Title">Mesquite & Brush Mitigation</h1>
         <p class="Subtitle">
@@ -112,16 +131,16 @@
         removing invasive or nuisance brush, specializing in mesquite
         mitigation on North Texas pastures and rangeland.
       </p>
-    </div>
-    <div class="SectionArtwork">
-      <img src="assets/clipart-skidsteer.png" alt="Drone illustration" />
+      <div class="SectionArtwork">
+        <img src="assets/clipart-skidsteer.png" alt="Skidsteer illustration" loading="lazy" />
+      </div>
     </div>
   </section>
 
   <div class="SectionTopWave BackgroundOdd ColorEven"></div>
 
   <section id="why-our-method-works" class="Section BackgroundEven">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h2 class="Title">Why our method works</h2>
         <p class="Subtitle">
@@ -138,14 +157,14 @@
     </div>
   </section>
 
-  <div class="SectionSeparator">
+  <div class="SectionSeparator Effect">
     <hr />
     <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
     <hr />
   </div>
 
   <section id="benefits-and-expectations" class="Section BackgroundEven">
-    <div class="Container Wide">
+    <div class="Container Wide Effect">
       <div class="BenefitsLayout">
         <div>
           <div class="AlignCenter">
@@ -207,14 +226,14 @@
     </div>
   </section>
 
-  <div class="SectionSeparator">
-    <hr class="SectionSeparatorLine">
-    <img class="Artwork" src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
-    <hr class="SectionSeparatorLine">
+  <div class="SectionSeparator Effect">
+    <hr />
+    <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
+    <hr />
   </div>
 
   <section id="species-we-handle" class="Section BackgroundEven">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h2 class="Title">High impact species</h2>
         <p class="Subtitle">
@@ -235,7 +254,7 @@
   <div class="SectionTopWave BackgroundEven ColorOdd"></div>
 
   <section id="the-best-equipment" class="Section BackgroundOdd">
-    <div class="Container Wide">
+    <div class="Container Wide Effect">
       <div class="AlignCenter">
         <h1 class="Title">The SwarmAg Advantage</h1>
         <p class="Subtitle">
@@ -270,7 +289,7 @@
           </svg>
           <h3 class="Title">Industrial Agricultural Drones</h3>
           <p class="Text">
-            Todo..
+            Heavy-duty drones capable of large payloads for efficient chemical and seed application over vast areas.
           </p>
         </div>
 
@@ -396,7 +415,7 @@
   <div class="SectionTopWave BackgroundOdd ColorEven"></div>
 
   <section id="services-catalog" class="Section BackgroundEven">
-    <div class="Container">
+    <div class="Container Effect">
       <div class="AlignCenter">
         <h2 class="Title">Services Catalog</h2>
         <p class="Subtitle">
@@ -424,7 +443,7 @@
               <td>A-CHEM-01</td>
             </tr>
             <tr class="Odd">
-              <td>Fertalizer</td>
+              <td>Fertilizer</td>
               <td>XAG-P150</td>
               <td>A-CHEM-02</td>
             </tr>
@@ -451,10 +470,10 @@
             <tr class="Even">
               <td>Mesquite Herbicide</td>
               <td>XAG-P150</td>
-              <td>A-CHEM-03</td>
+              <td>A-CHEM-04</td>
             </tr>
             <tr class="Odd">
-              <td>Commerical Greenhouse Painting</td>
+              <td>Commercial Greenhouse Painting</td>
               <td>DJI-T30</td>
               <td>A-PAINT-01</td>
             </tr>
@@ -492,7 +511,7 @@
   <div class="SectionTopWave BackgroundEven ColorOdd"></div>
 
   <section id="get-started" class="Section BackgroundOdd">
-    <div class="Container Wide">
+    <div class="Container Wide Effect">
       <div class="AlignCenter">
         <h1 class="Title">Get started</h1>
         <p class="Subtitle">
@@ -592,11 +611,11 @@
               </li>
               <li>
                 <div class="Bullet"></div>
-                Todo...
+                Environmentally friendly application with reduced chemical drift
               </li>
               <li>
                 <div class="Bullet"></div>
-                Todo...
+                Faster service delivery compared to traditional methods
               </li>
             </ul>
           </div>
@@ -622,7 +641,7 @@
     </div>
   </section>
 
-  <footer id="footer" class="Footer">
+  <footer id="footer" class="Footer" role="contentinfo">
     <div class="FooterContainer">
       <div class="FooterLayout">
         <div>

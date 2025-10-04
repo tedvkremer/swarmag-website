@@ -783,7 +783,7 @@ div.Card {
   background-color: var(--motif-soft-white);
   border-radius: 0.375rem;
   border-width: 1px;
-  padding: 1rem;
+  padding: 2rem;
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -791,6 +791,19 @@ div.Card {
 
 div.AlignCenter {
   text-align: center;
+}
+
+.Effect {
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  --tw-translate-y: 6rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 0;
+}
+
+.Effect.fade-in-up {
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 1;
 }
 
 /* ===== List ================================ */
@@ -1078,6 +1091,7 @@ div.HeroContainer {
 }
 
 div.HeroContainer video.HeroVideo {
+  filter: brightness(0.7);
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -1091,7 +1105,6 @@ div.HeroContainer div.HeroOverlay {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0 0 0 / 0.35);
 }
 
 div.HeroContainer div.HeroLayout {
@@ -1246,7 +1259,6 @@ div.SectionTopWave.ColorOdd::before {
 /* ===== Container ================================ */
 
 div.Container {
-  transition: opacity 0.6s ease-out, transform 1s ease-out;
   width: 100%;
 }
 
@@ -1284,11 +1296,8 @@ div.Container {
   margin-left: auto;
   margin-right: auto;
   max-width: 56rem;
-  --tw-translate-y: 6rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  opacity: 0;
 }
 
 @media (min-width: 768px) {
@@ -1296,12 +1305,6 @@ div.Container {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
-}
-
-div.Container.fade-in-up {
-  --tw-translate-y: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  opacity: 1;
 }
 
 div.Container.Wide {
@@ -1344,6 +1347,10 @@ div.EquipmentLayout {
   div.EquipmentLayout {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+div.EquipmentLayout div.Card {
+  height: 100%;
 }
 
 div.EquipmentLayout svg.EquipmentIcon {
