@@ -217,9 +217,13 @@ class Swarm {
       this.#home.offsetLeft + 90,
       this.#home.offsetTop + 55
     );
+
     // scatter after return home
     if (this.#scatterID) clearTimeout(this.#scatterID);
-    this.#scatterID = setTimeout(() => this.scatter(), 9000);
+    this.#scatterID = setTimeout(
+      () => this.scatter(), 
+      this.getDurationForScreenSize()
+    );
   }
 
   scatter() {
@@ -227,9 +231,13 @@ class Swarm {
       Math.random() * this.width,
       Math.random() * this.height
     );
+
     // return home after scatter
     if (this.#scatterID) clearTimeout(this.#scatterID);
-    this.#scatterID = setTimeout(() => this.home(), 9000);
+    this.#scatterID = setTimeout(
+      () => this.home(), 
+      this.getDurationForScreenSize()
+    );
   }
 
   update() {
@@ -256,8 +264,8 @@ class Swarm {
     window.onmousedown = (e) => this.target(e.pageX, e.pageY);
     document.ontouchstart = (e) => this.target(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
 
-    this.home();
     this.update();
+    this.home();
 
     this.#container.style = Swarm.SHOW;
   }
@@ -272,6 +280,35 @@ class Swarm {
     this.#targetX = this.#targetY = 0;
 
     this.#container.style = Swarm.HIDE;
+  }
+
+  static MIN_SECONDS = 5;
+  static MAX_SECONDS = 15;
+  static LOW_END_WIDTH = 320;
+  static LOW_END_HEIGHT = 695;
+  static HIGH_END_WIDTH = 2560;
+  static HIGH_END_HEIGHT = 1245;
+
+  getDurationForScreenSize() {
+    const minArea = Swarm.LOW_END_WIDTH * Swarm.LOW_END_HEIGHT;
+    const maxArea = Swarm.HIGH_END_WIDTH * Swarm.HIGH_END_HEIGHT;
+    const currentWidth = window.innerWidth;
+    const currentHeight = window.innerHeight;
+    const currentArea = currentWidth * currentHeight;
+
+    // Clamp the current area to the defined range to avoid unexpected results
+    const clampedArea = Math.max(minArea, Math.min(maxArea, currentArea));
+
+    // Perform linear interpolation (mapping one range to another)
+    // (value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin
+    const seconds =
+      ((clampedArea - minArea) / (maxArea - minArea)) *
+      (Swarm.MAX_SECONDS - Swarm.MIN_SECONDS) +
+      Swarm.MIN_SECONDS;
+
+    console.log(`duration: ${seconds}secs`);
+
+    return Math.round(seconds * 1000);
   }
 
   static get the() {
