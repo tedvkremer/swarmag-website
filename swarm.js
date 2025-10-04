@@ -214,8 +214,8 @@ class Swarm {
 
   home() {
     this.target(
-      this.#home.offsetLeft + 90,
-      this.#home.offsetTop + 55
+      this.#home.offsetLeft + 70,
+      this.#home.offsetTop + 50
     );
 
     // scatter after return home
