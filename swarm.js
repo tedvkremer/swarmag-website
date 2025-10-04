@@ -221,8 +221,8 @@ class Swarm {
 
   home() {
     this.target(
-      this.#home.offsetLeft + 70,
-      this.#home.offsetTop + 50
+      this.#home.offsetLeft + this.#home.offsetWidth / 2,
+      this.#home.offsetTop + this.#home.offsetHeight / 2
     );
 
     // scatter after return home
