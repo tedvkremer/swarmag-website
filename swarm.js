@@ -227,10 +227,7 @@ class Swarm {
   }
 
   scatter() {
-    this.target(
-      Math.random() * this.width,
-      Math.random() * this.height
-    );
+    this.target(0, 0);
 
     // return home after scatter
     if (this.#scatterID) clearTimeout(this.#scatterID);
@@ -265,8 +262,7 @@ class Swarm {
     document.ontouchstart = (e) => this.target(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
 
     this.update();
-    this.home();
-
+    this.scatter();
     this.#container.style = Swarm.SHOW;
   }
 
