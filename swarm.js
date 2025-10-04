@@ -11,17 +11,23 @@ class Boid {
 
   #x = 0;
   #y = 0;
+  #angle = 0;
   #vx = 0;
   #vy = 0;
-  #angle = 0;
   #size = 0;
   #speed = 0;
   #closestBoid = null;
   div = null;
 
-  constructor(width, height, speed = 30, size = 8) {
-    this.#size = size;
+  get x() { return this.#x; }
+  get y() { return this.#y; }
+
+  constructor(width, height, speed, x = 0, y = 0, angle = 0) {
     this.#speed = speed;
+    this.#angle = angle;
+    this.#x = x;
+    this.#y = y;
+    this.#size = Math.max(width, height);
 
     const ss = `width: ${width}px; height: ${height}px; background: #41fd80ff`;
     this.div = document.createElement('div');
@@ -199,10 +205,10 @@ class Swarm {
 
   createBoids(total, width, height, speed) {
     for (let i = total; i--;) {
-      const b = new Boid(width, height, speed);
-      b.x = Math.random() * this.width;
-      b.y = Math.random() * this.height;
-      b.angle = Math.random() * 360;
+      const x = Math.random() * this.width;
+      const y = Math.random() * this.height;
+      const angle = Math.random() * 360;
+      const b = new Boid(width, height, speed, x, y, angle);
       this.addBoid(b);
     }
   }
@@ -301,8 +307,6 @@ class Swarm {
       ((clampedArea - minArea) / (maxArea - minArea)) *
       (Swarm.MAX_SECONDS - Swarm.MIN_SECONDS) +
       Swarm.MIN_SECONDS;
-
-    console.log(`duration: ${seconds}secs`);
 
     return Math.round(seconds * 1000);
   }
