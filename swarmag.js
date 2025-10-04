@@ -11,7 +11,12 @@ function initHeader() {
   window.addEventListener('scroll', () => {
     const trigger = hero.offsetTop + Math.trunc(hero.offsetHeight / 4);
     const sticky = window.scrollY > trigger;
-    sticky ? header.classList.add('Sticky') : header.classList.remove('Sticky');
+    if (sticky) {
+      header.classList.add('Sticky')
+      Swarm.the.stop();
+    } else {
+      header.classList.remove('Sticky');
+    }
   });
 }
 
