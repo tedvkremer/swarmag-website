@@ -80,7 +80,7 @@ function initContactForm() {
 
   function validateForm() {
     const required = $$('input[required], select[required], textarea[required]', contactForm);
-    for (const i = 0; i < required.length; i++) {
+    for (let i = 0; i < required.length; i++) {
       if (!validateField(required[i])) return false;
     }
     return true;
