@@ -1,3 +1,6 @@
+
+export const init = () => Swarm.bootstrap();
+
 class Boid {
   static STYLE =
     `
@@ -334,5 +337,3 @@ class Swarm {
     }
   }
 }
-
-Swarm.bootstrap();

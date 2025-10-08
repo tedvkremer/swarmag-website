@@ -1,0 +1,36 @@
+
+/*************************************
+  Website Application Singleton
+ *************************************/
+
+export default class Website {
+  #init(modules = []) {
+    modules.forEach(async (m) => {
+      try {
+        const module = await import(`./${m}.js`);
+        module.init();
+      }
+      catch (e) {
+        console.error(e);
+      }
+    });
+  }
+
+  static get the() {
+    if (!window._sa_website) throw new Error('bootstrap() must be completed first!');
+    return window._sa_website;
+  }
+
+  static bootstrap(modules = []) {
+    if (window._sa_website) {
+      console.error("bootstrap() already completed!");
+      return;
+    }
+
+    window._sa_website = new Website();
+    window.addEventListener(
+      'DOMContentLoaded',
+      () => window._sa_website.#init(modules)
+    );
+  }
+}
