@@ -5,9 +5,8 @@
   --sa-color-eggshell: #f9f1e4;
   --sa-color-orange: #dcab4f;
   --sa-color-green: #95ac63;
-  --sa-color-brown: #57534e;
-  --sa-color-brown-dark: #1c1917;
-  --sa-color-white: #ffffff;
+  --sa-color-dark: #57534e;
+  --sa-color-bright: #ffffff;
 
   /* Colors - Soft Tones */
   --sa-color-blue-soft: #e3f2fd;
@@ -16,9 +15,12 @@
 
   /* Colors - Other */
   --sa-color-border: #e5e7eb;
-  --sa-color-border-divider: #d1d5db;
   --sa-color-placeholder: #9ca3af;
-  --sa-color-footer-border: #292524;
+
+  /* Colors - Footer */
+  --sa-color-footer-divider: #d1d5db;
+  --sa-color-footer-border: #36302e;
+  --sa-color-footer-bg: #1c1917;
   --sa-color-footer-text: #a8a29e;
 
   /* Shadows */
@@ -89,7 +91,7 @@
 body {
   background-color: var(--sa-color-eggshell);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.5;
 }
 
 .BackgroundEven {
@@ -102,7 +104,6 @@ body {
 
 .ActionLayout {
   text-align: center;
-  padding-top: var(--sa-space-xl);
 }
 
 .CallToAction {
@@ -115,9 +116,10 @@ body {
   font-size: var(--sa-font-normal);
   line-height: 1;
   font-weight: 600;
-  color: var(--sa-color-white);
+  color: var(--sa-color-bright);
   text-decoration: none;
   max-width: 100%;
+  margin-block-start: var(--sa-space-3xl);
 }
 
 @media (max-width: 768px) {
@@ -137,7 +139,7 @@ body {
 }
 
 p, span, li, label {
-  color: var(--sa-color-brown);
+  color: var(--sa-color-dark);
   font-size: var(--sa-font-normal);
   text-wrap: pretty;
 }
@@ -147,7 +149,6 @@ label {
   display: block;
   font-size: var(--sa-font-base);
   font-weight: 500;
-  margin-bottom: var(--sa-space-sm);
 }
 
 :is(input, select, textarea) {
@@ -175,20 +176,10 @@ select>option[value=""] {
   color: var(--sa-color-placeholder);
 }
 
-.Form>*+* {
-  margin-top: var(--sa-space-md);
-}
-
-.Form2ColLayout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.Form {
+  display: flex;
+  flex-direction: column;
   gap: var(--sa-space-md);
-}
-
-@media (max-width: 640px) {
-  .Form2ColLayout {
-    grid-template-columns: 1fr;
-  }
 }
 
 .Form button {
@@ -226,12 +217,12 @@ select>option[value=""] {
 }
 
 .Title {
-  color: var(--sa-color-brown);
+  color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
-  margin-bottom: var(--sa-space-md);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.25;
   text-wrap: pretty;
+  padding-block: var(--sa-space-md);
 }
 
 h1.Title {
@@ -248,29 +239,38 @@ h3.Title {
 
 .Subtitle {
   color: var(--sa-color-green);
-  text-shadow: var(--sa-shadow-text);
-  margin-bottom: var(--sa-space-lg);
   font-size: clamp(0.9rem, 0.85rem + 0.5vw, 1.125rem);
   line-height: 1.35;
   font-weight: 600;
+  padding-block-end: var(--sa-space-lg);
 }
 
 .Text {
-  margin-bottom: 0.75rem;
+  padding-block-end: var(--sa-space-md);
+}
+
+@media (max-width: 1024px) {
+  .Title {
+    padding-block: 0 var(--sa-space-md);
+  }
+
+  .Subtitle {
+    padding-block: 0 var(--sa-space-md);
+  }
 }
 
 .Text.DropCap:first-letter {
   color: var(--sa-color-white-soft);
-  background-color: var(--sa-color-brown);
+  background-color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
   font-size: 3rem;
   font-weight: 800;
   float: left;
-  margin-inline-end: var(--sa-space-sm);
   line-height: 1;
-  padding-inline: var(--sa-space-sm);
-  padding-bottom: var(--sa-space-xs);
+  padding: 8px;
   border-radius: var(--sa-radius-sm);
+  margin-block-start: -8px;
+  margin-inline-end: 8px;
 }
 
 .Card {
@@ -298,18 +298,23 @@ h3.Title {
 
 /* ===== List ================================ */
 
+.List {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sa-space-sm);
+}
+
 .List>li {
   display: flex;
   align-items: center;
   gap: var(--sa-space-md);
-  margin-bottom: 0.75rem;
   line-height: 1.35;
 }
 
 .List>li>.Bullet {
   background-color: var(--sa-color-orange);
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: var(--sa-radius-full);
   flex-shrink: 0;
 }
@@ -322,6 +327,7 @@ h3.Title {
 }
 
 ol.List {
+  gap: var(--sa-space-md);
   counter-reset: ordered-counter;
 }
 
@@ -331,8 +337,8 @@ ol.List>li {
 
 ol.List>li::before {
   content: counter(ordered-counter);
-  background-color: var(--sa-color-brown);
-  color: var(--sa-color-white);
+  background-color: var(--sa-color-dark);
+  color: var(--sa-color-bright);
   flex-shrink: 0;
   width: 2.5rem;
   height: 2.5rem;
@@ -365,7 +371,7 @@ ol.List.Color2>li::before {
 .Header.Sticky {
   position: fixed;
   opacity: 0.95;
-  background-color: var(--sa-color-white);
+  background-color: var(--sa-color-bright);
   box-shadow: var(--sa-shadow-soft);
 }
 
@@ -418,14 +424,12 @@ ol.List.Color2>li::before {
 }
 
 .Header .HeaderPhoneIcon {
-  color: var(--sa-color-white);
-  margin-top: var(--sa-space-sm);
+  color: var(--sa-color-bright);
   transition: color 0.3s ease;
 }
 
 .Header .HeaderPhoneText {
-  color: var(--sa-color-white);
-  margin-top: var(--sa-space-sm);
+  color: var(--sa-color-bright);
   font-weight: 700;
   line-height: 1;
   transition: color 0.3s ease, font-size 0.3s ease;
@@ -436,7 +440,7 @@ ol.List.Color2>li::before {
 }
 
 .Header.Sticky .HeaderPhoneText {
-  color: var(--sa-color-brown);
+  color: var(--sa-color-dark);
   font-size: 1rem;
 }
 
@@ -472,7 +476,6 @@ ol.List.Color2>li::before {
 }
 
 .HeroContainer .HeroLayout {
-  margin-top: calc(-1 * var(--sa-space-4xl));
   max-width: 56rem;
   padding-inline: var(--sa-space-xl);
   text-align: center;
@@ -482,22 +485,16 @@ ol.List.Color2>li::before {
   filter: var(--sa-filter-mono);
   height: calc(7rem + 4vw);
   width: auto;
-  margin: 0 auto 0.4rem;
+  margin-inline: auto;
 }
 
 .HeroContainer .HeroLayout>.Text {
-  color: var(--sa-color-white);
+  color: var(--sa-color-bright);
   text-wrap: pretty;
   text-align: center;
   font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
   text-shadow: var(--sa-shadow-text);
   font-weight: 600;
-}
-
-/* ===== Section ================================ */
-
-.Section {
-  padding-block: var(--sa-space-2xl);
 }
 
 /* ===== Section Artwork ================================ */
@@ -507,7 +504,6 @@ ol.List.Color2>li::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: var(--sa-space-lg);
 }
 
 .SectionArtwork>img {
@@ -533,7 +529,7 @@ ol.List.Color2>li::before {
 .SectionSeparator>hr {
   margin-inline: var(--sa-space-xl);
   flex: 1 1 0%;
-  border-top: 1px solid var(--sa-color-border-divider);
+  border-top: 1px solid var(--sa-color-footer-divider);
 }
 
 /* ===== Section Top Wave ================================ */
@@ -568,8 +564,9 @@ ol.List.Color2>li::before {
 .Container {
   width: 100%;
   margin-inline: auto;
-  max-width: var(--sa-size-lg);
+  max-width: var(--sa-size-md);
   padding-inline: var(--sa-space-4xl);
+  padding-block: var(--sa-space-2xl);
 }
 
 @media (max-width: 425px) {
@@ -585,7 +582,7 @@ ol.List.Color2>li::before {
 /* ===== Drone Section ================================ */
 
 #drone-spraying-and-spreading {
-  padding-top: var(--sa-space-4xl);
+  padding-block-start: var(--sa-space-lg);
 }
 
 /* ===== Benefits Section ================================ */
@@ -620,7 +617,6 @@ ol.List.Color2>li::before {
 
 .EquipmentLayout .EquipmentIcon {
   color: var(--sa-color-orange);
-  margin-bottom: var(--sa-space-md);
   height: 3rem;
   width: 3rem;
 }
@@ -639,7 +635,7 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable {
-  color: var(--sa-color-brown);
+  color: var(--sa-color-dark);
   border-radius: var(--sa-radius-sm) var(--sa-radius-sm) 0 0;
   width: 100%;
   border-collapse: collapse;
@@ -647,8 +643,8 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>thead {
-  color: var(--sa-color-white);
-  background-color: var(--sa-color-brown);
+  color: var(--sa-color-bright);
+  background-color: var(--sa-color-dark);
   opacity: 0.85;
 }
 
@@ -663,7 +659,7 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>tbody>tr.Section {
-  color: var(--sa-color-white);
+  color: var(--sa-color-bright);
   background-color: var(--sa-color-green);
   opacity: 0.85;
 }
@@ -699,14 +695,14 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>tbody>tr.Even {
-  background-color: var(--sa-color-white);
+  background-color: var(--sa-color-bright);
 }
 
 .ServicesTable>tbody>tr.Odd {
   background-color: var(--sa-color-blue-soft);
 }
 
-/* ===== Contact Section ================================ */
+/* ===== Get Started Section ================================ */
 
 .ContactLayout {
   display: grid;
@@ -724,10 +720,19 @@ ol.List.Color2>li::before {
   gap: var(--sa-space-xl);
 }
 
+#get-started .Card {
+  padding: var(--sa-space-lg);
+}
+
+#get-started .Card h3.Title {
+  padding-block-start: 0;
+  font-size: 1.75rem;
+}
+
 /* ===== Footer ================================ */
 
 .Footer {
-  background-color: var(--sa-color-brown-dark);
+  background-color: var(--sa-color-footer-bg);
   padding-block: var(--sa-space-3xl);
 }
 
@@ -766,7 +771,7 @@ ol.List.Color2>li::before {
 
 .Footer .Logo {
   height: 2.5rem;
-  margin-bottom: var(--sa-space-sm);
+  padding-block: var(--sa-space-sm);
   filter: var(--sa-filter-mono);
 }
 
@@ -775,7 +780,7 @@ ol.List.Color2>li::before {
   font-size: 1.1rem;
   line-height: 1.5rem;
   font-weight: 600;
-  margin-bottom: var(--sa-space-sm);
+  padding-block: var(--sa-space-sm);
 }
 
 .Footer .Bottom {
@@ -783,9 +788,9 @@ ol.List.Color2>li::before {
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: var(--sa-space-md);
   border-top: 1px solid var(--sa-color-footer-border);
-  margin-top: var(--sa-space-md);
-  padding-top: var(--sa-space-xl);
   text-align: center;
+  padding-block-start: var(--sa-space-2xl);
+  margin-block-start: var(--sa-space-2xl);
 }
 
 .Footer p.strong {
@@ -798,7 +803,7 @@ ol.List.Color2>li::before {
 }
 
 .Footer .SiteBy a:hover {
-  color: var(--sa-color-white);
+  color: var(--sa-color-bright);
 }
 
 /* ===== Print Styles ================================ */

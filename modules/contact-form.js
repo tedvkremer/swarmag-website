@@ -8,47 +8,88 @@ export const init = () => initContactForm();
  *************************************/
 
 function initContactForm() {
-  const contactForm = $('#contact-form');
-  contactForm.addEventListener('submit', e => {
+  // Initialize EmailJS
+  emailjs.init({ publicKey: "jjgCuUf-CTyPT9cHj" });
+
+  const form = $('#contact-form');
+  const required = $$('input[required], select[required], textarea[required]', form);
+
+  // Submit request
+  form.addEventListener('submit', e => onSubmit(e));
+  const onSubmit = e => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Simulate form submission
-      const submitBtn = $('button[type="submit"]', contactForm);
-      const originalText = submitBtn.textContent;
+      const submit = $('button[type="submit"]', form);
+      const origText = submit.textContent;
 
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
+      submit.textContent = 'Sending...';
+      submit.disabled = true;
 
-      // Simulate API call
-      setTimeout(() => {
-        submitBtn.textContent = 'Message Sent!';
-        submitBtn.classList.add('bg-green-600');
-        submitBtn.classList.remove('bg-green-700', 'hover:bg-green-800');
+      // Prepare email data
+      const fields = new FormData(form);
+      const values = {
+        'name': fields.get('full-name'),
+        'email': fields.get('email'),
+        'phone': fields.get('phone'),
+        'service': fields.get('service-type') || 'Not specified',
+        'property': fields.get('property-size') || 'Not specified',
+        'message': fields.get('message') || 'No message provided'
+      };
 
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-          submitBtn.classList.remove('bg-green-600');
-          submitBtn.classList.add('bg-green-700', 'hover:bg-green-800');
-          contactForm.reset();
-          clearFormErrors();
-        }, 2000);
-      }, 1500);
+      const succeed = (response) => {
+        console.log('Email sent successfully:', response);
+        submit.textContent = 'Message Sent!';
+        submit.classList.add('bg-green-600');
+        submit.classList.remove('bg-green-700', 'hover:bg-green-800');
+
+        setTimeout(
+          () => {
+            submit.textContent = origText;
+            submit.disabled = false;
+            submit.classList.remove('bg-green-600');
+            submit.classList.add('bg-green-700', 'hover:bg-green-800');
+            form.reset();
+            clearFormErrors();
+          }, 2000
+        );
+      }
+
+      const failed = (error) => {
+        console.error('Email sending failed:', error);
+        submit.textContent = 'Send Failed - Try Again';
+        submit.classList.add('bg-red-600');
+        submit.classList.remove('bg-green-700', 'hover:bg-green-800');
+        submit.disabled = false;
+
+        setTimeout(
+          () => {
+            submit.textContent = origText;
+            submit.classList.remove('bg-red-600');
+            submit.classList.add('bg-green-700', 'hover:bg-green-800');
+          }, 3000
+        );
+      }
+
+      // Send email
+      emailjs.send(
+        'swarmag_website', 
+        'swarmag_website_contact', 
+        values
+      ).then(succeed).catch(failed);
     }
-  });
+  }
 
   // Add asterisks to required field labels
-  const requiredFields = $$('input[required], select[required], textarea[required]', contactForm);
-  requiredFields.forEach(field => {
-    const label = $(`label[for="${field.id}"]`, contactForm);
+  required.forEach(field => {
+    const label = $(`label[for="${field.id}"]`, form);
     if (label && !label.textContent.includes('*')) {
       label.innerHTML += ' <span class="text-red-500">*</span>';
     }
   });
 
   // Real-time validation - attach to all form fields
-  const inputs = $$('input, select, textarea', contactForm);
+  const inputs = $$('input, select, textarea', form);
   inputs.forEach(input => {
     input.addEventListener('blur', () => {
       validateField(input);
@@ -62,7 +103,6 @@ function initContactForm() {
   });
 
   function validateForm() {
-    const required = $$('input[required], select[required], textarea[required]', contactForm);
     for (let i = 0; i < required.length; i++) {
       if (!validateField(required[i])) return false;
     }
@@ -113,24 +153,24 @@ function initContactForm() {
     return true;
   }
 
-  function showError(field, errorElement, message) {
-    errorElement.textContent = message;
-    errorElement.classList.remove('hidden');
+  function showError(field, element, message) {
+    element.textContent = message;
+    element.classList.remove('hidden');
     field.classList.remove('border-gray-300');
     field.classList.add('border-red-500');
   }
 
   function clearFormErrors() {
-    const errorElements = $$('[id$="-error"]', contactForm);
-    errorElements.forEach(error => {
-      error.textContent = '';
-      error.classList.add('hidden');
+    const errors = $$('[id$="-error"]', form);
+    errors.forEach(e => {
+      e.textContent = '';
+      e.classList.add('hidden');
     });
 
-    const inputs = $$('input, select, textarea', contactForm);
-    inputs.forEach(input => {
-      input.classList.remove('border-red-500');
-      input.classList.add('border-gray-300');
+    const inputs = $$('input, select, textarea', form);
+    inputs.forEach(i => {
+      i.classList.remove('border-red-500');
+      i.classList.add('border-gray-300');
     });
   }
 }

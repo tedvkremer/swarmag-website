@@ -32,9 +32,12 @@
   </script>
 
   <title>swarmAg - North Texas Precision Agricultural Services</title>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" />
   <link rel="stylesheet" href="./modules/tailwind.css" />
   <link rel="stylesheet" href="./modules/Website.css" />
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="module">
     import Website from "./modules/Website.js";
     Website.bootstrap([
@@ -83,565 +86,549 @@
     </div>
   </section>
 
-  <section id="drone-spraying-and-spreading" class="Section BackgroundOdd">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h1 class="Title">Drone Spraying & Spreading</h1>
-        <p class="Subtitle">
-          We specialize in precision agricultural services using state-of-the-art drone technology.
+  <main>
+    <section id="drone-spraying-and-spreading" class="Section BackgroundOdd">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h1 class="Title">Drone Spraying & Spreading</h1>
+          <p class="Subtitle">
+            We specialize in precision agricultural services using state-of-the-art drone technology.
+          </p>
+        </div>
+        <p class="Text DropCap">
+          Spraying herbicides, fertilizers, and other agricultural products with drones so you
+          don't have to schedule months in advance for a plane or helicopter. Or get your tractor
+          stuck in a North Texas rain-drenched mush.
+        </p>
+        <p class="Text">
+          We also offer seed and fertilizer spreading for pasture renovation, cover crops,
+          and more. We can spread dry products like lime and gypsum or feed the fish in your cattle-pond, too!
+        </p>
+        <div class="SectionArtwork">
+          <img src="assets/clipart-drones.png" alt="Drone illustration" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+
+    <section id="the-advantages-of-using-drones" class="Section BackgroundEven">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h2 class="Title">The advantages of using drones</h2>
+          <p class="Subtitle">
+            Drones can access hard-to-reach areas and apply products with pinpoint accuracy.
+          </p>
+        </div>
+        <p class="Text">
+          Our drones can cover large areas quickly and efficiently, reducing labor costs and minimizing
+          environmental impact. Plus, we can often get to your property faster than traditional methods.
+        </p>
+        <div class="ActionLayout">
+          <a href="#get-started" class="CallToAction">Start spraying & spreading today</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
+
+    <section id="mequite-and-brush-mitigation" class="Section BackgroundOdd">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h1 class="Title">Mesquite & Brush Mitigation</h1>
+          <p class="Subtitle">
+            Our signature "Cut Stem + Targeted Herbicide" method delivers long-term control with
+            minimal soil disturbance.
+          </p>
+        </div>
+        <p class="Text DropCap">
+          We work year round to restore grazeable acres and improve access by
+          removing invasive or nuisance brush, specializing in mesquite
+          mitigation on North Texas pastures and rangeland. Our focused approach
+          avoids the cost and disturbance of deep grubbing or broad foliar spraying.
+        </p>
+        <p class="Text">
+          Mesquite resprouts from buds at the root collar even after cutting.
+          We cut the trunk flush to slightly below grade and immediately treat
+          the stump and collar with a specialized mixture so the root system does
+          not resprout.
+        </p>
+        <div class="SectionArtwork">
+          <img src="assets/clipart-skidsteer.png" alt="Skidsteer illustration" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+
+    <section id="species-we-handle" class="Section BackgroundEven">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h2 class="Title">High impact species</h2>
+          <p class="Subtitle">
+            We tailor the treatment (cut-stem, basal bark, or
+            selective foliar) to each species.
+          </p>
+        </div>
+        <p class="Text">
+          We can also handle other invasive or nuisance brush species on a case-by-case basis.
+          Contact us to discuss your specific needs.
         </p>
       </div>
-      <p class="Text DropCap">
-        Spraying herbicides, fertilizers, and other agricultural products with drones so you
-        don't have to schedule months in advance for a plane or helicopter. Or get your tractor
-        stuck in a North Texas rain-drenched mush.
-      </p>
-      <p class="Text">
-        We also offer seed and fertilizer spreading for pasture renovation, cover crops,
-        and more. We can spread dry products like lime and gypsum or feed the fish in your cattle-pond, too!
-      </p>
-      <div class="SectionArtwork">
-        <img src="assets/clipart-drones.png" alt="Drone illustration" loading="lazy" />
-      </div>
+    </section>
+
+    <div class="SectionSeparator Effect">
+      <hr />
+      <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
+      <hr />
     </div>
-  </section>
 
-  <div class="SectionTopWave BackgroundOdd ColorEven"></div>
-
-  <section id="the-advantages-of-using-drones" class="Section BackgroundEven">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h2 class="Title">The advantages of using drones</h2>
-        <p class="Subtitle">
-          Drones can access hard-to-reach areas and apply products with pinpoint accuracy.
-        </p>
-      </div>
-      <p class="Text">
-        Our drones can cover large areas quickly and efficiently, reducing labor costs and minimizing
-        environmental impact. Plus, we can often get to your property faster than traditional methods.
-      </p>
-      <div class="ActionLayout">
-        <a href="#get-started" class="CallToAction">Start spraying & spreading today</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="SectionTopWave BackgroundEven ColorOdd"></div>
-
-  <section id="mequite-and-brush-mitigation" class="Section BackgroundOdd">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h1 class="Title">Mesquite & Brush Mitigation</h1>
-        <p class="Subtitle">
-          Our signature "Cut Stem + Targeted Herbicide" method delivers long-term control with
-          minimal soil disturbance.
-        </p>
-      </div>
-      <p class="Text DropCap">
-        We work year round to restore grazeable acres and improve access by
-        removing invasive or nuisance brush, specializing in mesquite
-        mitigation on North Texas pastures and rangeland.
-      </p>
-      <div class="SectionArtwork">
-        <img src="assets/clipart-skidsteer.png" alt="Skidsteer illustration" loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <div class="SectionTopWave BackgroundOdd ColorEven"></div>
-
-  <section id="why-our-method-works" class="Section BackgroundEven">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h2 class="Title">Why our method works</h2>
-        <p class="Subtitle">
-          Our focused approach avoids the cost and disturbance of deep grubbing
-          or broad foliar spraying.
-        </p>
-      </div>
-      <p class="Text">
-        Mesquite resprouts from buds at the root collar even after cutting.
-        We cut the trunk flush to slightly below grade and immediately treat
-        the stump and collar with a specialized mixture so the root system does
-        not resprout.
-      </p>
-    </div>
-  </section>
-
-  <div class="SectionSeparator Effect">
-    <hr />
-    <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
-    <hr />
-  </div>
-
-  <section id="benefits-and-expectations" class="Section BackgroundEven">
-    <div class="Container Wide Effect">
-      <div class="BenefitsLayout">
-        <div>
-          <div class="AlignCenter">
-            <h2 class="Title">Benefits to your land</h2>
+    <section id="benefits-and-expectations" class="Section BackgroundEven">
+      <div class="Container Wide Effect">
+        <div class="BenefitsLayout">
+          <div>
+            <div class="AlignCenter">
+              <h2 class="Title">Benefits to your land</h2>
+            </div>
+            <ol class="List Color1">
+              <li>
+                More usable pasture and better forage access for cattle and
+                horses
+              </li>
+              <li>
+                Reduced tire and equipment hazards; improved fenceline and road
+                access
+              </li>
+              <li>
+                Cleaner look without widespread soil disturbance
+              </li>
+              <li>
+                Clean up your fencelines while keeping the shade cover your
+                livestock needs
+              </li>
+              <li>
+                Targeted, species-specific treatment to protect desirable
+                trees and grasses
+              </li>
+            </ol>
           </div>
-          <ol class="List Color1">
-            <li>
-              More usable pasture and better forage access for cattle and
-              horses
-            </li>
-            <li>
-              Reduced tire and equipment hazards; improved fenceline and road
-              access
-            </li>
-            <li>
-              Cleaner look without widespread soil disturbance
-            </li>
-            <li>
-              Clean up your fencelines while keeping the shade cover your
-              livestock needs
-            </li>
-            <li>
-              Targeted, species-specific treatment to protect desirable
-              trees and grasses
-            </li>
-          </ol>
-        </div>
-        <div>
-          <div class="AlignCenter">
-            <h2 class="Title">What to expect</h2>
+          <div>
+            <div class="AlignCenter">
+              <h2 class="Title">What to expect</h2>
+            </div>
+            <ol class="List Color2">
+              <li>
+                On-site walk-through to identify target species and set
+                priorities
+              </li>
+              <li>
+                Crew removes target brush and treats stumps immediately; minimal
+                rutting/soil disturbance
+              </li>
+              <li>
+                Photo documentation and simple treatment log
+              </li>
+              <li>
+                Follow-up inspection at 6-12 months; retreatment of any
+                resprouts in scope
+              </li>
+              <li>
+                Normal grazing typically can continue; we'll advise on any
+                label-specific restrictions
+              </li>
+              <li>
+                Expect visible browning/die-back on treated plants over weeks to
+                months; complete root kill is our target
+              </li>
+            </ol>
           </div>
-          <ol class="List Color2">
-            <li>
-              On-site walk-through to identify target species and set
-              priorities
-            </li>
-            <li>
-              Crew removes target brush and treats stumps immediately; minimal
-              rutting/soil disturbance
-            </li>
-            <li>
-              Photo documentation and simple treatment log
-            </li>
-            <li>
-              Follow-up inspection at 6-12 months; retreatment of any
-              resprouts in scope
-            </li>
-            <li>
-              Normal grazing typically can continue; we'll advise on any
-              label-specific restrictions
-            </li>
-            <li>
-              Expect visible browning/die-back on treated plants over weeks to
-              months; complete root kill is our target
-            </li>
-          </ol>
+        </div>
+        <div class="ActionLayout">
+          <a href="#get-started" class="CallToAction">Reclaim your rangeland today</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="SectionSeparator Effect">
-    <hr />
-    <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
-    <hr />
-  </div>
+    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
 
-  <section id="species-we-handle" class="Section BackgroundEven">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h2 class="Title">High impact species</h2>
-        <p class="Subtitle">
-          We tailor the treatment (cut-stem, basal bark, or
-          selective foliar) to each species.
-        </p>
-      </div>
-      <p class="Text">
-        We can also handle other invasive or nuisance brush species on a case-by-case basis.
-        Contact us to discuss your specific needs.
-      </p>
-      <div class="ActionLayout">
-        <a href="#get-started" class="CallToAction">Reclaim your rangeland today</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="SectionTopWave BackgroundEven ColorOdd"></div>
-
-  <section id="the-best-equipment" class="Section BackgroundOdd">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h1 class="Title">The SwarmAg Advantage</h1>
-        <p class="Subtitle">
-          Our cutting-edge approach integrates technology and tools to deliver services that are fast, precise,
-          and of the highest quality.
-        </p>
-      </div>
-      <div class="EquipmentLayout">
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M12 12v-2" />
-            <path d="m15 15-3-3-3 3" />
-            <path
-              d="M17.8 19c-1.4 1.4-3.2 2-5.8 2s-4.4-.6-5.8-2-2-3.2-2-5.8.6-4.4 2-5.8 3.2-2 5.8-2 4.4.6 5.8 2c1.3 1.4 2 3.2 2 5.8 0 1-.2 2-.5 2.9" />
-            <path d="m19.5 19.5-2.5-2.5" />
-          </svg>
-          <h3 class="Title">Multi-spectral Mapping Drones</h3>
-          <p class="Text">
-            Accurately define job scope, terrain, plant locations, and potential hazards.
+    <section id="the-best-equipment" class="Section BackgroundOdd">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h1 class="Title">The SwarmAg Advantage</h1>
+          <p class="Subtitle">
+            Our cutting-edge approach integrates technology and tools to deliver services that are fast, precise,
+            and of the highest quality.
           </p>
         </div>
-
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M12 12v-2" />
-            <path d="m15 15-3-3-3 3" />
-            <path
-              d="M17.8 19c-1.4 1.4-3.2 2-5.8 2s-4.4-.6-5.8-2-2-3.2-2-5.8.6-4.4 2-5.8 3.2-2 5.8-2 4.4.6 5.8 2c1.3 1.4 2 3.2 2 5.8 0 1-.2 2-.5 2.9" />
-            <path d="m19.5 19.5-2.5-2.5" />
-          </svg>
-          <h3 class="Title">Industrial Agricultural Drones</h3>
-          <p class="Text">
-            Heavy-duty drones capable of large payloads for efficient chemical and seed application over vast areas.
-          </p>
-        </div>
-
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M18 4V2" />
-            <path d="M18 9V7" />
-            <path d="M18 14v-2" />
-            <path d="M18 19v-2" />
-            <path d="M18 22v-2" />
-            <path d="M12 4V2" />
-            <path d="M12 9V7" />
-            <path d="M12 14v-2" />
-            <path d="M12 19v-2" />
-            <path d="M12 22v-2" />
-            <path d="M6 4V2" />
-            <path d="M6 9V7" />
-            <path d="M6 14v-2" />
-            <path d="M6 19v-2" />
-            <path d="M6 22v-2" />
-            <path d="M2 4h20" />
-            <path d="M2 9h20" />
-            <path d="M2 14h20" />
-            <path d="M2 19h20" />
-          </svg>
-          <h3 class="Title">Sickle Shears</h3>
-          <p class="Text">
-            Precise cutting of brush and small mesquite clusters at ground level.
-          </p>
-        </div>
-
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M18 4V2" />
-            <path d="M18 9V7" />
-            <path d="M18 14v-2" />
-            <path d="M18 19v-2" />
-            <path d="M18 22v-2" />
-            <path d="M12 4V2" />
-            <path d="M12 9V7" />
-            <path d="M12 14v-2" />
-            <path d="M12 19v-2" />
-            <path d="M12 22v-2" />
-            <path d="M6 4V2" />
-            <path d="M6 9V7" />
-            <path d="M6 14v-2" />
-            <path d="M6 19v-2" />
-            <path d="M6 22v-2" />
-            <path d="M2 4h20" />
-            <path d="M2 9h20" />
-            <path d="M2 14h20" />
-            <path d="M2 19h20" />
-          </svg>
-          <h3 class="Title">Buncher Shears</h3>
-          <p class="Text">
-            Precise cutting of medium to large mesquite at ground level aided by hydraulic arms.
-          </p>
-        </div>
-
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M18 4V2" />
-            <path d="M18 9V7" />
-            <path d="M18 14v-2" />
-            <path d="M18 19v-2" />
-            <path d="M18 22v-2" />
-            <path d="M12 4V2" />
-            <path d="M12 9V7" />
-            <path d="M12 14v-2" />
-            <path d="M12 19v-2" />
-            <path d="M12 22v-2" />
-            <path d="M6 4V2" />
-            <path d="M6 9V7" />
-            <path d="M6 14v-2" />
-            <path d="M6 19v-2" />
-            <path d="M6 22v-2" />
-            <path d="M2 4h20" />
-            <path d="M2 9h20" />
-            <path d="M2 14h20" />
-            <path d="M2 19h20" />
-          </svg>
-          <h3 class="Title">Telescoping Shears</h3>
-          <p class="Text">
-            Precise cutting of high-reaching trees or brush, or those located on pond downslope.
-          </p>
-        </div>
-
-        <div class="Card">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="EquipmentIcon">
-            <path d="M18 4V2" />
-            <path d="M18 9V7" />
-            <path d="M18 14v-2" />
-            <path d="M18 19v-2" />
-            <path d="M18 22v-2" />
-            <path d="M12 4V2" />
-            <path d="M12 9V7" />
-            <path d="M12 14v-2" />
-            <path d="M12 19v-2" />
-            <path d="M12 22v-2" />
-            <path d="M6 4V2" />
-            <path d="M6 9V7" />
-            <path d="M6 14v-2" />
-            <path d="M6 19v-2" />
-            <path d="M6 22v-2" />
-            <path d="M2 4h20" />
-            <path d="M2 9h20" />
-            <path d="M2 14h20" />
-            <path d="M2 19h20" />
-          </svg>
-          <h3 class="Title">Chemical Applicators</h3>
-          <p class="Text">
-            Custom sponge/dauber ensures thorough coverage of target surfaces with precise herbicide volumes.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="SectionTopWave BackgroundOdd ColorEven"></div>
-
-  <section id="services-catalog" class="Section BackgroundEven">
-    <div class="Container Effect">
-      <div class="AlignCenter">
-        <h2 class="Title">Services Catalog</h2>
-        <p class="Subtitle">
-          We offer a range of aerial and ground services to meet your agricultural needs.
-        </p>
-      </div>
-      <div class="Card">
-        <table class="ServicesTable">
-          <thead>
-            <tr>
-              <th scope="col">Description</th>
-              <th scope="col">Equipment</th>
-              <th scope="col">SKU</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="Section">
-              <td colspan="3">
-                Aerial Drone Services
-              </td>
-            </tr>
-            <tr class="Even">
-              <td>Pesticide, Herbicide</td>
-              <td>XAG-P150</td>
-              <td>A-CHEM-01</td>
-            </tr>
-            <tr class="Odd">
-              <td>Fertilizer</td>
-              <td>XAG-P150</td>
-              <td>A-CHEM-02</td>
-            </tr>
-            <tr class="Even">
-              <td>Seed</td>
-              <td>XAG-P150</td>
-              <td>A-SEED-01</td>
-            </tr>
-            <tr class="Odd">
-              <td>Pond Weeds & Algae</td>
-              <td>DJI-T30</td>
-              <td>A-CHEM-03</td>
-            </tr>
-            <tr class="Even">
-              <td>Pond feeding</td>
-              <td>DJI-T30</td>
-              <td>A-FEED-01</td>
-            </tr>
-            <tr class="Odd">
-              <td>Precision Mapping</td>
-              <td>P4-MULTI</td>
-              <td>A-MAP-01</td>
-            </tr>
-            <tr class="Even">
-              <td>Mesquite Herbicide</td>
-              <td>XAG-P150</td>
-              <td>A-CHEM-04</td>
-            </tr>
-            <tr class="Odd">
-              <td>Commercial Greenhouse Painting</td>
-              <td>DJI-T30</td>
-              <td>A-PAINT-01</td>
-            </tr>
-            <tr class="Section">
-              <td colspan="3">
-                Ground Machinery Services
-              </td>
-            </tr>
-            <tr class="Even">
-              <td>Mesquite, Hackberry, Locust Removal</td>
-              <td>Skidsteer</td>
-              <td>G-MITI-01</td>
-            </tr>
-            <tr class="Odd">
-              <td>Fence-line Tree Trimming</td>
-              <td>Toolcat</td>
-              <td>G-FENCE-01</td>
-            </tr>
-            <tr class="Even">
-              <td>Rock removal, Regrade</td>
-              <td>Skidsteer, Toolcat</td>
-              <td>G-MACH-01</td>
-            </tr>
-            <tr class="Odd">
-              <td>Brush hogging</td>
-              <td>Skidsteer, Toolcat</td>
-              <td>G-BRUSH-01</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <div class="SectionTopWave BackgroundEven ColorOdd"></div>
-
-  <section id="get-started" class="Section BackgroundOdd">
-    <div class="Container Wide Effect">
-      <div class="AlignCenter">
-        <h1 class="Title">Get started</h1>
-        <p class="Subtitle">
-          Call, text or use the form below to schedule a no-cost estimate and walkthrough.
-        </p>
-      </div>
-      <div class="ContactLayout">
-        <div>
+        <div class="EquipmentLayout">
           <div class="Card">
-            <h3 class="Title">Get your no-cost assessment:</h3>
-            <form id="contact-form" class="Form" novalidate>
-              <div class="Form2ColLayout">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M12 12v-2" />
+              <path d="m15 15-3-3-3 3" />
+              <path
+                d="M17.8 19c-1.4 1.4-3.2 2-5.8 2s-4.4-.6-5.8-2-2-3.2-2-5.8.6-4.4 2-5.8 3.2-2 5.8-2 4.4.6 5.8 2c1.3 1.4 2 3.2 2 5.8 0 1-.2 2-.5 2.9" />
+              <path d="m19.5 19.5-2.5-2.5" />
+            </svg>
+            <h3 class="Title">Multi-spectral Mapping Drones</h3>
+            <p class="Text">
+              Accurately define job scope, terrain, plant locations, and potential hazards.
+            </p>
+          </div>
+
+          <div class="Card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M12 12v-2" />
+              <path d="m15 15-3-3-3 3" />
+              <path
+                d="M17.8 19c-1.4 1.4-3.2 2-5.8 2s-4.4-.6-5.8-2-2-3.2-2-5.8.6-4.4 2-5.8 3.2-2 5.8-2 4.4.6 5.8 2c1.3 1.4 2 3.2 2 5.8 0 1-.2 2-.5 2.9" />
+              <path d="m19.5 19.5-2.5-2.5" />
+            </svg>
+            <h3 class="Title">Industrial Agricultural Drones</h3>
+            <p class="Text">
+              Heavy-duty drones capable of large payloads for efficient chemical and seed application over vast areas.
+            </p>
+          </div>
+
+          <div class="Card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M18 4V2" />
+              <path d="M18 9V7" />
+              <path d="M18 14v-2" />
+              <path d="M18 19v-2" />
+              <path d="M18 22v-2" />
+              <path d="M12 4V2" />
+              <path d="M12 9V7" />
+              <path d="M12 14v-2" />
+              <path d="M12 19v-2" />
+              <path d="M12 22v-2" />
+              <path d="M6 4V2" />
+              <path d="M6 9V7" />
+              <path d="M6 14v-2" />
+              <path d="M6 19v-2" />
+              <path d="M6 22v-2" />
+              <path d="M2 4h20" />
+              <path d="M2 9h20" />
+              <path d="M2 14h20" />
+              <path d="M2 19h20" />
+            </svg>
+            <h3 class="Title">Sickle Shears</h3>
+            <p class="Text">
+              Precise cutting of brush and small mesquite clusters at ground level.
+            </p>
+          </div>
+
+          <div class="Card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M18 4V2" />
+              <path d="M18 9V7" />
+              <path d="M18 14v-2" />
+              <path d="M18 19v-2" />
+              <path d="M18 22v-2" />
+              <path d="M12 4V2" />
+              <path d="M12 9V7" />
+              <path d="M12 14v-2" />
+              <path d="M12 19v-2" />
+              <path d="M12 22v-2" />
+              <path d="M6 4V2" />
+              <path d="M6 9V7" />
+              <path d="M6 14v-2" />
+              <path d="M6 19v-2" />
+              <path d="M6 22v-2" />
+              <path d="M2 4h20" />
+              <path d="M2 9h20" />
+              <path d="M2 14h20" />
+              <path d="M2 19h20" />
+            </svg>
+            <h3 class="Title">Buncher Shears</h3>
+            <p class="Text">
+              Precise cutting of medium to large mesquite at ground level aided by hydraulic arms.
+            </p>
+          </div>
+
+          <div class="Card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M18 4V2" />
+              <path d="M18 9V7" />
+              <path d="M18 14v-2" />
+              <path d="M18 19v-2" />
+              <path d="M18 22v-2" />
+              <path d="M12 4V2" />
+              <path d="M12 9V7" />
+              <path d="M12 14v-2" />
+              <path d="M12 19v-2" />
+              <path d="M12 22v-2" />
+              <path d="M6 4V2" />
+              <path d="M6 9V7" />
+              <path d="M6 14v-2" />
+              <path d="M6 19v-2" />
+              <path d="M6 22v-2" />
+              <path d="M2 4h20" />
+              <path d="M2 9h20" />
+              <path d="M2 14h20" />
+              <path d="M2 19h20" />
+            </svg>
+            <h3 class="Title">Telescoping Shears</h3>
+            <p class="Text">
+              Precise cutting of high-reaching trees or brush, or those located on pond downslope.
+            </p>
+          </div>
+
+          <div class="Card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="EquipmentIcon">
+              <path d="M18 4V2" />
+              <path d="M18 9V7" />
+              <path d="M18 14v-2" />
+              <path d="M18 19v-2" />
+              <path d="M18 22v-2" />
+              <path d="M12 4V2" />
+              <path d="M12 9V7" />
+              <path d="M12 14v-2" />
+              <path d="M12 19v-2" />
+              <path d="M12 22v-2" />
+              <path d="M6 4V2" />
+              <path d="M6 9V7" />
+              <path d="M6 14v-2" />
+              <path d="M6 19v-2" />
+              <path d="M6 22v-2" />
+              <path d="M2 4h20" />
+              <path d="M2 9h20" />
+              <path d="M2 14h20" />
+              <path d="M2 19h20" />
+            </svg>
+            <h3 class="Title">Chemical Applicators</h3>
+            <p class="Text">
+              Custom sponge/dauber ensures thorough coverage of target surfaces with precise herbicide volumes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+
+    <section id="services-catalog" class="Section BackgroundEven">
+      <div class="Container Effect">
+        <div class="AlignCenter">
+          <h2 class="Title">Services Catalog</h2>
+          <p class="Subtitle">
+            We offer a range of aerial and ground services to meet your agricultural needs.
+          </p>
+        </div>
+        <div class="Card">
+          <table class="ServicesTable">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Equipment</th>
+                <th scope="col">SKU</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="Section">
+                <td colspan="3">
+                  Aerial Drone Services
+                </td>
+              </tr>
+              <tr class="Even">
+                <td>Pesticide, Herbicide</td>
+                <td>XAG-P150</td>
+                <td>A-CHEM-01</td>
+              </tr>
+              <tr class="Odd">
+                <td>Fertilizer</td>
+                <td>XAG-P150</td>
+                <td>A-CHEM-02</td>
+              </tr>
+              <tr class="Even">
+                <td>Seed</td>
+                <td>XAG-P150</td>
+                <td>A-SEED-01</td>
+              </tr>
+              <tr class="Odd">
+                <td>Pond Weeds & Algae</td>
+                <td>DJI-T30</td>
+                <td>A-CHEM-03</td>
+              </tr>
+              <tr class="Even">
+                <td>Pond feeding</td>
+                <td>DJI-T30</td>
+                <td>A-FEED-01</td>
+              </tr>
+              <tr class="Odd">
+                <td>Precision Mapping</td>
+                <td>P4-MULTI</td>
+                <td>A-MAP-01</td>
+              </tr>
+              <tr class="Even">
+                <td>Mesquite Herbicide</td>
+                <td>XAG-P150</td>
+                <td>A-CHEM-04</td>
+              </tr>
+              <tr class="Odd">
+                <td>Commercial Greenhouse Painting</td>
+                <td>DJI-T30</td>
+                <td>A-PAINT-01</td>
+              </tr>
+              <tr class="Section">
+                <td colspan="3">
+                  Ground Machinery Services
+                </td>
+              </tr>
+              <tr class="Even">
+                <td>Mesquite, Hackberry, Locust Removal</td>
+                <td>Skidsteer</td>
+                <td>G-MITI-01</td>
+              </tr>
+              <tr class="Odd">
+                <td>Fence-line Tree Trimming</td>
+                <td>Toolcat</td>
+                <td>G-FENCE-01</td>
+              </tr>
+              <tr class="Even">
+                <td>Rock removal, Regrade</td>
+                <td>Skidsteer, Toolcat</td>
+                <td>G-MACH-01</td>
+              </tr>
+              <tr class="Odd">
+                <td>Brush hogging</td>
+                <td>Skidsteer, Toolcat</td>
+                <td>G-BRUSH-01</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
+
+    <section id="get-started" class="Section BackgroundOdd">
+      <div class="Container Wide Effect">
+        <div class="AlignCenter">
+          <h1 class="Title">Get started</h1>
+          <p class="Subtitle">
+            Call, text or use the form below to schedule a no-cost estimate and walkthrough.
+          </p>
+        </div>
+        <div class="ContactLayout">
+          <div>
+            <div class="Card">
+              <h3 class="Title">Get your no-cost assessment:</h3>
+              <form id="contact-form" class="Form" novalidate>
                 <div>
-                  <label for="first-name">First Name</label>
-                  <input id="first-name" name="first-name" type="text" placeholder="John" required
-                    autocomplete="given-name" />
+                  <label for="full-name">Name</label>
+                  <input id="full-name" name="full-name" type="text" placeholder="John Doe" required
+                    autocomplete="full-name" />
                 </div>
                 <div>
-                  <label for="last-name">Last Name</label>
-                  <input id="last-name" name="last-name" type="text" placeholder="Doe" required
-                    autocomplete="family-name" />
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="john@example.com" required
+                    autocomplete="email" />
                 </div>
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="john@example.com" required
-                  autocomplete="email" />
-              </div>
-              <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" placeholder="(940) 555-0123" required autocomplete="tel" />
-              </div>
-              <div>
-                <label for="service-type">Service Type</label>
-                <select id="service-type" name="service-type">
-                  <option value="">Select a Service</option>
-                  <option value="aerial">Aerial Drone Services</option>
-                  <option value="ground">Ground Machinery Services</option>
-                </select>
-              </div>
-              <div>
-                <label for="property-size">Property Size (Acres)</label>
-                <input id="property-size" name="propertySize" type="number" min="0" step="0.1"
-                  placeholder="Enter approximate acreage" />
-              </div>
-              <div>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" class="ContactFormMessage"
-                  placeholder="Tell us about your mesquite and brush mitigation needs..." rows="4"></textarea>
-              </div>
-              <button type="submit" aria-describedby="submit-help">
-                Let us call you
-              </button>
-              <p id="submit-help" class="FormHelp">
-                We'll respond within 24 hours.
-              </p>
-            </form>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="(940) 555-0123" required autocomplete="tel" />
+                </div>
+                <div>
+                  <label for="service-type">Service Type</label>
+                  <select id="service-type" name="service-type">
+                    <option value="">Select a Service</option>
+                    <option value="aerial">Aerial Drone Services</option>
+                    <option value="ground">Ground Machinery Services</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="property-size">Property Size (Acres)</label>
+                  <input id="property-size" name="property-size" type="number" min="0" step="0.1"
+                    placeholder="Enter approximate acreage" />
+                </div>
+                <div>
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" class="ContactFormMessage"
+                    placeholder="Tell us about your crops, pasture, or rangeland needs..." rows="4"></textarea>
+                </div>
+                <button type="submit" aria-describedby="submit-help">
+                  Let us call you
+                </button>
+                <p id="submit-help" class="FormHelp">
+                  We'll respond within 24 hours.
+                </p>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="ContactInfo">
-          <div class="Card">
-            <h3 class="Title">Where to contact us:</h3>
-            <ul class="List">
-              <li>
-                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                (214) 420-7990
-              </li>
-              <li>
-                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
-                info@swarmag.com
-              </li>
-              <li>
-                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                Serving North Texas crops, pastures, & rangeland
-              </li>
-            </ul>
-          </div>
-          <div class="Card">
-            <h3 class="Title">Drone Spraying & Spreading</h3>
-            <ul class="List">
-              <li>
-                <div class="Bullet"></div>
-                Cutting-edge drone mapping and precision equipment
-              </li>
-              <li>
-                <div class="Bullet"></div>
-                Environmentally friendly application with reduced chemical drift
-              </li>
-            </ul>
-          </div>
-          <div class="Card">
-            <h3 class="Title">Mesquite & Brush Mitigation</h3>
-            <ul class="List">
-              <li>
-                <div class="Bullet"></div>
-                Specialized in mesquite mitigation with proven "Cut Stem + Targeted Herbicide" method
-              </li>
-              <li>
-                <div class="Bullet"></div>
-                Minimal soil disturbance with maximum effectiveness
-              </li>
-            </ul>
+          <div class="ContactInfo">
+            <div class="Card">
+              <h3 class="Title">Where to contact us:</h3>
+              <ul class="List">
+                <li>
+                  <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  (214) 420-7990
+                </li>
+                <li>
+                  <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  info@swarmag.com
+                </li>
+                <li>
+                  <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Serving North Texas crops, pastures, & rangeland
+                </li>
+              </ul>
+            </div>
+            <div class="Card">
+              <h3 class="Title">Drone Spraying & Spreading</h3>
+              <ul class="List">
+                <li>
+                  <div class="Bullet"></div>
+                  Cutting-edge drone mapping and precision equipment
+                </li>
+                <li>
+                  <div class="Bullet"></div>
+                  Environmentally friendly application with reduced chemical drift
+                </li>
+              </ul>
+            </div>
+            <div class="Card">
+              <h3 class="Title">Mesquite & Brush Mitigation</h3>
+              <ul class="List">
+                <li>
+                  <div class="Bullet"></div>
+                  Specialized in mesquite mitigation with proven "Cut Stem + Targeted Herbicide" method
+                </li>
+                <li>
+                  <div class="Bullet"></div>
+                  Minimal soil disturbance with maximum effectiveness
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer id="footer" class="Footer" role="contentinfo">
     <div class="FooterContainer">
