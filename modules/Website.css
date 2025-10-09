@@ -2,19 +2,19 @@
 
 :root {
   /* Colors - Primary */
-  --sa-motif-eggshell: #f9f1e4;
-  --sa-motif-orange: #dcab4f;
-  --sa-motif-green: #95ac63;
-  --sa-motif-brown: #57534e;
-  --sa-motif-dark-brown: #1c1917;
+  --sa-color-eggshell: #f9f1e4;
+  --sa-color-orange: #dcab4f;
+  --sa-color-green: #95ac63;
+  --sa-color-brown: #57534e;
+  --sa-color-brown-dark: #1c1917;
+  --sa-color-white: #ffffff;
 
   /* Colors - Soft Tones */
-  --sa-motif-soft-blue: #e3f2fd;
-  --sa-motif-soft-white: #fcfcf9;
-  --sa-motif-soft-green: #f0fdf4;
-  --sa-motif-bright-white: #ffffff;
+  --sa-color-blue-soft: #e3f2fd;
+  --sa-color-white-soft: #fcfcf9;
+  --sa-color-green-soft: #f0fdf4;
 
-  /* Colors - UI */
+  /* Colors - Other */
   --sa-color-border: #e5e7eb;
   --sa-color-border-divider: #d1d5db;
   --sa-color-placeholder: #9ca3af;
@@ -22,21 +22,27 @@
   --sa-color-footer-text: #a8a29e;
 
   /* Shadows */
-  --sa-motif-shadow-hard: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
-  --sa-motif-shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --sa-motif-shadow-press: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
-  --sa-motif-shadow-text: 0 1px 1px #ffffffaa;
+  --sa-shadow-hard: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+  --sa-shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --sa-shadow-press: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+  --sa-shadow-text: 0 1px 2px rgba(0, 0, 0, 0.2);
   --sa-shadow-focus: 0 0 0 2px rgba(34, 197, 94, 0.5);
 
   /* Typography - Families */
-  --sa-motif-family-info: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  --sa-motif-family-heading: 'Playfair Display', serif;
-  --sa-motif-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --sa-family-info: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --sa-family-heading: 'Playfair Display', serif;
+  --sa-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* Typography - Fluid Sizes */
-  --sa-motif-font-base: clamp(0.875rem, 0.85rem + 0.125vw, 0.9rem);
-  --sa-motif-font-normal: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
+  --sa-font-base: clamp(0.875rem, 0.85rem + 0.125vw, 0.9rem);
+  --sa-font-normal: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
   --sa-font-button: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+
+  /* Sizing Scale */
+  --sa-size-lg: 1152px;
+  --sa-size-md: 1024px;
+  --sa-size-sm: 768px;
+  --sa-size-xs: 425px;
 
   /* Spacing Scale */
   --sa-space-xs: 0.25rem;
@@ -56,6 +62,9 @@
   /* Border Radius */
   --sa-radius-sm: 0.375rem;
   --sa-radius-full: 9999px;
+
+  /* Filters */
+  --sa-filter-mono: brightness(0) invert(1);
 }
 
 /* ===== Accessibility ================================ */
@@ -71,24 +80,24 @@
 
 /* Enhanced focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid var(--sa-motif-orange);
+  outline: 2px solid var(--sa-color-orange);
   outline-offset: 2px;
 }
 
 /* ===== General ================================ */
 
 body {
-  background-color: var(--sa-motif-eggshell);
+  background-color: var(--sa-color-eggshell);
   font-size: 16px;
   line-height: 1.65;
 }
 
 .BackgroundEven {
-  background-color: var(--sa-motif-eggshell);
+  background-color: var(--sa-color-eggshell);
 }
 
 .BackgroundOdd {
-  background-color: var(--sa-motif-soft-green);
+  background-color: var(--sa-color-green-soft);
 }
 
 .ActionLayout {
@@ -97,18 +106,18 @@ body {
 }
 
 .CallToAction {
-  white-space: nowrap;
-  background-color: var(--sa-motif-orange);
-  box-shadow: var(--sa-motif-shadow-soft);
+  background-color: var(--sa-color-orange);
+  box-shadow: var(--sa-shadow-soft);
   transition: var(--sa-transition-base);
   display: inline-block;
   border-radius: var(--sa-radius-full);
   padding: 1.5rem 5rem;
-  font-size: var(--sa-motif-font-normal);
+  font-size: var(--sa-font-normal);
   line-height: 1;
   font-weight: 600;
-  color: var(--sa-motif-bright-white);
+  color: var(--sa-color-white);
   text-decoration: none;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -119,7 +128,7 @@ body {
 
 .CallToAction:hover,
 .CallToAction:focus-visible {
-  box-shadow: var(--sa-motif-shadow-press);
+  box-shadow: var(--sa-shadow-press);
   transform: translateY(-2px);
 }
 
@@ -128,14 +137,15 @@ body {
 }
 
 p, span, li, label {
-  color: var(--sa-motif-brown);
-  font-size: var(--sa-motif-font-normal);
+  color: var(--sa-color-brown);
+  font-size: var(--sa-font-normal);
+  text-wrap: pretty;
 }
 
 label {
-  font-family: var(--sa-motif-family-info);
+  font-family: var(--sa-family-info);
   display: block;
-  font-size: var(--sa-motif-font-base);
+  font-size: var(--sa-font-base);
   font-weight: 500;
   margin-bottom: var(--sa-space-sm);
 }
@@ -182,8 +192,8 @@ select>option[value=""] {
 }
 
 .Form button {
-  background-color: var(--sa-motif-orange);
-  box-shadow: var(--sa-motif-shadow-soft);
+  background-color: var(--sa-color-orange);
+  box-shadow: var(--sa-shadow-soft);
   transition: var(--sa-transition-base);
   width: 100%;
   color: white;
@@ -197,7 +207,7 @@ select>option[value=""] {
 
 .Form button:hover:not(:disabled),
 .Form button:focus-visible {
-  box-shadow: var(--sa-motif-shadow-press);
+  box-shadow: var(--sa-shadow-press);
   transform: translateY(-2px);
 }
 
@@ -211,16 +221,17 @@ select>option[value=""] {
 }
 
 .FormHelp {
-  font-size: var(--sa-motif-font-base);
+  font-size: var(--sa-font-base);
   text-align: center;
 }
 
 .Title {
-  color: var(--sa-motif-brown);
-  font-family: var(--sa-motif-family-heading);
+  color: var(--sa-color-brown);
+  font-family: var(--sa-family-heading);
   margin-bottom: var(--sa-space-md);
   font-weight: 700;
   line-height: 1.35;
+  text-wrap: pretty;
 }
 
 h1.Title {
@@ -236,8 +247,8 @@ h3.Title {
 }
 
 .Subtitle {
-  color: var(--sa-motif-green);
-  text-shadow: var(--sa-motif-shadow-text);
+  color: var(--sa-color-green);
+  text-shadow: var(--sa-shadow-text);
   margin-bottom: var(--sa-space-lg);
   font-size: clamp(0.9rem, 0.85rem + 0.5vw, 1.125rem);
   line-height: 1.35;
@@ -249,9 +260,9 @@ h3.Title {
 }
 
 .Text.DropCap:first-letter {
-  color: var(--sa-motif-soft-white);
-  background-color: var(--sa-motif-brown);
-  font-family: var(--sa-motif-family-heading);
+  color: var(--sa-color-white-soft);
+  background-color: var(--sa-color-brown);
+  font-family: var(--sa-family-heading);
   font-size: 3rem;
   font-weight: 800;
   float: left;
@@ -263,11 +274,11 @@ h3.Title {
 }
 
 .Card {
-  background-color: var(--sa-motif-soft-white);
+  background-color: var(--sa-color-white-soft);
   padding: var(--sa-space-xl);
   border-width: 1px;
   border-radius: var(--sa-radius-sm);
-  box-shadow: var(--sa-motif-shadow-soft);
+  box-shadow: var(--sa-shadow-soft);
 }
 
 .AlignCenter {
@@ -296,7 +307,7 @@ h3.Title {
 }
 
 .List>li>.Bullet {
-  background-color: var(--sa-motif-orange);
+  background-color: var(--sa-color-orange);
   width: 0.6rem;
   height: 0.6rem;
   border-radius: var(--sa-radius-full);
@@ -305,7 +316,7 @@ h3.Title {
 
 .List>li>.Icon {
   display: inline-block;
-  color: var(--sa-motif-orange);
+  color: var(--sa-color-orange);
   min-width: 24px;
   min-height: 24px;
 }
@@ -320,8 +331,8 @@ ol.List>li {
 
 ol.List>li::before {
   content: counter(ordered-counter);
-  background-color: var(--sa-motif-green);
-  color: var(--sa-motif-bright-white);
+  background-color: var(--sa-color-green);
+  color: var(--sa-color-white);
   flex-shrink: 0;
   width: 2.5rem;
   height: 2.5rem;
@@ -329,16 +340,16 @@ ol.List>li::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--sa-motif-font-base);
+  font-size: var(--sa-font-base);
   font-weight: 700;
 }
 
 ol.List.Color1>li::before {
-  background-color: var(--sa-motif-green);
+  background-color: var(--sa-color-green);
 }
 
 ol.List.Color2>li::before {
-  background-color: var(--sa-motif-orange);
+  background-color: var(--sa-color-orange);
 }
 
 /* ===== Header ================================ */
@@ -354,32 +365,40 @@ ol.List.Color2>li::before {
 .Header.Sticky {
   position: fixed;
   opacity: 0.95;
-  background-color: var(--sa-motif-bright-white);
-  box-shadow: var(--sa-motif-shadow-soft);
+  background-color: var(--sa-color-white);
+  box-shadow: var(--sa-shadow-soft);
 }
 
 .Header .HeaderContainer {
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
-  max-width: 1440px;
-  padding: var(--sa-space-xl) calc(var(--sa-space-xl) * 2);
+  max-width: var(--sa-size-lg);
+  padding-block: var(--sa-space-xl);
+  padding-inline: calc(var(--sa-space-xl) * 2);
   transition: padding 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .Header .HeaderContainer {
-    padding: var(--sa-space-xl) var(--sa-space-xl);
+    padding-inline: var(--sa-space-xl);
+  }
+}
+
+@media (max-width: 425px) {
+  .Header .HeaderContainer {
+    padding-inline: var(--sa-space-md);
   }
 }
 
 .Header.Sticky .HeaderContainer {
-  padding: var(--sa-space-sm) var(--sa-space-xl);
+  padding-block: var(--sa-space-sm);
+  padding-inline: var(--sa-space-xl);
 }
 
 .Header .HeaderLogo {
   height: 3.5rem;
-  filter: brightness(0) invert(1);
+  filter: var(--sa-filter-mono);
   transition: filter 0.3s ease, height 0.3s ease;
 }
 
@@ -399,13 +418,13 @@ ol.List.Color2>li::before {
 }
 
 .Header .HeaderPhoneIcon {
-  color: var(--sa-motif-bright-white);
+  color: var(--sa-color-white);
   margin-top: var(--sa-space-sm);
   transition: color 0.3s ease;
 }
 
 .Header .HeaderPhoneText {
-  color: var(--sa-motif-bright-white);
+  color: var(--sa-color-white);
   margin-top: var(--sa-space-sm);
   font-weight: 700;
   line-height: 1;
@@ -413,11 +432,11 @@ ol.List.Color2>li::before {
 }
 
 .Header.Sticky .HeaderPhoneIcon {
-  color: var(--sa-motif-orange);
+  color: var(--sa-color-orange);
 }
 
 .Header.Sticky .HeaderPhoneText {
-  color: var(--sa-motif-brown);
+  color: var(--sa-color-brown);
   font-size: 1rem;
 }
 
@@ -453,24 +472,26 @@ ol.List.Color2>li::before {
 }
 
 .HeroContainer .HeroLayout {
+  margin-top: calc(-1 * var(--sa-space-4xl));
   max-width: 56rem;
   padding-inline: var(--sa-space-xl);
   text-align: center;
 }
 
 .HeroContainer .HeroLayout>img.Title {
-  filter: brightness(0) invert(1);
+  filter: var(--sa-filter-mono);
   height: calc(7rem + 4vw);
   width: auto;
   margin: 0 auto 0.4rem;
 }
 
 .HeroContainer .HeroLayout>.Text {
-  color: var(--sa-motif-bright-white);
-  margin-bottom: var(--sa-space-xl);
+  color: var(--sa-color-white);
   text-wrap: pretty;
   text-align: center;
   font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  text-shadow: var(--sa-shadow-text);
+  font-weight: 600;
 }
 
 /* ===== Section ================================ */
@@ -482,23 +503,17 @@ ol.List.Color2>li::before {
 /* ===== Section Artwork ================================ */
 
 .SectionArtwork {
-  background-color: var(--sa-motif-soft-blue);
   margin-inline: auto;
-  margin-top: 3.5rem;
   display: flex;
-  height: 15rem;
-  width: 15rem;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-radius: var(--sa-radius-full);
-  box-shadow: var(--sa-motif-shadow-hard);
+  margin-top: var(--sa-space-lg);
 }
 
 .SectionArtwork>img {
   height: auto;
-  width: 18rem;
-  max-width: 72rem;
+  width: 100%;
+  max-width: 320px;
 }
 
 /* ===== Section Separator ================================ */
@@ -553,18 +568,18 @@ ol.List.Color2>li::before {
 .Container {
   width: 100%;
   margin-inline: auto;
-  max-width: 1024px;
+  max-width: var(--sa-size-lg);
   padding-inline: var(--sa-space-4xl);
 }
 
 @media (max-width: 425px) {
   .Container {
-    padding-inline: var(--sa-space-lg);
+    padding-inline: var(--sa-space-2xl);
   }
 }
 
 .Container.Wide {
-  max-width: 1152px;
+  max-width: var(--sa-size-lg);
 }
 
 /* ===== Drone Section ================================ */
@@ -604,7 +619,7 @@ ol.List.Color2>li::before {
 }
 
 .EquipmentLayout .EquipmentIcon {
-  color: var(--sa-motif-orange);
+  color: var(--sa-color-orange);
   margin-bottom: var(--sa-space-md);
   height: 3rem;
   width: 3rem;
@@ -620,20 +635,20 @@ ol.List.Color2>li::before {
 #services-catalog .Card {
   padding: 0;
   border: 0;
+  overflow-x: auto;
 }
 
 .ServicesTable {
-  color: var(--sa-motif-brown);
+  color: var(--sa-color-brown);
   border-radius: var(--sa-radius-sm) var(--sa-radius-sm) 0 0;
   width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
   text-align: left;
 }
 
 .ServicesTable>thead {
-  color: var(--sa-motif-bright-white);
-  background-color: var(--sa-motif-brown);
+  color: var(--sa-color-white);
+  background-color: var(--sa-color-brown);
   opacity: 0.85;
 }
 
@@ -648,14 +663,14 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>tbody>tr.Section {
-  color: var(--sa-motif-bright-white);
-  background-color: var(--sa-motif-green);
+  color: var(--sa-color-white);
+  background-color: var(--sa-color-green);
   opacity: 0.85;
 }
 
 .ServicesTable>tbody>tr>td {
   padding: var(--sa-space-xs);
-  font-size: var(--sa-motif-font-base);
+  font-size: var(--sa-font-base);
 }
 
 .ServicesTable>tbody>tr>td:nth-child(1) {
@@ -670,7 +685,7 @@ ol.List.Color2>li::before {
 
 .ServicesTable>tbody>tr>td:nth-child(3) {
   white-space: nowrap;
-  font-family: var(--sa-motif-family-mono);
+  font-family: var(--sa-family-mono);
 }
 
 .ServicesTable>tbody>tr.Section>td {
@@ -684,11 +699,11 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>tbody>tr.Even {
-  background-color: var(--sa-motif-bright-white);
+  background-color: var(--sa-color-white);
 }
 
 .ServicesTable>tbody>tr.Odd {
-  background-color: var(--sa-motif-soft-blue);
+  background-color: var(--sa-color-blue-soft);
 }
 
 /* ===== Contact Section ================================ */
@@ -712,7 +727,7 @@ ol.List.Color2>li::before {
 /* ===== Footer ================================ */
 
 .Footer {
-  background-color: var(--sa-motif-dark-brown);
+  background-color: var(--sa-color-brown-dark);
   padding-block: var(--sa-space-3xl);
 }
 
@@ -724,8 +739,8 @@ ol.List.Color2>li::before {
 
 .Footer p,
 .Footer li {
-  font-family: var(--sa-motif-family-info);
-  font-size: var(--sa-motif-font-base);
+  font-family: var(--sa-family-info);
+  font-size: var(--sa-font-base);
   color: var(--sa-color-footer-text);
 }
 
@@ -752,11 +767,11 @@ ol.List.Color2>li::before {
 .Footer .Logo {
   height: 2.5rem;
   margin-bottom: var(--sa-space-sm);
-  filter: brightness(0) invert(1);
+  filter: var(--sa-filter-mono);
 }
 
 .Footer h3.Title {
-  color: var(--sa-motif-soft-white);
+  color: var(--sa-color-white-soft);
   font-size: 1.1rem;
   line-height: 1.5rem;
   font-weight: 600;
@@ -775,7 +790,7 @@ ol.List.Color2>li::before {
 
 .Footer p.strong {
   font-weight: normal;
-  color: var(--sa-motif-soft-white);
+  color: var(--sa-color-white-soft);
 }
 
 .Footer .SiteBy a {
@@ -783,7 +798,7 @@ ol.List.Color2>li::before {
 }
 
 .Footer .SiteBy a:hover {
-  color: var(--sa-motif-bright-white);
+  color: var(--sa-color-white);
 }
 
 /* ===== Print Styles ================================ */
