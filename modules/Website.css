@@ -24,7 +24,7 @@
   --sa-color-footer-text: #a8a29e;
 
   /* Shadows */
-  --sa-shadow-hard: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+  --sa-shadow-hard: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.35);
   --sa-shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --sa-shadow-press: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
   --sa-shadow-text: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -108,11 +108,11 @@ body {
 
 .CallToAction {
   background-color: var(--sa-color-orange);
-  box-shadow: var(--sa-shadow-soft);
+  box-shadow: var(--sa-shadow-hard);
   transition: var(--sa-transition-base);
   display: inline-block;
   border-radius: var(--sa-radius-full);
-  padding: 1.5rem 5rem;
+  padding: 1.25rem 5rem;
   font-size: var(--sa-font-normal);
   line-height: 1;
   font-weight: 600;
@@ -124,10 +124,10 @@ body {
 
 @media (max-width: 768px) {
   .CallToAction {
-    padding: 1.5rem 2.5rem;
+    padding: 1.25rem 2.5rem;
   }
 }
-
+ 
 .CallToAction:hover,
 .CallToAction:focus-visible {
   box-shadow: var(--sa-shadow-press);
@@ -184,7 +184,7 @@ select>option[value=""] {
 
 .Form button {
   background-color: var(--sa-color-orange);
-  box-shadow: var(--sa-shadow-soft);
+  box-shadow: var(--sa-shadow-hard);
   transition: var(--sa-transition-base);
   width: 100%;
   color: white;
