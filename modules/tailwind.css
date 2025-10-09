@@ -444,7 +444,7 @@ Make elements with the HTML hidden attribute stay hidden by default
 }
 
 /*
-Used by tailwind scripts
+Used by tailwind inspired scripts
 */
 
 .hidden { visibility: hidden; }

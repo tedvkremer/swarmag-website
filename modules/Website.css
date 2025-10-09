@@ -331,7 +331,7 @@ ol.List>li {
 
 ol.List>li::before {
   content: counter(ordered-counter);
-  background-color: var(--sa-color-green);
+  background-color: var(--sa-color-brown);
   color: var(--sa-color-white);
   flex-shrink: 0;
   width: 2.5rem;
