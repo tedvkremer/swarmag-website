@@ -41,10 +41,10 @@
   <script type="module">
     import Website from "./modules/Website.js";
     Website.bootstrap([
-      "handlers", 
-      "dynamics", 
-      "galleries", 
-      "contact", 
+      "handlers",
+      "dynamics",
+      "galleries",
+      "contact",
       "swarm"
     ]);
   </script>
@@ -98,7 +98,7 @@
         </div>
         <p class="Text DropCap">
           Spraying herbicides, fertilizers, and other agricultural products with drones so you
-          don't have to schedule months in advance for a plane or helicopter. Or get your tractor
+          don't have to schedule months in advance for a plane or helicopter; or get your tractor
           stuck in a North Texas rain-drenched mush.
         </p>
         <p class="Text">
@@ -111,7 +111,11 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+    <div class="SectionTopWave BackgroundOdd ColorEven">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="the-advantages-of-using-drones" class="Section BackgroundEven">
       <div class="Container Effect">
@@ -130,18 +134,41 @@
         </div>
       </div>
     </section>
+<!-- 
+    <div class="SectionTopWave BackgroundEven ColorBetween">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
-    <div class="SectionTopWave BackgroundEven ColorBetween"></div>
-
-    <aside>
-      <div id="gallery-areal" class="Gallery BackgroundBetween">
-        <div class="ImageLayout">
-          <img class="Photo" src="galleries/" alt="swarmAg" />
+    <div id="gallery-areal" class="Gallery BackgroundBetween">
+      <div class="Carousel">
+        <div class="CarouselContainer"></div>
+        <button class="CarouselPrevSlide" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="CarouselNextSlide" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+        <div class="CarouselIndicators" role="tablist" aria-label="Slide indicators">
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 1" tabindex="0"></button>
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 2" tabindex="-1"></button>
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 3" tabindex="-1"></button>
         </div>
       </div>
-    </aside>
+    </div> -->
 
-    <div class="SectionTopWave BackgroundBetween ColorOdd"></div>
+    <div class="SectionTopWave BackgroundEven ColorOdd">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="mequite-and-brush-mitigation" class="Section BackgroundOdd">
       <div class="Container Effect">
@@ -170,7 +197,11 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+    <div class="SectionTopWave BackgroundOdd ColorEven">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="species-we-handle" class="Section BackgroundEven">
       <div class="Container Effect">
@@ -186,13 +217,12 @@
           Contact us to discuss your specific needs.
         </p>
       </div>
+      <div class="SectionSeparator Effect">
+        <hr />
+        <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
+        <hr />
+      </div>
     </section>
-
-    <div class="SectionSeparator Effect">
-      <hr />
-      <img src="assets/clipart-mesquite.png" alt="Mesquite illustration" />
-      <hr />
-    </div>
 
     <section id="benefits-and-expectations" class="Section BackgroundEven">
       <div class="Container Wide Effect">
@@ -249,8 +279,7 @@
               </li>
               <li>
                 Expect visible browning/die-back on treated plants over weeks to
-                months; complete root kill is our target
-              </li>
+                months; complete root kill is our target</li>
             </ol>
           </div>
         </div>
@@ -260,14 +289,40 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundEven ColorBetween"></div>
+    <!-- <div class="SectionTopWave BackgroundEven ColorBetween">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
-    <aside>
-      <div id="gallery-ground" class="Gallery BackgroundBetween">
+    <div id="gallery-ground" class="Gallery BackgroundBetween">
+      <div class="Carousel">
+        <div class="CarouselContainer"></div>
+        <button class="CarouselPrevSlide" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <button class="CarouselNextSlide" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+        <div class="CarouselIndicators" role="tablist" aria-label="Slide indicators">
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 1" tabindex="0"></button>
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 2" tabindex="-1"></button>
+          <button class="CarouselDot" role="tab" aria-label="Go to slide 3" tabindex="-1"></button>
+        </div>
       </div>
-    </aside>
+    </div> -->
 
-    <div class="SectionTopWave BackgroundBetween ColorOdd"></div>
+    <div class="SectionTopWave BackgroundEven ColorOdd">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="the-best-equipment" class="Section BackgroundOdd">
       <div class="Container Effect">
@@ -434,7 +489,11 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundOdd ColorEven"></div>
+    <div class="SectionTopWave BackgroundOdd ColorEven">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="services-catalog" class="Section BackgroundEven">
       <div class="Container Effect">
@@ -530,7 +589,11 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
+    <div class="SectionTopWave BackgroundEven ColorOdd">
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'>
+        <path d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='currentColor'></path>
+      </svg>
+    </div>
 
     <section id="get-started" class="Section BackgroundOdd">
       <div class="Container Wide Effect">
@@ -548,7 +611,7 @@
                 <div>
                   <label for="full-name">Name</label>
                   <input id="full-name" name="full-name" type="text" placeholder="John Doe" required
-                    autocomplete="full-name" />
+                    autocomplete="name" />
                 </div>
                 <div>
                   <label for="email">Email</label>
@@ -577,7 +640,7 @@
                   <textarea id="message" name="message" class="ContactFormMessage"
                     placeholder="Tell us about your crops, pasture, or rangeland needs..." rows="4"></textarea>
                 </div>
-                <button type="submit" aria-describedby="submit-help">
+                <button class="CallToAction" type="submit" aria-describedby="submit-help">
                   Let us call you
                 </button>
                 <p id="submit-help" class="FormHelp">
