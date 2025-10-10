@@ -41,10 +41,11 @@
   <script type="module">
     import Website from "./modules/Website.js";
     Website.bootstrap([
-      "error-handlers",
-      "page-dynamics",
-      "contact-form",
-      "bee-swarm"
+      "handlers", 
+      "dynamics", 
+      "galleries", 
+      "contact", 
+      "swarm"
     ]);
   </script>
 </head>
@@ -73,7 +74,7 @@
       <div id="swarm-container"></div>
       <div class="HeroOverlay">
         <div class="HeroLayout">
-          <img id="swarm-home" class="Title" src="assets/swarmag-logo-wordmark.png" alt="swarmAg">
+          <img id="swarm-home" class="Title" src="assets/swarmag-logo-wordmark.png" alt="swarmAg" />
           <p class="Text">
             Providing North Texas precision agricultural services
             with cutting-edge technology and proven methods.
@@ -130,7 +131,17 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
+    <div class="SectionTopWave BackgroundEven ColorBetween"></div>
+
+    <aside>
+      <div id="gallery-areal" class="Gallery BackgroundBetween">
+        <div class="ImageLayout">
+          <img class="Photo" src="galleries/" alt="swarmAg" />
+        </div>
+      </div>
+    </aside>
+
+    <div class="SectionTopWave BackgroundBetween ColorOdd"></div>
 
     <section id="mequite-and-brush-mitigation" class="Section BackgroundOdd">
       <div class="Container Effect">
@@ -249,7 +260,14 @@
       </div>
     </section>
 
-    <div class="SectionTopWave BackgroundEven ColorOdd"></div>
+    <div class="SectionTopWave BackgroundEven ColorBetween"></div>
+
+    <aside>
+      <div id="gallery-ground" class="Gallery BackgroundBetween">
+      </div>
+    </aside>
+
+    <div class="SectionTopWave BackgroundBetween ColorOdd"></div>
 
     <section id="the-best-equipment" class="Section BackgroundOdd">
       <div class="Container Effect">
@@ -462,7 +480,7 @@
                 <td>A-CHEM-03</td>
               </tr>
               <tr class="Even">
-                <td>Pond feeding</td>
+                <td>Pond Feeding</td>
                 <td>DJI-T30</td>
                 <td>A-FEED-01</td>
               </tr>
@@ -502,7 +520,7 @@
                 <td>G-MACH-01</td>
               </tr>
               <tr class="Odd">
-                <td>Brush hogging</td>
+                <td>Brush Hogging</td>
                 <td>Skidsteer, Toolcat</td>
                 <td>G-BRUSH-01</td>
               </tr>

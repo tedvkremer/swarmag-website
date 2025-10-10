@@ -19,7 +19,7 @@ class Boid {
   #vy = 0;
   #size = 0;
   #speed = 0;
-  #closestBoid = null;
+  #closest = null;
   div = null;
 
   get x() { return this.#x; }
@@ -38,8 +38,8 @@ class Boid {
   }
 
   update(swarm) {
-    this.#closestBoid = this.getClosest(swarm.boids);
-    if (!this.#closestBoid) return;
+    this.#closest = this.getClosest(swarm.boids);
+    if (!this.#closest) return;
 
     let hx, hy;
 
@@ -47,8 +47,8 @@ class Boid {
       hx = swarm.targetX - this.#x;
       hy = swarm.targetY - this.#y;
     } else {
-      hx = this.#closestBoid.x - this.#x;
-      hy = this.#closestBoid.y - this.#y;
+      hx = this.#closest.x - this.#x;
+      hy = this.#closest.y - this.#y;
     }
 
     const distHeading = Math.sqrt(hx * hx + hy * hy);
@@ -62,10 +62,10 @@ class Boid {
       vyHeading = hy / distHeading;
     }
 
-    const dxClosest = this.#closestBoid.x - this.#x;
-    const dyClosest = this.#closestBoid.y - this.#y;
+    const dxClosest = this.#closest.x - this.#x;
+    const dyClosest = this.#closest.y - this.#y;
     const normClosest = Math.sqrt(dxClosest * dxClosest + dyClosest * dyClosest);
-    const distClosest = Math.sqrt(dxClosest * dxClosest + dyClosest * dyClosest) - this.#closestBoid.size;
+    const distClosest = Math.sqrt(dxClosest * dxClosest + dyClosest * dyClosest) - this.#closest.size;
     const vxClosest = dxClosest / normClosest;
     const vyClosest = dyClosest / normClosest;
     let vxAverage, vyAverage;
@@ -125,22 +125,22 @@ class Boid {
 
   getClosest(boids) {
     let dist = Infinity;
-    let closest = null;
+    let find = null;
 
     for (let i = boids.length; i--;) {
       const b = boids[i];
       if (this !== b) {
         const dx = b.#x - this.#x;
         const dy = b.#y - this.#y;
-        const d = dx * dx + dy * dy - b.#size * b.#size;
-        if (d < dist) {
-          dist = d;
-          closest = b;
+        const dl = dx * dx + dy * dy - b.#size * b.#size;
+        if (dl < dist) {
+          dist = dl;
+          find = b;
         }
       }
     }
 
-    return closest;
+    return find;
   }
 }
 
@@ -202,18 +202,18 @@ class Swarm {
     container.appendChild(this.#container);
   }
 
-  addBoid(b) {
+  add(b) {
     this.#container.appendChild(b.div);
     this.#boids.push(b);
   }
 
-  createBoids(total, width, height, speed) {
+  create(total, width, height, speed) {
     for (let i = total; i--;) {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const angle = Math.random() * 360;
       const b = new Boid(width, height, speed, x, y, angle);
-      this.addBoid(b);
+      this.add(b);
     }
   }
 
@@ -329,7 +329,7 @@ class Swarm {
     const swarm = new Swarm();
     try {
       swarm.init();
-      swarm.createBoids(30, 10, 10, 3);
+      swarm.create(30, 10, 10, 3);
       window._swarm = swarm;
     }
     catch (e) {

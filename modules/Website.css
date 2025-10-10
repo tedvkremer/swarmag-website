@@ -1,4 +1,4 @@
-/* ===== Motif ================================ */
+/* ===== Motif =============================== */
 
 :root {
   /* Colors - Primary */
@@ -69,7 +69,7 @@
   --sa-filter-mono: brightness(0) invert(1);
 }
 
-/* ===== Accessibility ================================ */
+/* ===== Accessibility ======================= */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -86,7 +86,7 @@
   outline-offset: 2px;
 }
 
-/* ===== General ================================ */
+/* ===== General ============================= */
 
 body {
   background-color: var(--sa-color-eggshell);
@@ -100,6 +100,10 @@ body {
 
 .BackgroundOdd {
   background-color: var(--sa-color-green-soft);
+}
+
+.BackgroundBetween {
+  background-color: var(--sa-color-dark);
 }
 
 .ActionLayout {
@@ -142,78 +146,6 @@ p, span, li, label {
   color: var(--sa-color-dark);
   font-size: var(--sa-font-normal);
   text-wrap: pretty;
-}
-
-label {
-  font-family: var(--sa-family-info);
-  display: block;
-  font-size: var(--sa-font-base);
-  font-weight: 500;
-}
-
-:is(input, select, textarea) {
-  background-color: white;
-  width: 100%;
-  padding: var(--sa-space-sm);
-  border: 1px solid var(--sa-color-border);
-  border-radius: var(--sa-radius-sm);
-  transition: var(--sa-transition-fast);
-}
-
-:is(input, select, textarea):focus {
-  box-shadow: var(--sa-shadow-focus);
-  border-color: #22c55e;
-  outline: none;
-}
-
-:is(input, select, textarea):disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background-color: #f3f4f6;
-}
-
-select>option[value=""] {
-  color: var(--sa-color-placeholder);
-}
-
-.Form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sa-space-md);
-}
-
-.Form button {
-  background-color: var(--sa-color-orange);
-  box-shadow: var(--sa-shadow-hard);
-  transition: var(--sa-transition-base);
-  width: 100%;
-  color: white;
-  padding-block: var(--sa-space-sm);
-  font-size: var(--sa-font-button);
-  border-radius: var(--sa-radius-sm);
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.Form button:hover:not(:disabled),
-.Form button:focus-visible {
-  box-shadow: var(--sa-shadow-press);
-  transform: translateY(-2px);
-}
-
-.Form button:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.Form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.FormHelp {
-  font-size: var(--sa-font-base);
-  text-align: center;
 }
 
 .Title {
@@ -284,6 +216,82 @@ h3.Title {
 .AlignCenter {
   text-align: center;
 }
+
+/* ===== Form & Fields ======================= */
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sa-space-md);
+}
+
+.Form button {
+  background-color: var(--sa-color-orange);
+  box-shadow: var(--sa-shadow-hard);
+  transition: var(--sa-transition-base);
+  width: 100%;
+  color: white;
+  padding-block: var(--sa-space-sm);
+  font-size: var(--sa-font-button);
+  border-radius: var(--sa-radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.Form button:hover:not(:disabled),
+.Form button:focus-visible {
+  box-shadow: var(--sa-shadow-press);
+  transform: translateY(-2px);
+}
+
+.Form button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.Form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.FormHelp {
+  font-size: var(--sa-font-base);
+  text-align: center;
+}
+
+label {
+  font-family: var(--sa-family-info);
+  display: block;
+  font-size: var(--sa-font-base);
+  font-weight: 500;
+}
+
+:is(input, select, textarea) {
+  background-color: white;
+  width: 100%;
+  padding: var(--sa-space-sm);
+  border: 1px solid var(--sa-color-border);
+  border-radius: var(--sa-radius-sm);
+  transition: var(--sa-transition-fast);
+}
+
+:is(input, select, textarea):focus {
+  box-shadow: var(--sa-shadow-focus);
+  border-color: #22c55e;
+  outline: none;
+}
+
+:is(input, select, textarea):disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+}
+
+select>option[value=""] {
+  color: var(--sa-color-placeholder);
+}
+
+/* ===== Transition Effects ================== */
 
 .Effect {
   transition: var(--sa-transition-slow);
@@ -358,7 +366,7 @@ ol.List.Color2>li::before {
   background-color: var(--sa-color-orange);
 }
 
-/* ===== Header ================================ */
+/* ===== Header ============================== */
 
 .Header {
   position: absolute;
@@ -497,7 +505,7 @@ ol.List.Color2>li::before {
   font-weight: 600;
 }
 
-/* ===== Section Artwork ================================ */
+/* ===== Section Artwork ===================== */
 
 .SectionArtwork {
   margin-inline: auto;
@@ -512,7 +520,7 @@ ol.List.Color2>li::before {
   max-width: 320px;
 }
 
-/* ===== Section Separator ================================ */
+/* ===== Section Separator =================== */
 
 .SectionSeparator {
   margin-inline: auto;
@@ -532,7 +540,7 @@ ol.List.Color2>li::before {
   border-top: 1px solid var(--sa-color-footer-divider);
 }
 
-/* ===== Section Top Wave ================================ */
+/* ===== Section Top Wave ==================== */
 
 .SectionTopWave {
   position: relative;
@@ -559,7 +567,12 @@ ol.List.Color2>li::before {
   background-size: cover;
 }
 
-/* ===== Container ================================ */
+.SectionTopWave.ColorBetween::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,120 600,0 900,60 C1050,100 1200,20 1200,60 L1200,120 L0,120 Z' fill='%2357534e'%3E%3C/path%3E%3C/svg%3E") no-repeat center top;
+  background-size: cover;
+}
+
+/* ===== Container =========================== */
 
 .Container {
   width: 100%;
@@ -579,13 +592,19 @@ ol.List.Color2>li::before {
   max-width: var(--sa-size-lg);
 }
 
-/* ===== Drone Section ================================ */
+/* ===== Gallery ============================= */
+
+.Gallery {
+  height: 13rem;
+}
+
+/* ===== Drones Section ====================== */
 
 #drone-spraying-and-spreading {
   padding-block-start: var(--sa-space-lg);
 }
 
-/* ===== Benefits Section ================================ */
+/* ===== Benefits Section ==================== */
 
 .BenefitsLayout {
   display: grid;
@@ -598,7 +617,7 @@ ol.List.Color2>li::before {
   }
 }
 
-/* ===== Equipment Section ================================ */
+/* ===== Equipment Section =================== */
 
 .EquipmentLayout {
   display: grid;
@@ -626,7 +645,7 @@ ol.List.Color2>li::before {
   line-height: 1.75rem;
 }
 
-/* ===== Services Section ================================ */
+/* ===== Services Section ==================== */
 
 #services-catalog .Card {
   padding: 0;
@@ -702,7 +721,7 @@ ol.List.Color2>li::before {
   background-color: var(--sa-color-blue-soft);
 }
 
-/* ===== Get Started Section ================================ */
+/* ===== Get Started Section ================= */
 
 .ContactLayout {
   display: grid;
@@ -806,7 +825,7 @@ ol.List.Color2>li::before {
   color: var(--sa-color-bright);
 }
 
-/* ===== Print Styles ================================ */
+/* ===== Print Styles ======================== */
 
 @media print {
 
