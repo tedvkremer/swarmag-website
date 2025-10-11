@@ -1,4 +1,5 @@
 import Carousel from './Carousel.js'
+import Website from './Website.js'
 
 const $ = (selector, node = document) => node.querySelector(selector);
 const $$ = (selector, node = document) => node.querySelectorAll(selector);
@@ -30,6 +31,7 @@ export const init = () => initGalleries();
 
 function initGalleries() {
   $$('.Gallery').forEach(g => initGallery(g));
+  Website.the.galleries.forEach(({ carousel }) => carousel.init());
 }
 
 function initGallery(gallery) {
@@ -64,5 +66,8 @@ function initGallery(gallery) {
     photo => createPhoto(photo, pos += 100, ndx++)
   );
 
-  new Carousel(id).init();
+  Website.the.galleries[gallery.id] = {
+    'gallery': gallery,
+    'carousel': new Carousel(id)
+  };
 }

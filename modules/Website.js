@@ -4,6 +4,10 @@
  *************************************/
 
 export default class Website {
+  #galleries = new Map();
+
+  get galleries() { return this.#galleries; }
+
   #init(modules = []) {
     modules.forEach(async (m) => {
       try {
