@@ -96,11 +96,11 @@
 html {
   --sa-background-even: var(--sa-color-eggshell);
   --sa-background-odd: var(--sa-color-green-soft);
-  --sa-background-between: var(--sa-color-blue-soft);
+  --sa-background-between: var(--sa-color-green);
 }
 
 body {
-  background-color: var(--sa-color-eggshell);
+  background-color: var(--sa-color-footer-bg);
   font-size: 16px;
   line-height: 1.5; 
 }
@@ -185,6 +185,7 @@ body {
 @media (max-width: 425px) {
   .CallToAction {
     width: 100%;
+    padding-inline: 0;
   }
 }
 
@@ -602,7 +603,18 @@ ol.List.Color2>li::before {
 /* ===== Gallery & Carousel  ================= */
 
 .Gallery {
-  height: 13rem;
+  height: 15rem;
+}
+
+.Gallery>.Carousel {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--sa-size-lg);
+}
+
+.Gallery .Photo {
+  width: 100%;
+  height: auto;
 }
 
 /* ===== Drones Section ====================== */

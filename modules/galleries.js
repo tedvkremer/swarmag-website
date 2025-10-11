@@ -1,27 +1,9 @@
 import Carousel from './Carousel.js'
 import Website from './Website.js'
+import PhotoCatalog from './PhotoCatalog.js'
 
 const $ = (selector, node = document) => node.querySelector(selector);
 const $$ = (selector, node = document) => node.querySelectorAll(selector);
-
-const GALLERIES = {
-  "gallery-areal": [
-    "../galleries/g1-photo-1.jpg",
-    "../galleries/g1-photo-2.jpg",
-    "../galleries/g1-photo-3.jpg",
-    "../galleries/g1-photo-4.jpg",
-    "../galleries/g1-photo-5.jpg",
-    "../galleries/g1-photo-6.jpg",
-  ],
-  "gallery-ground": [
-    "../galleries/g2-photo-1.jpg",
-    "../galleries/g2-photo-2.jpg",
-    "../galleries/g2-photo-3.jpg",
-    "../galleries/g2-photo-4.jpg",
-    "../galleries/g2-photo-5.jpg",
-    "../galleries/g2-photo-6.jpg",
-  ]
-};
 
 export const init = () => initGalleries();
 
@@ -30,44 +12,39 @@ export const init = () => initGalleries();
  *************************************/
 
 function initGalleries() {
-  $$('.Gallery').forEach(g => initGallery(g));
-  Website.the.galleries.forEach(({ carousel }) => carousel.init());
+  $$('.Gallery').forEach(g => initGallery(g, PhotoCatalog.byGallery[g.id]));
 }
 
-function initGallery(gallery) {
-  const id = `#{gallery.id}.Carousel`;
-  const carousel = $(id, gallery);
+function initGallery(gallery, photos) {
+  const gid = gallery.id;
+  const cid = `#${gid}>.Carousel`;
+  const carousel = $(cid, gallery);
   const container = $('.CarouselContainer', carousel);
   const indicators = $('.CarouselIndicators', carousel);
 
-  function createSlide(photo, pos) {
-    const slide = `
-      <div class="CarouselSlide" style="transform: translateX(${pos}%)">
-        <img class="CarouselSlideImage" src="${photo}" alt="swarmAg" />
-      </div>
-    `;
-    container.appendHTML(slide);
+  function createSlide(photo) {
+    const attrs = `loading="lazy" src="${photo}" alt="swarmAg"`;
+    const img = `<img class="Photo" ${attrs} />`;
+    const slide = `<div class="CarouselSlide">${img}</div>`;
+    container.insertAdjacentHTML('beforeend', slide);
   }
 
   function createDot(ndx) {
-    const dot = `
-      <button class="CarouselDot" role="tab" aria-label="Go to slide ${ndx}" tabindex="-1"></button>
-    `;
-    indicators.appendHTML(dot);
+    const attrs = `aria-label="Go to slide ${ndx + 1}" tabindex="${ndx}"`;
+    const dot = `<button class="CarouselDot" role="tab" ${attrs}></button>`;
+    indicators.insertAdjacentHTML('beforeend', dot);
   }
 
-  function createPhoto(photo, pos, ndx) {
-    createSlide(photo, pos);
+  function createPhoto(photo, ndx) {
+    createSlide(photo);
     createDot(ndx);
   }
 
-  let pos = 0, ndx = 0;
-  GALLERIES[gallery.id].forEach(
-    photo => createPhoto(photo, pos += 100, ndx++)
-  );
+  let ndx = 0;
+  photos.forEach(photo => createPhoto(photo, ndx++));
 
-  Website.the.galleries[gallery.id] = {
+  Website.the.galleries[gid] = {
     'gallery': gallery,
-    'carousel': new Carousel(id)
+    'carousel': new Carousel(cid).init()
   };
 }

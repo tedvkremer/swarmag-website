@@ -35,6 +35,8 @@ export default class Carousel {
 
     this.#updateCarousel();
     this.startCarousel();
+
+    return this;
   }
 
   #updateCarousel() {
