@@ -23,7 +23,15 @@ function initContactForm() {
       const submit = $('button[type="submit"]', form);
       const origText = submit.textContent;
 
-      submit.textContent = 'Sending...';
+      function showMessage(good = true, message = '') {
+        submit.textContent = good ? message : message.toUpperCase();
+      }
+
+      function clearMessage() {
+        submit.textContent = origText;
+      }
+
+      showMessage(true, 'Sending...');
       submit.disabled = true;
 
       // Prepare email data
@@ -39,16 +47,11 @@ function initContactForm() {
 
       const succeed = (response) => {
         console.log('Email sent successfully:', response);
-        submit.textContent = 'Message Sent!';
-        submit.classList.add('bg-green-600');
-        submit.classList.remove('bg-green-700', 'hover:bg-green-800');
+        showMessage(true, 'Message Sent!');
 
         setTimeout(
           () => {
-            submit.textContent = origText;
-            submit.disabled = false;
-            submit.classList.remove('bg-green-600');
-            submit.classList.add('bg-green-700', 'hover:bg-green-800');
+            clearMessage();
             form.reset();
             clearFormErrors();
           }, 2000
@@ -57,18 +60,9 @@ function initContactForm() {
 
       const failed = (error) => {
         console.error('Email sending failed:', error);
-        submit.textContent = 'Send Failed - Try Again';
-        submit.classList.add('bg-red-600');
-        submit.classList.remove('bg-green-700', 'hover:bg-green-800');
+        showMessage(false, 'Send Failed - Try Again');
         submit.disabled = false;
-
-        setTimeout(
-          () => {
-            submit.textContent = origText;
-            submit.classList.remove('bg-red-600');
-            submit.classList.add('bg-green-700', 'hover:bg-green-800');
-          }, 3000
-        );
+        setTimeout(() => clearMessage(), 3000);
       }
 
       // Send email
@@ -84,7 +78,7 @@ function initContactForm() {
   required.forEach(field => {
     const label = $(`label[for="${field.id}"]`, form);
     if (label && !label.textContent.includes('*')) {
-      label.innerHTML += ' <span class="text-red-500">*</span>';
+      label.innerHTML += ' <span class="text-red">*</span>';
     }
   });
 
@@ -96,7 +90,7 @@ function initContactForm() {
     });
 
     input.addEventListener('input', () => {
-      if (input.classList.contains('border-red-500')) {
+      if (input.classList.contains('border-red')) {
         validateField(input);
       }
     });
@@ -118,7 +112,7 @@ function initContactForm() {
     if (!errorElement) {
       errorElement = document.createElement('div');
       errorElement.id = `${field.id}-error`;
-      errorElement.className = 'text-red-500 text-sm mt-1 hidden';
+      errorElement.className = 'text-red text-sm mt-1 hidden';
       errorElement.setAttribute('role', 'alert');
       field.parentNode.insertBefore(errorElement, field.nextSibling);
     }
@@ -126,8 +120,8 @@ function initContactForm() {
     // Clear previous error
     errorElement.textContent = '';
     errorElement.classList.add('hidden');
-    field.classList.remove('border-red-500');
-    field.classList.add('border-gray-300');
+    field.classList.remove('border-red');
+    field.classList.add('border-gray');
 
     // Required field validation
     if (field.hasAttribute('required') && !value) {
@@ -156,8 +150,8 @@ function initContactForm() {
   function showError(field, element, message) {
     element.textContent = message;
     element.classList.remove('hidden');
-    field.classList.remove('border-gray-300');
-    field.classList.add('border-red-500');
+    field.classList.remove('border-gray');
+    field.classList.add('border-red');
   }
 
   function clearFormErrors() {
@@ -169,8 +163,8 @@ function initContactForm() {
 
     const inputs = $$('input, select, textarea', form);
     inputs.forEach(i => {
-      i.classList.remove('border-red-500');
-      i.classList.add('border-gray-300');
+      i.classList.remove('border-red');
+      i.classList.add('border-gray');
     });
   }
 }

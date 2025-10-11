@@ -1,9 +1,10 @@
-/* ===== Motif =============================== */
+/* === Motif =============================== */
 
 :root {
   /* Colors - Fundamental */
   --sa-color-dark: #57534e;
   --sa-color-bright: #ffffff;
+  --sa-color-background: #1c1917;
 
   /* Colors - Primary */
   --sa-color-green: #95ac63;
@@ -18,10 +19,10 @@
 
   /* Colors - Other */
   --sa-color-border: #e5e7eb;
+  --sa-color-divider: #d1d5db;
   --sa-color-placeholder: #9ca3af;
 
   /* Colors - Footer */
-  --sa-color-footer-divider: #d1d5db;
   --sa-color-footer-border: #36302e;
   --sa-color-footer-bg: #1c1917;
   --sa-color-footer-text: #a8a29e;
@@ -74,7 +75,7 @@
   --sa-filter-mono: brightness(0) invert(1);
 }
 
-/* ===== Accessibility ======================= */
+/* === Accessibility ======================= */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -85,48 +86,46 @@
   }
 }
 
-/* Enhanced focus styles for accessibility */
 :focus-visible {
   outline: 2px solid var(--sa-color-orange);
   outline-offset: 2px;
 }
 
-/* ===== General ============================= */
+/* === General ============================= */
 
 html {
-  --sa-background-even: var(--sa-color-eggshell);
-  --sa-background-odd: var(--sa-color-green-soft);
-  --sa-background-between: var(--sa-color-green);
+  --sa-color-even: var(--sa-color-eggshell);
+  --sa-color-odd: var(--sa-color-green-soft);
 }
 
 body {
-  background-color: var(--sa-color-footer-bg);
+  background-color: var(--sa-color-eggshell);
   font-size: 16px;
-  line-height: 1.5; 
+  line-height: 1.5;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .BackgroundEven {
-  background-color: var(--sa-background-even);
+  background-color: var(--sa-color-even);
 }
 
 .BackgroundOdd {
-  background-color: var(--sa-background-odd);
-}
-
-.BackgroundBetween {
-  background-color: var(--sa-background-between);
+  background-color: var(--sa-color-odd);
 }
 
 .ColorEven {
-  color: var(--sa-background-even);
+  color: var(--sa-color-even);
 }
 
 .ColorOdd {
-  color: var(--sa-background-odd);
-}
-
-.ColorBetween {
-  color: var(--sa-background-between);
+  color: var(--sa-color-odd);
 }
 
 .ActionLayout {
@@ -138,9 +137,11 @@ body {
   transition: var(--sa-transition-base);
   display: inline-block;
   border-radius: var(--sa-radius-full);
-  padding: 1.25rem 5rem;
+  padding-block: 1.25rem;
+  padding-inline: 1.25rem;
+  width: 100%;
   font-size: var(--sa-font-normal);
-  line-height: 1;
+  line-height: 1.25;
   font-weight: 600;
   color: var(--sa-color-bright);
   text-decoration: none;
@@ -148,6 +149,14 @@ body {
   margin-block-start: var(--sa-space-3xl);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .CallToAction {
+    width: auto;
+    padding-inline: 4rem;
+    white-space: nowrap;
+  }
 }
 
 .CallToAction::before {
@@ -182,13 +191,6 @@ body {
   transform: translateY(0);
 }
 
-@media (max-width: 425px) {
-  .CallToAction {
-    width: 100%;
-    padding-inline: 0;
-  }
-}
-
 p, span, li {
   color: var(--sa-color-dark);
   font-size: var(--sa-font-normal);
@@ -201,12 +203,11 @@ p, span, li {
   font-weight: 700;
   line-height: 1.25;
   text-wrap: pretty;
-  padding-block: 0 var(--sa-space-md);
+  padding-block: var(--sa-space-md);
 }
 
 h1.Title {
   font-size: clamp(1.75rem, 1.5rem + 2vw, 3rem);
-  padding-block: var(--sa-space-md);
 }
 
 h2.Title {
@@ -227,16 +228,6 @@ h3.Title {
 
 .Text {
   padding-block-end: var(--sa-space-md);
-}
-
-@media (max-width: 1024px) {
-  .Title {
-    padding-block: 0 var(--sa-space-md);
-  }
-
-  .Subtitle {
-    padding-block: 0 var(--sa-space-md);
-  }
 }
 
 .Text.DropCap:first-letter {
@@ -265,7 +256,7 @@ h3.Title {
   text-align: center;
 }
 
-/* ===== Form & Fields ======================= */
+/* === Form & Fields ======================= */
 
 .Form {
   display: flex;
@@ -319,7 +310,20 @@ select>option[value=""] {
   color: var(--sa-color-placeholder);
 }
 
-/* ===== Transition Effects ================== */
+.border-gray {
+  border-color: #e5e7eb;
+}
+
+.border-red {
+  border-color: #ff000077;
+}
+
+.text-red {
+  color: #ff000077;
+}
+
+
+/* === Transition Effects ================== */
 
 .Effect {
   transition: var(--sa-transition-slow);
@@ -332,7 +336,7 @@ select>option[value=""] {
   transform: translateY(0);
 }
 
-/* ===== List ================================ */
+/* === List ================================ */
 
 .List {
   display: flex;
@@ -394,7 +398,7 @@ ol.List.Color2>li::before {
   background-color: var(--sa-color-orange);
 }
 
-/* ===== Header ============================== */
+/* === Header ============================== */
 
 .Header {
   position: absolute;
@@ -416,26 +420,44 @@ ol.List.Color2>li::before {
   display: flex;
   justify-content: space-between;
   max-width: var(--sa-size-lg);
-  padding-block: var(--sa-space-xl);
-  padding-inline: calc(var(--sa-space-xl) * 2);
+  padding-block: var(--sa-space-lg);
+  padding-inline: var(--sa-space-md);
   transition: padding 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .Header .HeaderContainer {
-    padding-inline: var(--sa-space-xl);
-  }
-}
-
-@media (max-width: 425px) {
-  .Header .HeaderContainer {
-    padding-inline: var(--sa-space-md);
-  }
 }
 
 .Header.Sticky .HeaderContainer {
   padding-block: var(--sa-space-sm);
-  padding-inline: var(--sa-space-xl);
+  padding-inline: var(--sa-space-sm);
+}
+
+@media (min-width: 425px) {
+  .Header .HeaderContainer {
+    padding-inline: var(--sa-space-lg);
+  }
+
+  .Header.Sticky .HeaderContainer {
+    padding-inline: var(--sa-space-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .Header .HeaderContainer {
+    padding-inline: var(--sa-space-xl);
+  }
+
+  .Header.Sticky .HeaderContainer {
+    padding-inline: var(--sa-space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .Header .HeaderContainer {
+    padding-inline: var(--sa-space-4xl);
+  }
+
+  .Header.Sticky .HeaderContainer {
+    padding-inline: var(--sa-space-2xl);
+  }
 }
 
 .Header .HeaderLogo {
@@ -450,12 +472,10 @@ ol.List.Color2>li::before {
 }
 
 .Header .HeaderPhone {
+  padding-block-start: 25px;
   display: flex;
-  height: 3.5rem;
-  flex-wrap: wrap;
-  align-content: center;
   align-items: center;
-  gap: var(--sa-space-xs);
+  gap: 2px;
   transition: height 0.3s ease;
 }
 
@@ -471,6 +491,10 @@ ol.List.Color2>li::before {
   transition: color 0.3s ease, font-size 0.3s ease;
 }
 
+.Header.Sticky .HeaderPhone {
+  padding-block-start: 15px;
+}
+
 .Header.Sticky .HeaderPhoneIcon {
   color: var(--sa-color-orange);
 }
@@ -480,7 +504,7 @@ ol.List.Color2>li::before {
   font-size: 1rem;
 }
 
-/* ===== Hero ================================ */
+/* === Hero ================================ */
 
 .Hero {
   position: relative;
@@ -512,9 +536,15 @@ ol.List.Color2>li::before {
 }
 
 .HeroContainer .HeroLayout {
-  max-width: 56rem;
-  padding-inline: var(--sa-space-xl);
+  max-width: var(--sa-size-sm);
+  padding-inline: var(--sa-space-lg);
   text-align: center;
+}
+
+@media (max-width: 425px) {
+  .HeroContainer .HeroLayout {
+    padding-inline: var(--sa-space-md);
+  }
 }
 
 .HeroContainer .HeroLayout>img.Title {
@@ -533,7 +563,12 @@ ol.List.Color2>li::before {
   font-weight: 600;
 }
 
-/* ===== Section Artwork ===================== */
+main {
+  position: relative;
+  width: 100%;
+}
+
+/* === Section Artwork ===================== */
 
 .SectionArtwork {
   margin-inline: auto;
@@ -548,29 +583,40 @@ ol.List.Color2>li::before {
   max-width: 320px;
 }
 
-/* ===== Section Separator =================== */
+/* === Section Separator =================== */
 
 .SectionSeparator {
-  margin-inline: auto;
+  /* position: absolute; */
+  width: 100%;
+  /* margin-block-start: calc(-1* var(--sa-space-4xl)); */
   display: flex;
-  max-width: var(--sa-size-md);
+  justify-content: center;
+}
+
+.SectionSeparator>div {
+  display: flex;
+  width: var(--sa-size-sm);
   align-items: center;
 }
 
-.SectionSeparator>img {
+.SectionSeparator>div>img {
   height: auto;
   width: 8rem;
 }
 
-.SectionSeparator>hr {
-  margin-inline: var(--sa-space-xl);
+.SectionSeparator>div>hr {
+  margin-inline: var(--sa-space-md);
   flex: 1 1 0%;
-  border-top: 1px solid var(--sa-color-footer-divider);
+  border-top: 1px solid var(--sa-color-divider);
 }
 
-/* ===== Section Top Wave ==================== */
+/* === Section Top Wave ==================== */
 
 .SectionTopWave {
+  /* position: absolute; */
+  width: 100%;
+  /* margin-block-start: -1rem; */
+  z-index: 0;
   height: 120px;
   overflow: hidden;
 }
@@ -580,19 +626,25 @@ ol.List.Color2>li::before {
   width: 100%;
 }
 
-/* ===== Container =========================== */
+/* === Container =========================== */
 
 .Container {
   width: 100%;
   margin-inline: auto;
   max-width: var(--sa-size-md);
-  padding-block: var(--sa-space-2xl); 
-  padding-inline: var(--sa-space-4xl);
+  padding-block: var(--sa-space-2xl);
+  padding-inline: var(--sa-space-lg);
 }
 
-@media (max-width: 425px) {
+@media (min-width: 425px) {
   .Container {
-    padding: var(--sa-space-2xl);
+    padding-inline: var(--sa-space-2xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .Container {
+    padding-inline: var(--sa-space-4xl);
   }
 }
 
@@ -600,30 +652,26 @@ ol.List.Color2>li::before {
   max-width: var(--sa-size-lg);
 }
 
-/* ===== Gallery & Carousel  ================= */
+/* === Gallery & Carousel  ================= */
 
 .Gallery {
-  height: 15rem;
+  width: 100%;
+  height: calc(15rem + 10vw);
+  overflow: hidden;
+  position: relative;
 }
 
-.Gallery>.Carousel {
-  margin-inline: auto;
-  width: 100%;
-  max-width: var(--sa-size-lg);
+.Gallery .CarouselSlide {
+  background-color: var(--sa-color-footer-bg);
+  display: flex;
 }
 
 .Gallery .Photo {
-  width: 100%;
-  height: auto;
+  width: calc(100vw + 2px);
+  object-fit: cover;
 }
 
-/* ===== Drones Section ====================== */
-
-#drone-spraying-and-spreading {
-  padding-block-start: var(--sa-space-lg);
-}
-
-/* ===== Benefits Section ==================== */
+/* === Benefits Section ==================== */
 
 .BenefitsLayout {
   display: grid;
@@ -636,7 +684,7 @@ ol.List.Color2>li::before {
   }
 }
 
-/* ===== Equipment Section =================== */
+/* === Equipment Section =================== */
 
 .EquipmentLayout {
   display: grid;
@@ -664,7 +712,7 @@ ol.List.Color2>li::before {
   line-height: 1.75rem;
 }
 
-/* ===== Services Section ==================== */
+/* === Services Section ==================== */
 
 #services-catalog .Card {
   padding: 0;
@@ -740,7 +788,7 @@ ol.List.Color2>li::before {
   background-color: var(--sa-color-blue-soft);
 }
 
-/* ===== Get Started Section ================= */
+/* === Get Started Section ================= */
 
 .ContactLayout {
   display: grid;
@@ -764,9 +812,10 @@ ol.List.Color2>li::before {
 
 #get-started .Card h3.Title {
   font-size: 1.75rem;
+  padding-block-start: 0;
 }
 
-/* ===== Footer ================================ */
+/* === Footer ================================ */
 
 .Footer {
   background-color: var(--sa-color-footer-bg);
@@ -842,7 +891,7 @@ ol.List.Color2>li::before {
   color: var(--sa-color-bright);
 }
 
-/* ===== Print Styles ======================== */
+/* === Print Styles ======================== */
 
 @media print {
 

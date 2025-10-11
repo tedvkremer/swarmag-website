@@ -443,16 +443,3 @@ Make elements with the HTML hidden attribute stay hidden by default
   display: none;
 }
 
-/*
-Used by tailwind inspired scripts
-*/
-
-.hidden { visibility: hidden; }
-.visible { visibility: visible; }
-.bg-green-600 { background-color: rgb(0, 255, 0, 0.6); }
-.bg-green-700 { background-color: rgb(0, 255, 0, 0.7); }
-.bg-green-800 { background-color: rgb(0, 255, 0, 0.8); }
-.bg-green-800:hover { background-color: rgb(0, 255, 0.8); }
-.border-gray-300 { border-color: #e5e7eb; }
-.border-red-500 { border-color: rgb(255, 0 ,0, 0.5); }
-.text-red-500 { color: rgb(255, 0 ,0, 0.5); }
