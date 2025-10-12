@@ -10,7 +10,7 @@ export const init = () => initGalleries();
  *************************************/
 
 function initGalleries() {
-   $$('.Gallery').forEach(g => initGallery(g, PhotoCatalog.byGallery[g.id]));
+  $$('.Gallery').forEach(g => initGallery(g, PhotoCatalog.byGallery[g.id]));
 }
 
 function initGallery(gallery, photos) {
@@ -20,29 +20,38 @@ function initGallery(gallery, photos) {
   const container = $('.CarouselContainer', carousel);
   const indicators = $('.CarouselIndicators', carousel);
 
-  function createSlide(photo) {
-    const attrs = `loading="lazy" src="${photo}" alt="swarmAg"`;
-    const img = `<img class="Photo" ${attrs} />`;
-    const slide = `<div class="CarouselSlide">${img}</div>`;
-    container.insertAdjacentHTML('beforeend', slide);
-  }
-
-  function createDot(ndx) {
-    const attrs = `aria-label="Go to slide ${ndx + 1}" tabindex="${ndx}"`;
-    const dot = `<button class="CarouselDot" role="tab" ${attrs}></button>`;
-    indicators.insertAdjacentHTML('beforeend', dot);
-  }
-
-  function createPhoto(photo, ndx) {
-    createSlide(photo);
-    createDot(ndx);
-  }
-
   let ndx = 0;
-  photos.forEach(photo => createPhoto(photo, ndx++));
+  photos.forEach(photo => createSlide(photo, ndx++));
 
   Website.the.galleries[gid] = {
     'gallery': gallery,
     'carousel': new Carousel(cid).init()
   };
+
+  function createSlide(photo, ndx) {
+    const slide = document.createElement('div');
+    slide.className = 'CarouselSlide';
+    slide.appendChild(createImage(photo));
+    container.appendChild(slide);
+    createDot(ndx);
+  }
+
+  function createImage(photo) {
+    const img = document.createElement('img');
+    img.className = 'Photo';
+    img.src = photo;
+    img.alt = 'swarmAg';
+    img.loading = 'lazy';
+    img.addEventListener('load', () => img.classList.add('Loaded'));
+    return img;
+  }
+
+  function createDot(ndx) {
+    const dot = document.createElement('button');
+    dot.className = 'CarouselDot';
+    dot.role = 'tab';
+    dot.setAttribute('aria-label', `Go to slide ${ndx + 1}`);
+    dot.tabIndex = ndx;
+    indicators.appendChild(dot);
+  }
 }

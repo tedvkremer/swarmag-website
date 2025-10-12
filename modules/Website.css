@@ -561,11 +561,6 @@ ol.List.Color2>li::before {
   font-weight: 600;
 }
 
-main {
-  position: relative;
-  width: 100%;
-}
-
 /* === Section Artwork ===================== */
 
 .SectionArtwork {
@@ -655,8 +650,7 @@ main {
 .Gallery {
   background-color: var(--sa-color-footer-bg);
   width: 100%;
-  height: calc(30rem + 20vw);
-  max-height: calc(50vh + 15vw);
+  height: calc(35rem + 10vw);
   overflow: hidden;
   position: relative;
 }
@@ -669,11 +663,19 @@ main {
 }
 
 .Gallery img.Photo {
+  filter: brightness(0.85);
   object-fit: cover;
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
   max-width: none;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.Gallery img.Photo.Loaded {
+  opacity: 1;
+}
+
 
 /* === Benefits Section ==================== */
 
