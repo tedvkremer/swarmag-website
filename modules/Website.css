@@ -655,7 +655,7 @@ main {
 .Gallery {
   background-color: var(--sa-color-footer-bg);
   width: 100%;
-  height: calc(15rem + 15vw);
+  height: calc(35rem + 15vw);
   overflow: hidden;
   position: relative;
 }
@@ -669,6 +669,7 @@ main {
 .Gallery .Photo {
   height: 100%;
   width: auto;
+  max-width: none;
 }
 
 /* === Benefits Section ==================== */
