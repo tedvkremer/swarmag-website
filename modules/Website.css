@@ -648,22 +648,25 @@ ol.List.Color2>li::before {
 /* === Gallery & Carousel  ================= */
 
 .Gallery {
-  background-color: var(--sa-color-footer-bg);
+  background-color: var(--sa-color-green);
+  padding: var(--sa-space-2xl);
   width: 100%;
   height: calc(35rem + 10vw);
+  max-height: 60vh;
   overflow: hidden;
   position: relative;
 }
 
 .Gallery .CarouselSlide {
-  background-color: var(--sa-color-footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: var(--sa-radius-lg);
 }
 
 .Gallery img.Photo {
-  filter: brightness(0.85);
+  border-radius: var(--sa-radius-lg);
+  filter: brightness(0.8);
   object-fit: cover;
   height: 100%;
   width: auto;

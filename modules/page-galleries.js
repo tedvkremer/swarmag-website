@@ -33,7 +33,7 @@ function initGallery(gallery, photos) {
     slide.className = 'CarouselSlide';
     slide.appendChild(createImage(photo));
     container.appendChild(slide);
-    createDot(ndx);
+    //createDot(ndx);
   }
 
   function createImage(photo) {
