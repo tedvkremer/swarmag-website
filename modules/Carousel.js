@@ -1,5 +1,4 @@
-const $ = (selector, node = document) => node.querySelector(selector);
-const $$ = (selector, node = document) => node.querySelectorAll(selector);
+import { $, $$ } from './core.js'
 
 /*************************************
   Carousel
@@ -33,13 +32,12 @@ export default class Carousel {
     nextBtn.addEventListener('click', () => this.nextSlide());
     prevBtn.addEventListener('click', () => this.prevSlide());
 
-    this.#updateCarousel();
-    this.startCarousel();
+    this.#update();
 
     return this;
   }
 
-  #updateCarousel() {
+  #update() {
     let offset = (0 - this.#curr) * 100;
     this.#slides.forEach(slide => {
       slide.style.transform = `translateX(${offset}%)`;
@@ -59,26 +57,28 @@ export default class Carousel {
     });
   }
 
+  #mutate(index) {
+    if (index < 0 || index >= this.#total) {
+      console.error(`slide index out of range: ${index} [0..${this.#total-1}]`);
+      return;
+    };
+    const animating = this.#interval !== null;
+    if (animating) this.stopCarousel();
+    this.#curr = index;
+    this.#update();
+    if (animating) this.startCarousel();
+  }
+
   nextSlide() {
-    this.stopCarousel();
-    this.#curr = (this.#curr + 1) % this.#total;
-    this.#updateCarousel();
-    this.startCarousel();
+    this.#mutate((this.#curr + 1) % this.#total);
   }
 
   prevSlide() {
-    this.stopCarousel();
-    this.#curr = (this.#curr - 1 + this.#total) % this.#total;
-    this.#updateCarousel();
-    this.startCarousel();
+    this.#mutate((this.#curr - 1 + this.#total) % this.#total);
   }
 
   toSlide(index) {
-    if (index < 0 || index >= this.#total) return;
-    this.stopCarousel();
-    this.#curr = index;
-    this.#updateCarousel();
-    this.startCarousel();
+    this.#mutate(index);
   }
 
   startCarousel() {

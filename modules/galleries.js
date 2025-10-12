@@ -1,9 +1,7 @@
+import { $, $$ } from './core.js'
 import Carousel from './Carousel.js'
 import Website from './Website.js'
 import PhotoCatalog from './PhotoCatalog.js'
-
-const $ = (selector, node = document) => node.querySelector(selector);
-const $$ = (selector, node = document) => node.querySelectorAll(selector);
 
 export const init = () => initGalleries();
 
@@ -12,7 +10,7 @@ export const init = () => initGalleries();
  *************************************/
 
 function initGalleries() {
-  $$('.Gallery').forEach(g => initGallery(g, PhotoCatalog.byGallery[g.id]));
+   $$('.Gallery').forEach(g => initGallery(g, PhotoCatalog.byGallery[g.id]));
 }
 
 function initGallery(gallery, photos) {

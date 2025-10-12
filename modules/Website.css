@@ -129,6 +129,7 @@ body {
 }
 
 .ActionLayout {
+  margin-block: var(--sa-space-3xl);
   text-align: center;
 }
 
@@ -146,7 +147,6 @@ body {
   color: var(--sa-color-bright);
   text-decoration: none;
   max-width: 100%;
-  margin-block-start: var(--sa-space-3xl);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
@@ -172,7 +172,7 @@ body {
 
 .CallToAction:hover {
   box-shadow:
-    0 15px 40px rgba(220, 171, 79, 0.3),
+    0 0 20px rgba(238, 156, 5, 0.6),
     0 0 40px rgba(249, 241, 228, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
@@ -492,7 +492,7 @@ ol.List.Color2>li::before {
 }
 
 .Header.Sticky .HeaderPhone {
-  padding-block-start: 15px;
+  padding-block-start: 10px;
 }
 
 .Header.Sticky .HeaderPhoneIcon {
@@ -655,8 +655,9 @@ main {
 /* === Gallery & Carousel  ================= */
 
 .Gallery {
+  background-color: var(--sa-color-footer-bg);
   width: 100%;
-  height: calc(15rem + 10vw);
+  height: calc(15rem + 15vw);
   overflow: hidden;
   position: relative;
 }
@@ -664,11 +665,12 @@ main {
 .Gallery .CarouselSlide {
   background-color: var(--sa-color-footer-bg);
   display: flex;
+  justify-content: center;
 }
 
 .Gallery .Photo {
-  width: calc(100vw + 2px);
-  object-fit: cover;
+  height: 100%;
+  width: auto;
 }
 
 /* === Benefits Section ==================== */

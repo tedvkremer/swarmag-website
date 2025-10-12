@@ -19,6 +19,7 @@
   bottom: 0;
   transition: transform 700ms ease-in-out;
   will-change: transform;
+  overflow: hidden;
 }
 
 .Carousel .CarouselIndicators {

@@ -1,3 +1,4 @@
+import Swarm from './Swarm.js'
 
 /*************************************
   Website Application Singleton
@@ -5,10 +6,24 @@
 
 export default class Website {
   #galleries = new Map();
+  #swarm = new Swarm();
 
   get galleries() { return this.#galleries; }
 
   #init(modules = []) {
+    try {
+      this.#load(modules);
+
+      // Initialize swarm
+      this.#swarm.init();
+      this.#swarm.create(30, 10, 10, 3);
+    }
+    catch (e) {
+      console.error(e);
+    }
+  }
+
+  #load(modules = []) {
     modules.forEach(async (m) => {
       try {
         const module = await import(`./${m}.js`);

@@ -1,7 +1,188 @@
 
-export const init = () => Swarm.bootstrap();
 
-class Boid {
+/*************************************
+  Swarm of bees
+ *************************************/
+
+export default class Swarm {
+  static TURN_SPEED = 0.05;
+  static MIN_DIST = 6;
+  static MAX_DIST = 30;
+  static MOUSE_DIST = 300;
+  static STYLE =
+    `
+    position: absolute;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    color: #fff; 
+    `;
+  static HIDE = Swarm.STYLE +
+    `
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    `;
+  static SHOW = Swarm.STYLE +
+    `
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    `;
+
+  #boids = [];
+  #targetX = 0;
+  #targetY = 0;
+  #container = null;
+  #home = null;
+  #updateID = 0;
+  #scatterID = 0;
+
+  get boids() { return this.#boids; }
+  get targetX() { return this.#targetX; }
+  get targetY() { return this.#targetY; }
+  get width() { return this.#container.offsetWidth; }
+  get height() { return this.#container.offsetHeight; }
+  get animating() { return this.#container.style.visibility === 'visible'; }
+
+  init() {
+    this.#home = document.querySelector('#swarm-home');
+    this.#home.onclick = () => this.toggle();
+
+    this.#container = document.createElement('div');
+    this.#container.style = Swarm.HIDE;
+    const container = document.querySelector('#swarm-container');
+    container.appendChild(this.#container);
+
+    return this;
+  }
+
+  add(b) {
+    this.#container.appendChild(b.div);
+    this.#boids.push(b);
+  }
+
+  create(total, width, height, speed) {
+    for (let i = total; i--;) {
+      const x = Math.random() * this.width;
+      const y = Math.random() * this.height;
+      const angle = Math.random() * 360;
+      const b = new Boid(width, height, speed, x, y, angle);
+      this.add(b);
+    }
+  }
+
+  target(x, y) {
+    this.#targetX = x;
+    this.#targetY = y;
+  }
+
+  home() {
+    this.target(
+      this.#home.offsetLeft + this.#home.offsetWidth / 2,
+      this.#home.offsetTop + this.#home.offsetHeight / 2
+    );
+
+    // scatter after return home
+    if (this.#scatterID) clearTimeout(this.#scatterID);
+    this.#scatterID = setTimeout(
+      () => this.scatter(), 
+      this.getDurationForScreenSize()
+    );
+  }
+
+  scatter() {
+    this.target(0, 0);
+
+    // return home after scatter
+    if (this.#scatterID) clearTimeout(this.#scatterID);
+    this.#scatterID = setTimeout(
+      () => this.home(), 
+      this.getDurationForScreenSize()
+    );
+  }
+
+  update() {
+    try {
+      this.#updateID = requestAnimationFrame(() => this.update());
+
+      for (let i = this.#boids.length; i--;) {
+        this.#boids[i].update(this);
+      }
+    }
+    catch (e) {
+      this.stop();
+      console.error(e);
+    }
+  }
+
+  toggle() {
+    this.animating ? this.stop() : this.start();
+  }
+
+  start() {
+    if (this.#updateID) return;
+
+    window.onmousedown = (e) => this.target(e.pageX, e.pageY);
+    document.ontouchstart = (e) => this.target(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
+
+    this.update();
+    this.scatter();
+    this.#container.style = Swarm.SHOW;
+  }
+
+  stop() {
+    if (this.#updateID) cancelAnimationFrame(this.#updateID);
+    if (this.#scatterID) clearTimeout(this.#scatterID);
+
+    this.#updateID = this.#scatterID = 0;
+    window.onmousedown = null;
+    document.ontouchstart = null;
+    this.#targetX = this.#targetY = 0;
+
+    this.#container.style = Swarm.HIDE;
+  }
+
+  static MIN_SECONDS = 5;
+  static MAX_SECONDS = 15;
+  static LOW_END_WIDTH = 320;
+  static LOW_END_HEIGHT = 695;
+  static HIGH_END_WIDTH = 2560;
+  static HIGH_END_HEIGHT = 1245;
+
+  getDurationForScreenSize() {
+    const minArea = Swarm.LOW_END_WIDTH * Swarm.LOW_END_HEIGHT;
+    const maxArea = Swarm.HIGH_END_WIDTH * Swarm.HIGH_END_HEIGHT;
+    const currentWidth = window.innerWidth;
+    const currentHeight = window.innerHeight;
+    const currentArea = currentWidth * currentHeight;
+
+    // Clamp the current area to the defined range to avoid unexpected results
+    const clampedArea = Math.max(minArea, Math.min(maxArea, currentArea));
+
+    // Perform linear interpolation (mapping one range to another)
+    // (value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin
+    const seconds =
+      ((clampedArea - minArea) / (maxArea - minArea)) *
+      (Swarm.MAX_SECONDS - Swarm.MIN_SECONDS) +
+      Swarm.MIN_SECONDS;
+
+    return Math.round(seconds * 1000);
+  }
+}
+
+/*************************************
+  Bee Object ID
+ *************************************/
+
+export class Boid {
   static STYLE =
     `
     position: absolute;
@@ -141,199 +322,5 @@ class Boid {
     }
 
     return find;
-  }
-}
-
-class Swarm {
-  static TURN_SPEED = 0.05;
-  static MIN_DIST = 6;
-  static MAX_DIST = 30;
-  static MOUSE_DIST = 300;
-  static STYLE =
-    `
-    position: absolute;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    color: #fff; 
-    `;
-  static HIDE = Swarm.STYLE +
-    `
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
-    `;
-  static SHOW = Swarm.STYLE +
-    `
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-    `;
-
-  #boids = [];
-  #targetX = 0;
-  #targetY = 0;
-  #container = null;
-  #home = null;
-  #updateID = 0;
-  #scatterID = 0;
-
-  get boids() { return this.#boids; }
-  get targetX() { return this.#targetX; }
-  get targetY() { return this.#targetY; }
-  get width() { return this.#container.offsetWidth; }
-  get height() { return this.#container.offsetHeight; }
-  get animating() { return this.#container.style.visibility === 'visible'; }
-
-  init() {
-    this.#home = document.querySelector('#swarm-home');
-    this.#home.onclick = () => this.toggle();
-
-    this.#container = document.createElement('div');
-    this.#container.style = Swarm.HIDE;
-    const container = document.querySelector('#swarm-container');
-    container.appendChild(this.#container);
-  }
-
-  add(b) {
-    this.#container.appendChild(b.div);
-    this.#boids.push(b);
-  }
-
-  create(total, width, height, speed) {
-    for (let i = total; i--;) {
-      const x = Math.random() * this.width;
-      const y = Math.random() * this.height;
-      const angle = Math.random() * 360;
-      const b = new Boid(width, height, speed, x, y, angle);
-      this.add(b);
-    }
-  }
-
-  target(x, y) {
-    this.#targetX = x;
-    this.#targetY = y;
-  }
-
-  home() {
-    this.target(
-      this.#home.offsetLeft + this.#home.offsetWidth / 2,
-      this.#home.offsetTop + this.#home.offsetHeight / 2
-    );
-
-    // scatter after return home
-    if (this.#scatterID) clearTimeout(this.#scatterID);
-    this.#scatterID = setTimeout(
-      () => this.scatter(), 
-      this.getDurationForScreenSize()
-    );
-  }
-
-  scatter() {
-    this.target(0, 0);
-
-    // return home after scatter
-    if (this.#scatterID) clearTimeout(this.#scatterID);
-    this.#scatterID = setTimeout(
-      () => this.home(), 
-      this.getDurationForScreenSize()
-    );
-  }
-
-  update() {
-    try {
-      this.#updateID = requestAnimationFrame(() => this.update());
-
-      for (let i = this.#boids.length; i--;) {
-        this.#boids[i].update(this);
-      }
-    }
-    catch (e) {
-      this.stop();
-      console.error(e);
-    }
-  }
-
-  toggle() {
-    this.animating ? this.stop() : this.start();
-  }
-
-  start() {
-    if (this.#updateID) return;
-
-    window.onmousedown = (e) => this.target(e.pageX, e.pageY);
-    document.ontouchstart = (e) => this.target(e.targetTouches[0].pageX, e.targetTouches[0].pageY);
-
-    this.update();
-    this.scatter();
-    this.#container.style = Swarm.SHOW;
-  }
-
-  stop() {
-    if (this.#updateID) cancelAnimationFrame(this.#updateID);
-    if (this.#scatterID) clearTimeout(this.#scatterID);
-
-    this.#updateID = this.#scatterID = 0;
-    window.onmousedown = null;
-    document.ontouchstart = null;
-    this.#targetX = this.#targetY = 0;
-
-    this.#container.style = Swarm.HIDE;
-  }
-
-  static MIN_SECONDS = 5;
-  static MAX_SECONDS = 15;
-  static LOW_END_WIDTH = 320;
-  static LOW_END_HEIGHT = 695;
-  static HIGH_END_WIDTH = 2560;
-  static HIGH_END_HEIGHT = 1245;
-
-  getDurationForScreenSize() {
-    const minArea = Swarm.LOW_END_WIDTH * Swarm.LOW_END_HEIGHT;
-    const maxArea = Swarm.HIGH_END_WIDTH * Swarm.HIGH_END_HEIGHT;
-    const currentWidth = window.innerWidth;
-    const currentHeight = window.innerHeight;
-    const currentArea = currentWidth * currentHeight;
-
-    // Clamp the current area to the defined range to avoid unexpected results
-    const clampedArea = Math.max(minArea, Math.min(maxArea, currentArea));
-
-    // Perform linear interpolation (mapping one range to another)
-    // (value - oldMin) / (oldMax - oldMin) * (newMax - newMin) + newMin
-    const seconds =
-      ((clampedArea - minArea) / (maxArea - minArea)) *
-      (Swarm.MAX_SECONDS - Swarm.MIN_SECONDS) +
-      Swarm.MIN_SECONDS;
-
-    return Math.round(seconds * 1000);
-  }
-
-  static get the() {
-    if (!window._swarm) throw new Error('bootstrap() must be completed first!');
-    return window._swarm;
-  }
-
-  static bootstrap() {
-    if (window._swarm) {
-      console.log('bootstrap() already completed!');
-      return;
-    }
-
-    const swarm = new Swarm();
-    try {
-      swarm.init();
-      swarm.create(30, 10, 10, 3);
-      window._swarm = swarm;
-    }
-    catch (e) {
-      console.error(e);
-    }
   }
 }

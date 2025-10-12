@@ -1,4 +1,4 @@
-const immutable = o => Object.freeze(o);
+import { immutable } from './core.js'
 
 /*************************************
   Photo Catalog

@@ -1,5 +1,4 @@
-const $ = (selector, node = document) => node.querySelector(selector);
-const $$ = (selector, node = document) => node.querySelectorAll(selector);
+import { $, $$ } from './core.js'
 
 export const init = () => initContactForm();
 
