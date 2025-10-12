@@ -268,8 +268,6 @@ h3.Title {
   width: 100%;
   padding-block: var(--sa-space-md);
   font-size: var(--sa-font-button);
-  border-radius: var(--sa-radius-lg);
-  margin-block: 0;
 }
 
 .FormHelp {

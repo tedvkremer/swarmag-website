@@ -1,7 +1,6 @@
 
-
 /*************************************
-  Swarm of bees
+  Swarm of Bees
  *************************************/
 
 export default class Swarm {
@@ -64,7 +63,7 @@ export default class Swarm {
     return this;
   }
 
-  add(b) {
+  addBee(b) {
     this.#container.appendChild(b.div);
     this.#boids.push(b);
   }
@@ -74,8 +73,8 @@ export default class Swarm {
       const x = Math.random() * this.width;
       const y = Math.random() * this.height;
       const angle = Math.random() * 360;
-      const b = new Boid(width, height, speed, x, y, angle);
-      this.add(b);
+      const b = new Bee(width, height, speed, x, y, angle);
+      this.addBee(b);
     }
   }
 
@@ -179,10 +178,10 @@ export default class Swarm {
 }
 
 /*************************************
-  Bee Object ID
+  Bee 
  *************************************/
 
-export class Boid {
+export class Bee {
   static STYLE =
     `
     position: absolute;
@@ -215,7 +214,7 @@ export class Boid {
 
     const ss = `width: ${width}px; height: ${height}px; background: #41fd80ff`;
     this.div = document.createElement('div');
-    this.div.style = Boid.STYLE + ss;
+    this.div.style = Bee.STYLE + ss;
   }
 
   update(swarm) {
