@@ -856,7 +856,7 @@ main {
 }
 
 .Footer .Logo {
-  height: 2.5rem;
+  height: 4rem;
   padding-block: var(--sa-space-sm);
   filter: var(--sa-filter-mono);
 }
