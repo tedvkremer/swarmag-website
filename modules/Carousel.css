@@ -4,25 +4,25 @@
   height: 100%;
 }
 
-.Carousel .CarouselContainer {
+.Carousel>.CarouselContainer {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.Carousel .CarouselSlide {
+.Carousel>.CarouselContainer>.CarouselSlide {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  transition: transform 700ms ease-in-out;
+  transition: transform 400ms ease-in-out;
   will-change: transform;
   overflow: hidden;
 }
 
-.Carousel .CarouselIndicators {
+.Carousel>.CarouselIndicators {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -32,7 +32,7 @@
   z-index: 20;
 }
 
-.Carousel .CarouselDot {
+.Carousel>.CarouselIndicators>.CarouselDot {
   cursor: pointer;
   width: 1rem;
   height: 1rem;
@@ -42,7 +42,7 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.Carousel .CarouselDotActive {
+.Carousel>.CarouselIndicators>.CarouselDotActive {
   width: 1rem;
   height: 1rem;
   border-radius: 9999px;
@@ -51,7 +51,7 @@
   background-color: white;
 }
 
-.Carousel .CarouselDotActive:focus {
+.Carousel>.CarouselIndicators>.CarouselDotActive:focus {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
   outline: none;
 }

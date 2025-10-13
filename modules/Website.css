@@ -3,19 +3,15 @@
 :root {
   /* Colors - Fundamental */
   --sa-color-dark: #57534e;
+  --sa-color-white: #f9f9f9;
   --sa-color-bright: #ffffff;
-  --sa-color-background: #1c1917;
 
   /* Colors - Primary */
   --sa-color-green: #95ac63;
   --sa-color-orange: #dcab4f;
-  --sa-color-blue: #6389ac;
   --sa-color-eggshell: #f9f1e4;
-
-  /* Colors - Soft Tones */
-  --sa-color-blue-soft: #e3f2fd;
-  --sa-color-green-soft: #f0fdf4;
-  --sa-color-white-soft: #f9f9f9;
+  --sa-color-mint: #f0fdf4;
+  --sa-color-sky: #cdeaff;
 
   /* Colors - Other */
   --sa-color-border: #e5e7eb;
@@ -95,13 +91,17 @@
 
 html {
   --sa-color-even: var(--sa-color-eggshell);
-  --sa-color-odd: var(--sa-color-green-soft);
+  --sa-color-odd: var(--sa-color-mint);
 }
 
 body {
   background-color: var(--sa-color-eggshell);
   font-size: 16px;
   line-height: 1.5;
+}
+
+header, footer, main, section, aside {
+  width: 100%;
 }
 
 .hidden {
@@ -129,7 +129,7 @@ body {
 }
 
 .ActionLayout {
-  margin-block: var(--sa-space-3xl);
+  margin-block-start: var(--sa-space-3xl);
   text-align: center;
 }
 
@@ -230,7 +230,7 @@ h3.Title {
 }
 
 .Text.DropCap:first-letter {
-  color: var(--sa-color-white-soft);
+  color: var(--sa-color-white);
   background-color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
   font-size: 2.75rem;
@@ -244,7 +244,7 @@ h3.Title {
 }
 
 .Card {
-  background-color: var(--sa-color-white-soft);
+  background-color: var(--sa-color-white);
   padding: var(--sa-space-xl);
   border-width: 1px;
   border-radius: var(--sa-radius-md);
@@ -587,7 +587,8 @@ ol.List.Color2>li::before {
 
 .SectionSeparator>div {
   display: flex;
-  width: var(--sa-size-sm);
+  max-width: var(--sa-size-sm);
+  width: 100%;
   align-items: center;
 }
 
@@ -647,37 +648,55 @@ ol.List.Color2>li::before {
 /* === Gallery & Carousel  ================= */
 
 .Gallery {
-  background-color: var(--sa-color-green);
-  padding: var(--sa-space-2xl);
+  background-color: var(--sa-color-sky);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .Gallery {
+    padding-block: var(--sa-space-2xl);
+  }
+}
+
+.Gallery>.GalleryContainer {
   width: 100%;
-  height: calc(35rem + 10vw);
-  max-height: 70vh;
+  height: 600px;
+  display: inline-block;
+  max-width: var(--sa-size-xs);
   overflow: hidden;
   position: relative;
 }
 
-.Gallery .CarouselSlide {
+.Gallery>.GalleryContainer .CarouselSlide {
+  background-color: var(--sa-color-footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: var(--sa-radius-lg);
+  overflow: hidden;
 }
 
-.Gallery img.Photo {
-  border-radius: var(--sa-radius-lg);
-  filter: brightness(0.9);
+@media (min-width: 600px) {
+  .Gallery>.GalleryContainer .CarouselSlide {
+    border-radius: var(--sa-radius-lg);
+  }
+}
+
+.Gallery>.GalleryContainer .CarouselSlide img.Photo {
+  position: relative;
   object-fit: cover;
-  height: 100%;
-  width: auto;
-  max-width: none;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: none;
+  height: 100%;
+  width: auto;
+  filter: brightness(0.9);
 }
 
-.Gallery img.Photo.Loaded {
+.Gallery>.GalleryContainer .CarouselSlide img.Photo.Loaded {
   opacity: 1;
 }
-
 
 /* === Benefits Section ==================== */
 
@@ -713,11 +732,6 @@ ol.List.Color2>li::before {
   color: var(--sa-color-orange);
   height: 3rem;
   width: 3rem;
-}
-
-.EquipmentLayout .Text {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 /* === Services Section ==================== */
@@ -793,7 +807,7 @@ ol.List.Color2>li::before {
 }
 
 .ServicesTable>tbody>tr.Odd {
-  background-color: var(--sa-color-blue-soft);
+  background-color: var(--sa-color-sky);
 }
 
 /* === Get Started Section ================= */
@@ -870,7 +884,7 @@ ol.List.Color2>li::before {
 }
 
 .Footer h3.Title {
-  color: var(--sa-color-white-soft);
+  color: var(--sa-color-white);
   font-size: 1.1rem;
   line-height: 1.5rem;
   font-weight: 600;
@@ -888,7 +902,7 @@ ol.List.Color2>li::before {
 
 .Footer p.strong {
   font-weight: normal;
-  color: var(--sa-color-white-soft);
+  color: var(--sa-color-white);
 }
 
 .Footer .SiteBy a {

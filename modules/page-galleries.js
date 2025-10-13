@@ -15,7 +15,7 @@ function initGalleries() {
 
 function initGallery(gallery, photos) {
   const gid = gallery.id;
-  const cid = `#${gid}>.Carousel`;
+  const cid = `#${gid} .Carousel`;
   const carousel = $(cid, gallery);
   const container = $('.CarouselContainer', carousel);
   const indicators = $('.CarouselIndicators', carousel);
