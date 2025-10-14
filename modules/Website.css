@@ -3,7 +3,7 @@
 :root {
   /* Colors - Fundamental */
   --sa-color-dark: #57534e;
-  --sa-color-white: #f9f9f9;
+  --sa-color-white: #fafafa;
   --sa-color-bright: #ffffff;
 
   /* Colors - Primary */
@@ -129,7 +129,6 @@ header, footer, main, section, aside {
 }
 
 .ActionLayout {
-  margin-block-start: var(--sa-space-3xl);
   text-align: center;
 }
 
@@ -138,8 +137,7 @@ header, footer, main, section, aside {
   transition: var(--sa-transition-base);
   display: inline-block;
   border-radius: var(--sa-radius-full);
-  padding-block: 1.25rem;
-  padding-inline: 1.25rem;
+  padding: 1.25rem;
   width: 100%;
   font-size: var(--sa-font-normal);
   line-height: 1.25;
@@ -222,11 +220,6 @@ h3.Title {
   font-size: clamp(0.9rem, 0.85rem + 0.5vw, 1.125rem);
   line-height: 1.35;
   font-weight: 600;
-  padding-block-end: var(--sa-space-lg);
-}
-
-.Text {
-  padding-block-end: var(--sa-space-md);
 }
 
 .Text.DropCap:first-letter {
@@ -606,11 +599,8 @@ ol.List.Color2>li::before {
 /* === Section Top Wave ==================== */
 
 .SectionTopWave {
-  /* position: absolute; */
   width: 100%;
-  /* margin-block-start: -1rem; */
-  z-index: 0;
-  height: 120px;
+  height: 60px;
   overflow: hidden;
 }
 
@@ -625,8 +615,10 @@ ol.List.Color2>li::before {
   width: 100%;
   margin-inline: auto;
   max-width: var(--sa-size-md);
-  padding-block: var(--sa-space-2xl);
+  padding-block: var(--sa-space-lg);
   padding-inline: var(--sa-space-lg);
+  display: grid;
+  gap: var(--sa-space-lg);
 }
 
 @media (min-width: 425px) {
@@ -654,22 +646,17 @@ ol.List.Color2>li::before {
   align-items: center;
 }
 
-@media (min-width: 600px) {
-  .Gallery {
-    padding-block: var(--sa-space-2xl);
-  }
-}
-
-.Gallery>.GalleryContainer {
+.Gallery>.Container {
   width: 100%;
   height: 600px;
   display: inline-block;
+  padding-inline: 0;
   max-width: var(--sa-size-xs);
   overflow: hidden;
   position: relative;
 }
 
-.Gallery>.GalleryContainer .CarouselSlide {
+.Gallery>.Container .CarouselSlide {
   background-color: var(--sa-color-footer-bg);
   display: flex;
   justify-content: center;
@@ -677,13 +664,7 @@ ol.List.Color2>li::before {
   overflow: hidden;
 }
 
-@media (min-width: 600px) {
-  .Gallery>.GalleryContainer .CarouselSlide {
-    border-radius: var(--sa-radius-lg);
-  }
-}
-
-.Gallery>.GalleryContainer .CarouselSlide img.Photo {
+.Gallery>.Container .CarouselSlide img.Photo {
   position: relative;
   object-fit: cover;
   opacity: 0;
@@ -694,7 +675,7 @@ ol.List.Color2>li::before {
   filter: brightness(0.9);
 }
 
-.Gallery>.GalleryContainer .CarouselSlide img.Photo.Loaded {
+.Gallery>.Container .CarouselSlide img.Photo.Loaded {
   opacity: 1;
 }
 

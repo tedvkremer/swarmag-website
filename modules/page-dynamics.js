@@ -15,15 +15,22 @@ function initPageDynamics() {
 function initHeader() {
   const hero = $('#hero');
   const header = $('#header');
-  window.addEventListener('scroll', () => {
+
+  function isSticky() {
     const trigger = hero.offsetTop + Math.trunc(hero.offsetHeight / 4);
-    const sticky = window.scrollY > trigger;
+    return window.scrollY > trigger;
+  }
+
+  function onScroll() {
+    const sticky = isSticky();
     const isSet = header.classList.contains('Sticky');
-    if (sticky && !isSet) 
+    if (sticky && !isSet)
       header.classList.add('Sticky');
-    else if (!sticky && isSet) 
+    else if (!sticky && isSet)
       header.classList.remove('Sticky');
-  });
+  }
+
+  window.addEventListener('scroll', () => onScroll());
 }
 
 /*************************************
