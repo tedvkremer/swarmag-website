@@ -651,7 +651,7 @@ ol.List.Color2>li::before {
 
 .Gallery>.Container {
   width: 100%;
-  height: 40rem;
+  height: 36rem;
   display: inline-block;
   padding: 0;
   max-width: var(--sa-size-xs);
