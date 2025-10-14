@@ -129,6 +129,7 @@ header, footer, main, section, aside {
 }
 
 .ActionLayout {
+  margin-block-start: var(--sa-space-2xl);
   text-align: center;
 }
 
@@ -531,7 +532,6 @@ ol.List.Color2>li::before {
   max-width: var(--sa-size-sm);
   padding-inline: var(--sa-space-lg);
   text-align: center;
-  margin-block-start: -15vh;
 }
 
 @media (max-width: 425px) {
@@ -618,7 +618,7 @@ ol.List.Color2>li::before {
   width: 100%;
   margin-inline: auto;
   max-width: var(--sa-size-md);
-  padding-block: var(--sa-space-lg);
+  padding-block: var(--sa-space-xl);
   padding-inline: var(--sa-space-lg);
   display: grid;
   gap: var(--sa-space-lg);
@@ -647,7 +647,6 @@ ol.List.Color2>li::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block-start: var(--sa-space-lg);
 }
 
 .Gallery>.Container {
@@ -670,7 +669,7 @@ ol.List.Color2>li::before {
 
 @media (min-width: 485px) {
   .Gallery {
-    padding-block-end: var(--sa-space-2xl);
+    padding-block: var(--sa-space-2xl);
   }
 
   .Gallery>.Container .CarouselContainer {
