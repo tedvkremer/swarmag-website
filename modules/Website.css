@@ -671,6 +671,10 @@ ol.List.Color2>li::before {
     padding-block: var(--sa-space-2xl);
   }
 
+  .Gallery>.Container .CarouselContainer {
+    border-radius: 1rem;
+  }
+
   .Gallery>.Container .CarouselSlide {
     border-radius: 1rem;
   }
