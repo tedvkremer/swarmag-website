@@ -603,7 +603,7 @@ ol.List.Color2>li::before {
 
 .SectionTopWave {
   width: 100%;
-  height: 60px;
+  height: 80px;
   overflow: hidden;
 }
 
@@ -643,9 +643,11 @@ ol.List.Color2>li::before {
 /* === Gallery & Carousel  ================= */
 
 .Gallery {
+  background-color: var(--sa-color-sky);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-block-start: var(--sa-space-lg);
 }
 
 .Gallery>.Container {
@@ -668,7 +670,7 @@ ol.List.Color2>li::before {
 
 @media (min-width: 485px) {
   .Gallery {
-    padding-block: var(--sa-space-2xl);
+    padding-block-end: var(--sa-space-2xl);
   }
 
   .Gallery>.Container .CarouselContainer {

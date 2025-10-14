@@ -5,7 +5,7 @@ import { immutable } from './core.js'
  *************************************/
 
 export default class PhotoCatalog {
-  static GALLERIES = immutable({
+  static #GALLERIES = immutable({
     "gallery-areal": immutable([
       "../galleries/areal/g1-photo-1.jpg",
       "../galleries/areal/g1-photo-2.jpg",
@@ -24,5 +24,5 @@ export default class PhotoCatalog {
     ])
   });
 
-  static get byGallery() { return this.GALLERIES; }
+  static get byGallery() { return this.#GALLERIES; }
 }
