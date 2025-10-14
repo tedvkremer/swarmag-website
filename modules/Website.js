@@ -14,11 +14,10 @@ export default class Website {
     try {
       this.#load(modules);
 
-      // Initialize swarm
+      // Initialize swarm of bees effect (easter-egg)
       this.#swarm.init();
       this.#swarm.create(30, 10, 10, 3);
-    }
-    catch (e) {
+    } catch (e) {
       console.error(e);
     }
   }
@@ -28,8 +27,7 @@ export default class Website {
       try {
         const module = await import(`./${m}.js`);
         module.init();
-      }
-      catch (e) {
+      } catch (e) {
         console.error(e);
       }
     });
