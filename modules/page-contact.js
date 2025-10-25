@@ -1,11 +1,15 @@
 import { $, $$ } from './core.js'
 
+/**
+ * Initialize the contact page functionality.
+ * Sets up the contact form with validation, EmailJS integration, and event listeners.
+ */
 export const init = () => initContactForm();
 
-/*************************************
-  Form validation
- *************************************/
-
+/**
+ * Initialize the contact form with EmailJS integration, validation, and event listeners.
+ * Sets up form submission, real-time validation, and error handling.
+ */
 function initContactForm() {
   // Initialize EmailJS
   emailjs.init({ publicKey: "jjgCuUf-CTyPT9cHj" });
@@ -84,9 +88,7 @@ function initContactForm() {
   // Real-time validation - attach to all form fields
   const inputs = $$('input, select, textarea', form);
   inputs.forEach(input => {
-    input.addEventListener('blur', () => {
-      validateField(input);
-    });
+    input.addEventListener('blur', () => validateField(input));
 
     input.addEventListener('input', () => {
       if (input.classList.contains('border-red')) {

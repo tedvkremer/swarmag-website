@@ -1,10 +1,13 @@
 
+/**
+ * Initialize error handling for the page.
+ * Sets up global error and unhandled rejection listeners.
+ */
 export const init = () => initErrorHandlers();
 
-/*************************************
-  Add loading states and error boundaries
- *************************************/
-
+/**
+ * Set up global error and unhandled rejection handlers.
+ */
 function initErrorHandlers() {
   window.addEventListener('error', e => {
     console.error('JavaScript error:', e.error);
@@ -16,4 +19,3 @@ function initErrorHandlers() {
     // Could send to error tracking service
   });
 }
-

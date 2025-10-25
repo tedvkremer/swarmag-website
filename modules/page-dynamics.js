@@ -1,7 +1,13 @@
 import { $, $$ } from './core.js'
 
+/**
+ * Initialize dynamic page behaviors including header effects, smooth scrolling, and animations.
+ */
 export const init = () => initPageDynamics();
 
+/**
+ * Initialize all dynamic page behaviors.
+ */
 function initPageDynamics() {
   initHeader();
   initAnchorScrolling();
@@ -12,6 +18,9 @@ function initPageDynamics() {
   Header scroll effect
  *************************************/
 
+/**
+ * Initialize sticky header behavior based on scroll position.
+ */
 function initHeader() {
   const hero = $('#hero');
   const header = $('#header');
@@ -33,10 +42,9 @@ function initHeader() {
   window.addEventListener('scroll', () => onScroll());
 }
 
-/*************************************
-  Smooth scrolling for anchor links
- *************************************/
-
+/**
+ * Initialize smooth scrolling for anchor links.
+ */
 function initAnchorScrolling() {
   $$('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -50,10 +58,9 @@ function initAnchorScrolling() {
   });
 }
 
-/*************************************
-  Fade in up animation on scroll
- *************************************/
-
+/**
+ * Initialize fade-in-up animation for elements on scroll using Intersection Observer.
+ */
 function initFadeInUpScrolling() {
   const intersections = (entries) => {
     entries.forEach(e => {
