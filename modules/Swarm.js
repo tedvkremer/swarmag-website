@@ -208,8 +208,7 @@ export default class Swarm {
       for (let i = this.#boids.length; i--;) {
         this.#boids[i].update(this);
       }
-    }
-    catch (e) {
+    } catch (e) {
       this.stop();
       console.error(e);
     }
