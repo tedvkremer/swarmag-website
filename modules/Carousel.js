@@ -1,4 +1,4 @@
-import { $, $$ } from './core.js'
+import { $, $$ } from './utils.js'
 
 /**
  * Carousel Component Class

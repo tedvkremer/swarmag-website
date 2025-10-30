@@ -1,4 +1,4 @@
-import { $, $$ } from './core.js'
+import { $, $$ } from './utils.js'
 import Carousel from './Carousel.js'
 import Website from './Website.js'
 import PhotoCatalog from './PhotoCatalog.js'

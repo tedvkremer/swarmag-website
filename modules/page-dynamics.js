@@ -1,4 +1,4 @@
-import { $, $$ } from './core.js'
+import { $, $$ } from './utils.js'
 
 /**
  * Initialize dynamic page behaviors including header effects, smooth scrolling, and animations.

@@ -20,3 +20,11 @@ export const $$ = (selector, node = document) => node.querySelectorAll(selector)
  * @returns {Object} The frozen object
  */
 export const immutable = o => Object.freeze(o);
+
+/**
+ * Randomly shuffles an array and returns a subset of the specified maximum length.
+ * @param {Array} a - The array to shuffle and slice
+ * @param {number} [max] - Maximum number of elements to return. If not provided, returns all elements.
+ * @returns {Array} A randomly shuffled subset of the input array
+ */
+export const shuffle = (a, max) => a.sort(() => Math.random() - 0.5).slice(0, max || a.length);

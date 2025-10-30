@@ -1,6 +1,4 @@
-import { immutable } from './core.js'
-
-const order = (a, max) => immutable(a.sort(() => Math.random() - 0.5).slice(0, max || a.length));
+import { immutable, shuffle } from './utils.js'
 
 /**
  * Photo Catalog Class
@@ -10,7 +8,7 @@ const order = (a, max) => immutable(a.sort(() => Math.random() - 0.5).slice(0, m
  */
 export default class PhotoCatalog {
   static #GALLERIES = immutable({
-    "gallery-areal": order([
+    "gallery-areal": immutable(shuffle([
       "../galleries/areal/g1-photo-00.jpg",
       "../galleries/areal/g1-photo-01.jpg",
       "../galleries/areal/g1-photo-02.jpg",
@@ -18,8 +16,8 @@ export default class PhotoCatalog {
       "../galleries/areal/g1-photo-04.jpg",
       "../galleries/areal/g1-photo-05.jpg",
       "../galleries/areal/g1-photo-06.jpg",
-    ], 5),
-    "gallery-ground": order([
+    ], 5)),
+    "gallery-ground": immutable(shuffle([
       "../galleries/ground/g2-photo-00.jpg",
       "../galleries/ground/g2-photo-01.jpg",
       "../galleries/ground/g2-photo-02.jpg",
@@ -30,7 +28,7 @@ export default class PhotoCatalog {
       "../galleries/ground/g2-photo-07.jpg",
       "../galleries/ground/g2-photo-08.jpg",
       "../galleries/ground/g2-photo-09.jpg",
-    ], 5)
+    ], 5))
   });
 
   /**
