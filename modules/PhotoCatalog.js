@@ -1,5 +1,7 @@
 import { immutable } from './core.js'
 
+const order = (a, max) => immutable(a.sort(() => Math.random() - 0.5).slice(0, max || a.length));
+
 /**
  * Photo Catalog Class
  *
@@ -8,22 +10,27 @@ import { immutable } from './core.js'
  */
 export default class PhotoCatalog {
   static #GALLERIES = immutable({
-    "gallery-areal": immutable([
-      "../galleries/areal/g1-photo-1.jpg",
-      "../galleries/areal/g1-photo-2.jpg",
-      "../galleries/areal/g1-photo-3.jpg",
-      "../galleries/areal/g1-photo-4.jpg",
-      "../galleries/areal/g1-photo-5.jpg",
-      "../galleries/areal/g1-photo-6.jpg",
-    ]),
-    "gallery-ground": immutable([
-      "../galleries/ground/g2-photo-1.jpg",
-      "../galleries/ground/g2-photo-2.jpg",
-      "../galleries/ground/g2-photo-3.jpg",
-      "../galleries/ground/g2-photo-4.jpg",
-      "../galleries/ground/g2-photo-5.jpg",
-      "../galleries/ground/g2-photo-6.jpg",
-    ])
+    "gallery-areal": order([
+      "../galleries/areal/g1-photo-00.jpg",
+      "../galleries/areal/g1-photo-01.jpg",
+      "../galleries/areal/g1-photo-02.jpg",
+      "../galleries/areal/g1-photo-03.jpg",
+      "../galleries/areal/g1-photo-04.jpg",
+      "../galleries/areal/g1-photo-05.jpg",
+      "../galleries/areal/g1-photo-06.jpg",
+    ], 5),
+    "gallery-ground": order([
+      "../galleries/ground/g2-photo-00.jpg",
+      "../galleries/ground/g2-photo-01.jpg",
+      "../galleries/ground/g2-photo-02.jpg",
+      "../galleries/ground/g2-photo-03.jpg",
+      "../galleries/ground/g2-photo-04.jpg",
+      "../galleries/ground/g2-photo-05.jpg",
+      "../galleries/ground/g2-photo-06.jpg",
+      "../galleries/ground/g2-photo-07.jpg",
+      "../galleries/ground/g2-photo-08.jpg",
+      "../galleries/ground/g2-photo-09.jpg",
+    ], 5)
   });
 
   /**

@@ -199,7 +199,6 @@ export default class Swarm {
   /**
    * Main animation loop that updates all bee positions.
    * Uses requestAnimationFrame for smooth animation.
-   * @private
    */
   update() {
     try {

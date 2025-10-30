@@ -9,7 +9,7 @@
   /* Colors - Primary */
   --sa-color-green: #95ac63;
   --sa-color-orange: #dcab4f;
-  --sa-color-eggshell: #f9f1e4;
+  --sa-color-eggshell: #fff3df;
   --sa-color-mint: #f0fdf4;
   --sa-color-sky: #cdeaff;
 
@@ -63,8 +63,8 @@
 
   /* Border Radius */
   --sa-radius-sm: 0.375rem;
-  --sa-radius-md: 0.5rem;
-  --sa-radius-lg: 0.75rem;
+  --sa-radius-md: 0.555rem;
+  --sa-radius-lg: 0.750rem;
   --sa-radius-full: 9999px;
 
   /* Filters */
@@ -95,7 +95,6 @@ html {
 }
 
 body {
-  background-color: var(--sa-color-eggshell);
   font-size: 16px;
   line-height: 1.5;
 }
@@ -129,7 +128,7 @@ header, footer, main, section, aside {
 }
 
 .ActionLayout {
-  margin-block-start: var(--sa-space-2xl);
+  margin-block: var(--sa-space-3xl);
   text-align: center;
 }
 
@@ -206,6 +205,7 @@ p, span, li {
 
 h1.Title {
   font-size: clamp(1.75rem, 1.5rem + 2vw, 3rem);
+  margin-block-start: 0.5rem;
 }
 
 h2.Title {
@@ -224,16 +224,16 @@ h3.Title {
 }
 
 .Text.DropCap:first-letter {
+  float: left;
   color: var(--sa-color-white);
   background-color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
   font-size: 2.75rem;
   font-weight: 800;
-  float: left;
-  line-height: 1;
-  padding: 0 8px 4px;
-  border-radius: var(--sa-radius-md);
-  margin-block-start: -4px;
+  border-radius: var(--sa-radius-sm);
+  line-height: 0.9;
+  padding: 4px 8px 8px;
+  margin-block-start: 4px;
   margin-inline-end: 8px;
 }
 
@@ -568,7 +568,39 @@ ol.List.Color2>li::before {
 .SectionArtwork>img {
   height: auto;
   width: 100%;
-  max-width: 320px;
+  max-width: 225px;
+}
+
+.SectionArtwork>img.ArtworkFrame {
+  background: linear-gradient(to bottom, #cdeaff 0%, #cdeaff 80%, #e5cc94 80%, #e5cc94 100%);
+  border-radius: var(--sa-radius-md);  
+  box-shadow: var(--sa-shadow-soft);
+}
+
+/* === TwoColLayout ======================== */
+
+.TwoColLayout {
+  display: grid;
+  gap: var(--sa-space-xl);
+}
+
+@media (min-width: 1024px) {
+  .TwoColLayout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .TwoColLayout.BigLeft {
+    grid-template-columns: 1fr auto;
+  }
+
+  .TwoColLayout.BigRight {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.TwoColLayout>.TwoColStack {
+  display: grid;
+  gap: var(--sa-space-lg);
 }
 
 /* === Section Separator =================== */
@@ -693,19 +725,6 @@ ol.List.Color2>li::before {
 
 .Gallery .CarouselSlide img.Photo.Loaded {
   opacity: 1;
-}
-
-/* === Benefits Section ==================== */
-
-.BenefitsLayout {
-  display: grid;
-  gap: var(--sa-space-xl);
-}
-
-@media (min-width: 1024px) {
-  .BenefitsLayout {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 /* === Equipment Section =================== */

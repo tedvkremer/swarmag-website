@@ -41,7 +41,7 @@ function initGallery(gallery, photos) {
     slide.className = 'CarouselSlide';
     slide.appendChild(createImage(photo));
     container.appendChild(slide);
-    //createDot(ndx);
+    indicators.appendChild(createDot(ndx));
   }
 
   function createImage(photo) {
@@ -60,6 +60,6 @@ function initGallery(gallery, photos) {
     dot.role = 'tab';
     dot.setAttribute('aria-label', `Go to slide ${ndx + 1}`);
     dot.tabIndex = ndx;
-    indicators.appendChild(dot);
+    return dot;
   }
 }

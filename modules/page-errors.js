@@ -1,4 +1,3 @@
-
 /**
  * Initialize error handling for the page.
  * Sets up global error and unhandled rejection listeners.
