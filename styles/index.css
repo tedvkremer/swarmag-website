@@ -313,7 +313,6 @@ select>option[value=""] {
   color: #ff000077;
 }
 
-
 /* === Transition Effects ================== */
 
 .Effect {
@@ -932,20 +931,26 @@ ol.List.Color2>li::before {
 /* === Print Styles ======================== */
 
 @media print {
+  * {
+    background: white;
+  }
 
+  .Effect {
+    opacity: 1;
+  }
+  
   .Header,
   .Hero,
   .Footer,
-  .CallToAction {
+  .Gallery,
+  .SectionTopWave,
+  .CallToAction,
+  .ContactForm {
     display: none;
-  }
-
-  body {
-    background: white;
   }
 
   .Card {
     box-shadow: none;
-    border: 1px solid #ddd;
+    border: 1px solid silver;
   }
 }
