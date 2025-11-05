@@ -15,7 +15,7 @@
 
   /* Colors - Other */
   --sa-color-border: #e5e7eb;
-  --sa-color-divider: #d1d5db;
+  --sa-color-divider: #57534e;
   --sa-color-placeholder: #9ca3af;
 
   /* Colors - Footer */
@@ -572,7 +572,7 @@ ol.List.Color2>li::before {
 
 .SectionArtwork>img.ArtworkFrame {
   background: linear-gradient(to bottom, #cdeaff 0%, #cdeaff 80%, #e5cc94 80%, #e5cc94 100%);
-  border-radius: var(--sa-radius-md);  
+  border-radius: var(--sa-radius-md);
   box-shadow: var(--sa-shadow-soft);
 }
 
@@ -605,29 +605,29 @@ ol.List.Color2>li::before {
 /* === Section Separator =================== */
 
 .SectionSeparator {
-  /* position: absolute; */
   width: 100%;
-  /* margin-block-start: calc(-1* var(--sa-space-4xl)); */
   display: flex;
   justify-content: center;
 }
 
-.SectionSeparator>div {
+.SectionSeparator>.SeparatorLayout {
   display: flex;
   max-width: var(--sa-size-sm);
   width: 100%;
   align-items: center;
 }
 
-.SectionSeparator>div>img {
+.SectionSeparator>.SeparatorLayout>img {
   height: auto;
-  width: 8rem;
+  width: 7.5rem;
+  padding: 0.5rem;
 }
 
-.SectionSeparator>div>hr {
+.SectionSeparator>.SeparatorLayout>hr {
   margin-inline: var(--sa-space-md);
   flex: 1 1 0%;
   border-top: 1px solid var(--sa-color-divider);
+  opacity: 25%;
 }
 
 /* === Section Top Wave ==================== */
@@ -931,14 +931,28 @@ ol.List.Color2>li::before {
 /* === Print Styles ======================== */
 
 @media print {
+  /* Safari-specific fixes for print compatibility */
   * {
-    background: white;
+    -webkit-print-color-adjust: exact !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* More specific selector for better Safari support */
+  body, body * {
+    background: white !important;
+    color: black !important;
+  }
+
+  img {
+    width: 300px;
+    height: auto;
   }
 
   .Effect {
-    opacity: 1;
+    opacity: 1 !important;
   }
-  
+
   .Header,
   .Hero,
   .Footer,
@@ -946,11 +960,11 @@ ol.List.Color2>li::before {
   .SectionTopWave,
   .CallToAction,
   .ContactForm {
-    display: none;
+    display: none !important;
   }
 
   .Card {
-    box-shadow: none;
-    border: 1px solid silver;
+    box-shadow: none !important;
+    border: 1px solid rgb(48, 48, 48) !important;
   }
 }
