@@ -228,7 +228,7 @@ h3.Title {
   color: var(--sa-color-white);
   background-color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   font-weight: 800;
   border-radius: var(--sa-radius-sm);
   line-height: 0.9;
@@ -339,6 +339,16 @@ select>option[value=""] {
   align-items: center;
   gap: var(--sa-space-md);
   line-height: 1.35;
+}
+
+.List.Tight>li {
+  display: inline-block;
+}
+
+.List>li>strong {
+  white-space: nowrap;
+  color: var(--sa-color-orange);
+  font-weight: 400;
 }
 
 .List>li>.Bullet {
@@ -866,7 +876,9 @@ ol.List.Color2>li::before {
 }
 
 .Footer p,
-.Footer li {
+.Footer li,
+.Footer strong,
+.Footer .List>li>strong {
   font-family: var(--sa-family-info);
   font-size: var(--sa-font-base);
   color: var(--sa-color-footer-text);
@@ -913,11 +925,6 @@ ol.List.Color2>li::before {
   text-align: center;
   padding-block-start: var(--sa-space-2xl);
   margin-block-start: var(--sa-space-2xl);
-}
-
-.Footer p.strong {
-  font-weight: normal;
-  color: var(--sa-color-white);
 }
 
 .Footer .SiteBy a {
