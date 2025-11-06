@@ -517,6 +517,7 @@ ol.List.Color2>li::before {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background-color: var(--sa-color-dark);
 }
 
 .HeroContainer .HeroVideo {
