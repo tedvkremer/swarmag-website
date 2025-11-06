@@ -26,6 +26,7 @@ export default class Website {
   /**
    * Initialize the website application.
    * Called automatically via DOMContentLoaded event listener in bootstrap().
+   * @private
    * @param {string[]} modules - Array of module names to load
    */
   #init(modules = []) {
