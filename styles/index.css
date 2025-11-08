@@ -558,7 +558,6 @@ ol.List.Color2>li::before {
 }
 
 .HeroContainer .HeroLayout .Title>img {
-  /* filter: drop-shadow(0px 0px 0.5rem #ffffff66); */
   height: calc(7rem + 4vw);
   width: auto;
 }
