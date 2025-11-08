@@ -521,7 +521,7 @@ ol.List.Color2>li::before {
 }
 
 .HeroContainer .HeroVideo {
-  filter: brightness(0.7);
+  filter: brightness(0.75);
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -550,11 +550,17 @@ ol.List.Color2>li::before {
   }
 }
 
-.HeroContainer .HeroLayout>img.Title {
-  filter: var(--sa-filter-mono);
+.HeroContainer .HeroLayout .Title {
+  background-color: #ffffffaa;
+  padding: var(--sa-space-md) var(--sa-space-3xl);
+  margin-inline: auto;
+  border-radius: var(--sa-radius-lg)
+}
+
+.HeroContainer .HeroLayout .Title>img {
+  /* filter: drop-shadow(0px 0px 0.5rem #ffffff66); */
   height: calc(7rem + 4vw);
   width: auto;
-  margin-inline: auto;
 }
 
 .HeroContainer .HeroLayout>.Text {
@@ -939,6 +945,7 @@ ol.List.Color2>li::before {
 /* === Print Styles ======================== */
 
 @media print {
+
   /* Safari-specific fixes for print compatibility */
   * {
     -webkit-print-color-adjust: exact !important;
