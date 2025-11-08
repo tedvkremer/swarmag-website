@@ -554,7 +554,7 @@ ol.List.Color2>li::before {
 
 .HeroContainer .HeroLayout .Title {
   background-color: #ffffffa0;
-  padding: var(--sa-space-md) var(--sa-space-xl);
+  padding: var(--sa-space-md) var(--sa-space-2xl);
   margin-inline: auto;
   border-radius: var(--sa-radius-xl);
 }
