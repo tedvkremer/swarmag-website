@@ -65,6 +65,7 @@
   --sa-radius-sm: 0.375rem;
   --sa-radius-md: 0.555rem;
   --sa-radius-lg: 0.750rem;
+  --sa-radius-xl: 1.555rem;
   --sa-radius-full: 9999px;
 
   /* Filters */
@@ -541,6 +542,7 @@ ol.List.Color2>li::before {
   gap: var(--sa-space-lg);
   max-width: var(--sa-size-sm);
   padding-inline: var(--sa-space-lg);
+  margin-block-start: 6rem;
   text-align: center;
 }
 
@@ -554,7 +556,7 @@ ol.List.Color2>li::before {
   background-color: #ffffffa0;
   padding: var(--sa-space-md) var(--sa-space-xl);
   margin-inline: auto;
-  border-radius: var(--sa-radius-lg)
+  border-radius: var(--sa-radius-xl);
 }
 
 .HeroContainer .HeroLayout .Title>img {
