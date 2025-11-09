@@ -1,4 +1,5 @@
-import Swarm from './Swarm.js'
+import { $$ } from './utils.js'
+import { Swarm } from './Swarm.js'
 
 /**
  * Website Application Singleton Class
@@ -39,6 +40,10 @@ export default class Website {
       this.#swarm.create(30, 10, 10, 3);
     } catch (e) {
       console.error(e);
+
+      // show delayed elements (otherwise page is blank)
+      $$('.Effect').forEach(e => e.classList.add('fade-in-up'));
+      $$('.Photo').forEach(e => e,classList.add('Loaded'));
     }
   }
 

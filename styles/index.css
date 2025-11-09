@@ -1,4 +1,38 @@
-/* === Motif =============================== */
+/*************************************
+  Design Palette
+ *************************************/
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/inter-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: var(--sa-weight-semibold);
+  font-display: swap;
+  src: url('../assets/inter-600.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/playfair-display-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: var(--sa-weight-bold);
+  font-display: swap;
+  src: url('../assets/playfair-display-700.ttf') format('truetype');
+}
 
 :root {
   /* Colors - Fundamental */
@@ -27,13 +61,20 @@
   --sa-shadow-hard: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.35);
   --sa-shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --sa-shadow-press: 0 6px 12px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
-  --sa-shadow-text: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --sa-shadow-text: 0 0 1px rgba(255, 255, 255, 0.15);
   --sa-shadow-focus: 0 0 0 2px rgba(34, 197, 94, 0.5);
 
   /* Typography - Families */
   --sa-family-info: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   --sa-family-heading: 'Playfair Display', serif;
   --sa-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Typography - Weights */
+  --sa-weight-normal: 400;
+  --sa-weight-medium: 500;
+  --sa-weight-semibold: 600;
+  --sa-weight-bold: 700;
+  --sa-weight-extrabold: 800;
 
   /* Typography - Fluid Sizes */
   --sa-font-base: clamp(0.875rem, 0.85rem + 0.125vw, 0.9rem);
@@ -72,7 +113,9 @@
   --sa-filter-mono: brightness(0) invert(1);
 }
 
-/* === Accessibility ======================= */
+/*************************************
+  Accessibility
+ *************************************/
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -88,7 +131,9 @@
   outline-offset: 2px;
 }
 
-/* === General ============================= */
+/*************************************
+  General
+ *************************************/
 
 html {
   --sa-color-even: var(--sa-color-eggshell);
@@ -142,7 +187,7 @@ header, footer, main, section, aside {
   width: 100%;
   font-size: var(--sa-font-normal);
   line-height: 1.25;
-  font-weight: 600;
+  font-weight: var(--sa-weight-semibold);
   color: var(--sa-color-bright);
   text-decoration: none;
   max-width: 100%;
@@ -189,7 +234,7 @@ header, footer, main, section, aside {
   transform: translateY(0);
 }
 
-p, span, li {
+p, span, li, td {
   color: var(--sa-color-dark);
   font-size: var(--sa-font-normal);
   text-wrap: pretty;
@@ -198,10 +243,10 @@ p, span, li {
 .Title {
   color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
-  font-weight: 700;
+  font-weight: var(--sa-weight-bold);
   line-height: 1.25;
   text-wrap: pretty;
-  padding-block: var(--sa-space-md);
+  padding-block: var(--sa-space-sm);
 }
 
 h1.Title {
@@ -219,9 +264,9 @@ h3.Title {
 
 .Subtitle {
   color: var(--sa-color-green);
-  font-size: clamp(0.9rem, 0.85rem + 0.5vw, 1.125rem);
-  line-height: 1.35;
-  font-weight: 600;
+  font-weight: var(--sa-weight-semibold);
+  text-shadow: var(--sa-shadow-text);
+  line-height: 1.25;
 }
 
 .Text.DropCap:first-letter {
@@ -230,7 +275,7 @@ h3.Title {
   background-color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: var(--sa-weight-extrabold);
   border-radius: var(--sa-radius-sm);
   line-height: 0.9;
   padding: 4px 8px 8px;
@@ -246,11 +291,19 @@ h3.Title {
   box-shadow: var(--sa-shadow-soft);
 }
 
+.Card.Tight {
+  padding: 0;
+  border: 0;
+  overflow-x: auto;
+}
+
 .AlignCenter {
   text-align: center;
 }
 
-/* === Form & Fields ======================= */
+/*************************************
+  Form & Fields
+ *************************************/
 
 .Form {
   display: flex;
@@ -274,7 +327,7 @@ label {
   color: var(--sa-color-dark);
   font-family: var(--sa-family-info);
   font-size: var(--sa-font-base);
-  font-weight: 500;
+  font-weight: var(--sa-weight-medium);
 }
 
 :is(input, select, textarea) {
@@ -314,7 +367,9 @@ select>option[value=""] {
   color: #ff000077;
 }
 
-/* === Transition Effects ================== */
+/*************************************
+  Transition Effects
+ *************************************/
 
 .Effect {
   transition: var(--sa-transition-slow);
@@ -327,7 +382,9 @@ select>option[value=""] {
   transform: translateY(0);
 }
 
-/* === List ================================ */
+/*************************************
+  List
+ *************************************/
 
 .List {
   display: flex;
@@ -349,7 +406,7 @@ select>option[value=""] {
 .List>li>strong {
   white-space: nowrap;
   color: var(--sa-color-orange);
-  font-weight: 400;
+  font-weight: var(--sa-weight-semibold);
 }
 
 .List>li>.Bullet {
@@ -388,7 +445,7 @@ ol.List>li::before {
   align-items: center;
   justify-content: center;
   font-size: var(--sa-font-base);
-  font-weight: 700;
+  font-weight: var(--sa-weight-bold);
 }
 
 ol.List.Color1>li::before {
@@ -399,7 +456,63 @@ ol.List.Color2>li::before {
   background-color: var(--sa-color-orange);
 }
 
-/* === Header ============================== */
+/*************************************
+  Table
+ *************************************/
+
+table.Table {
+  color: var(--sa-color-dark);
+  border-radius: var(--sa-radius-md) var(--sa-radius-md) 0 0;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table.Table td, table.Table th {
+  color: var(--sa-color-dark);
+  padding: var(--sa-space-xs);
+  font-size: var(--sa-font-base);
+  line-height: 1.3;
+}
+
+table.Table>thead {
+  background-color: var(--sa-color-dark);
+  opacity: 0.85;
+}
+
+table.Table>thead th {
+  padding-inline-start: var(--sa-space-sm);
+  padding-block: var(--sa-space-sm);
+  color: var(--sa-color-bright);
+  font-weight: var(--sa-weight-extrabold);
+}
+
+table.Table>tbody>tr>td:nth-child(1) {
+  padding-inline-start: var(--sa-space-md);
+  font-weight: var(--sa-weight-medium);
+}
+
+table.Table>tbody>tr.TableSection {
+  background-color: var(--sa-color-green);
+}
+
+table.Table>tbody>tr.TableSection>td:nth-child(1) {
+  padding-inline-start: calc(var(--sa-space-sm) + var(--sa-space-xs));
+  color: var(--sa-color-bright);
+  font-weight: var(--sa-weight-extrabold);
+}
+
+table.Table>tbody>tr.Even {
+  background-color: var(--sa-color-bright);
+}
+
+table.Table>tbody>tr.Odd {
+  background-color: var(--sa-color-sky);
+}
+
+/*************************************
+  Header
+ *************************************/
 
 .Header {
   position: absolute;
@@ -487,7 +600,7 @@ ol.List.Color2>li::before {
 
 .Header .HeaderPhoneText {
   color: var(--sa-color-bright);
-  font-weight: 700;
+  font-weight: var(--sa-weight-bold);
   line-height: 1;
   transition: color 0.3s ease, font-size 0.3s ease;
 }
@@ -505,7 +618,9 @@ ol.List.Color2>li::before {
   font-size: 1rem;
 }
 
-/* === Hero ================================ */
+/*************************************
+  Hero
+ *************************************/
 
 .Hero {
   position: relative;
@@ -570,10 +685,16 @@ ol.List.Color2>li::before {
   text-align: center;
   font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
   text-shadow: var(--sa-shadow-text);
-  font-weight: 600;
+  font-weight: var(--sa-weight-semibold);
 }
 
-/* === Section Artwork ===================== */
+.HeroContainer .HeroLayout .CallToAction {
+  margin-block-end: 0;
+}
+
+/*************************************
+  Section Artwork
+ *************************************/
 
 .SectionArtwork {
   margin-inline: auto;
@@ -594,7 +715,9 @@ ol.List.Color2>li::before {
   box-shadow: var(--sa-shadow-soft);
 }
 
-/* === TwoColLayout ======================== */
+/*************************************
+  TwoColLayout
+ *************************************/
 
 .TwoColLayout {
   display: grid;
@@ -620,7 +743,9 @@ ol.List.Color2>li::before {
   gap: var(--sa-space-lg);
 }
 
-/* === Section Separator =================== */
+/*************************************
+  Section Separator
+ *************************************/
 
 .SectionSeparator {
   width: 100%;
@@ -648,7 +773,9 @@ ol.List.Color2>li::before {
   opacity: 25%;
 }
 
-/* === Section Top Wave ==================== */
+/*************************************
+  Section Top Wave
+ *************************************/
 
 .SectionTopWave {
   width: 100%;
@@ -661,7 +788,9 @@ ol.List.Color2>li::before {
   width: 100%;
 }
 
-/* === Container =========================== */
+/*************************************
+  Container
+ *************************************/
 
 .Container {
   width: 100%;
@@ -689,7 +818,9 @@ ol.List.Color2>li::before {
   max-width: var(--sa-size-lg);
 }
 
-/* === Gallery & Carousel  ================= */
+/*************************************
+  Gallery & Carousel
+ *************************************/
 
 .Gallery {
   background-color: var(--sa-color-sky);
@@ -722,11 +853,11 @@ ol.List.Color2>li::before {
   }
 
   .Gallery>.Container .CarouselContainer {
-    border-radius: 1rem;
+    border-radius: var(--sa-radius-xl);
   }
 
   .Gallery>.Container .CarouselSlide {
-    border-radius: 1rem;
+    border-radius: var(--sa-radius-xl);
   }
 }
 
@@ -744,7 +875,9 @@ ol.List.Color2>li::before {
   opacity: 1;
 }
 
-/* === Equipment Section =================== */
+/*************************************
+  Advantage & Equipment
+ *************************************/
 
 .EquipmentLayout {
   display: grid;
@@ -767,90 +900,25 @@ ol.List.Color2>li::before {
   width: 3rem;
 }
 
-/* === Services Section ==================== */
+/*************************************
+  Services Catalog
+ *************************************/
 
-#services-catalog .Card {
-  padding: 0;
-  border: 0;
-  overflow-x: auto;
-}
-
-.ServicesTable {
-  color: var(--sa-color-dark);
-  border-radius: var(--sa-radius-md) var(--sa-radius-md) 0 0;
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.ServicesTable>thead {
-  color: var(--sa-color-bright);
-  background-color: var(--sa-color-dark);
-  opacity: 0.85;
-}
-
-.ServicesTable>thead>tr>th {
-  padding: var(--sa-space-xs);
-}
-
-@media (min-width: 768px) {
-  .ServicesTable>thead>tr>th:first-of-type {
-    padding-left: var(--sa-space-sm);
-  }
-}
-
-.ServicesTable>tbody>tr.Section {
-  color: var(--sa-color-bright);
-  background-color: var(--sa-color-green);
-  opacity: 0.85;
-}
-
-.ServicesTable>tbody>tr>td {
-  padding: var(--sa-space-xs);
-  font-size: var(--sa-font-base);
-}
-
-.ServicesTable>tbody>tr>td:nth-child(1) {
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  .ServicesTable>tbody>tr>td:nth-child(1) {
-    padding-left: var(--sa-space-md);
-  }
-}
-
-.ServicesTable>tbody>tr>td:nth-child(3) {
+#services-catalog table.Table>tbody>tr>td:nth-child(3) {
   white-space: nowrap;
   font-family: var(--sa-family-mono);
 }
 
-.ServicesTable>tbody>tr.Section>td {
-  font-weight: 700;
-}
-
-@media (min-width: 768px) {
-  .ServicesTable>tbody>tr.Section>td {
-    padding-left: var(--sa-space-sm);
-  }
-}
-
-.ServicesTable>tbody>tr.Even {
-  background-color: var(--sa-color-bright);
-}
-
-.ServicesTable>tbody>tr.Odd {
-  background-color: var(--sa-color-sky);
-}
-
-/* === Get Started Section ================= */
+/*************************************
+  Get Started
+ *************************************/
 
 .ContactLayout {
   display: grid;
   gap: var(--sa-space-xl);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 925px) {
   .ContactLayout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -870,7 +938,9 @@ ol.List.Color2>li::before {
   padding-block-start: 0;
 }
 
-/* === Footer ================================ */
+/*************************************
+  Footer
+ *************************************/
 
 .Footer {
   background-color: var(--sa-color-footer-bg);
@@ -922,7 +992,7 @@ ol.List.Color2>li::before {
   color: var(--sa-color-white);
   font-size: 1.1rem;
   line-height: 1.5rem;
-  font-weight: 600;
+  font-weight: var(--sa-weight-semibold);
 }
 
 .Footer .Bottom {
@@ -943,7 +1013,9 @@ ol.List.Color2>li::before {
   color: var(--sa-color-bright);
 }
 
-/* === Print Styles ======================== */
+/*************************************
+  Print Styles
+ *************************************/
 
 @media print {
 

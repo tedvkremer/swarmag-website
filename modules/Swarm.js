@@ -6,7 +6,7 @@
  * collision avoidance, velocity matching, and flock centering behaviors.
  * Used as an interactive visual effect that responds to user input.
  */
-export default class Swarm {
+export class Swarm {
   /** @static {number} Rate at which boids can change direction (0.05 = 5% per frame) */
   static TURN_SPEED = 0.05;
 
