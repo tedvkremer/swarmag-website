@@ -29,6 +29,15 @@ export default class Carousel {
   /** @private {number|null} Auto-play interval ID, null when stopped */
   #interval = null;
 
+  /** @private {number} Initial touch X position for swipe detection */
+  #startX = 0;
+
+  /** @private {number} Initial touch Y position for swipe detection */
+  #startY = 0;
+
+  /** @private {number} Minimum swipe distance in pixels to trigger navigation */
+  #swipeThreshold = 50;
+
   /**
    * Create a new Carousel instance.
    * @param {string} id - CSS selector ID for the carousel container
@@ -55,6 +64,8 @@ export default class Carousel {
     const prevBtn = $('.CarouselPrevSlide', carousel);
     nextBtn.addEventListener('click', () => this.nextSlide());
     prevBtn.addEventListener('click', () => this.prevSlide());
+    carousel.addEventListener('touchstart', e => this.#handleTouchStart(e), { passive: false });
+    carousel.addEventListener('touchend', e => this.#handleTouchEnd(e), { passive: false });
 
     this.#update();
 
@@ -67,10 +78,13 @@ export default class Carousel {
    * @private
    */
   #update() {
-    let offset = (0 - this.#curr) * 100;
+    const gap = 24, percent = 100;
+    let offset = (0 - this.#curr) * percent;
+    let pad = (0 - this.#curr) * gap;
     this.#slides.forEach(slide => {
-      slide.style.transform = `translateX(${offset}%)`;
-      offset += 100;
+      slide.style.transform = `translateX(calc(${offset}% + ${pad}px))`;
+      offset += percent;
+      pad += gap;
     });
 
     this.#indicators.forEach((indicator, i) => {
@@ -87,13 +101,44 @@ export default class Carousel {
   }
 
   /**
+   * Handle touch start event to record initial touch position.
+   * @private
+   * @param {TouchEvent} e - Touch start event
+   */
+  #handleTouchStart(e) {
+    this.#startX = e.touches[0].clientX;
+    this.#startY = e.touches[0].clientY;
+  }
+
+  /**
+   * Handle touch end event to detect swipe gestures and navigate slides.
+   * @private
+   * @param {TouchEvent} e - Touch end event
+   */
+  #handleTouchEnd(e) {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const deltaX = endX - this.#startX;
+    const deltaY = endY - this.#startY;
+
+    // Check if horizontal swipe is dominant and exceeds threshold
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > this.#swipeThreshold) {
+      if (deltaX > 0) {
+        this.prevSlide(); // Swipe right -> previous slide
+      } else {
+        this.nextSlide(); // Swipe left -> next slide
+      }
+    }
+  }
+
+  /**
    * Change to a specific slide with bounds checking and auto-play management.
    * @private
    * @param {number} index - Target slide index
    */
   #mutate(index) {
     if (index < 0 || index >= this.#total) {
-      console.error(`slide index out of range: ${index} [0..${this.#total-1}]`);
+      console.error(`slide index out of range: ${index} [0..${this.#total - 1}]`);
       return;
     };
     const animating = this.#interval !== null;
