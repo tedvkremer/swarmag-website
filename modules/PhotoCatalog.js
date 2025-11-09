@@ -9,26 +9,26 @@ import { immutable, shuffle } from './utils.js'
 export default class PhotoCatalog {
   static #GALLERIES = immutable({
     "gallery-areal": immutable(shuffle([
-      "../galleries/areal/g1-photo-00.jpg",
-      "../galleries/areal/g1-photo-01.jpg",
-      "../galleries/areal/g1-photo-02.jpg",
-      "../galleries/areal/g1-photo-03.jpg",
-      "../galleries/areal/g1-photo-04.jpg",
-      "../galleries/areal/g1-photo-05.jpg",
-      "../galleries/areal/g1-photo-06.jpg",
+      "../galleries/areal/g1-photo-00.webp",
+      "../galleries/areal/g1-photo-01.webp",
+      "../galleries/areal/g1-photo-02.webp",
+      "../galleries/areal/g1-photo-03.webp",
+      "../galleries/areal/g1-photo-04.webp",
+      "../galleries/areal/g1-photo-05.webp",
+      "../galleries/areal/g1-photo-06.webp",
 
     ], 5)),
     "gallery-ground": immutable(shuffle([
-      "../galleries/ground/g2-photo-00.jpg",
-      "../galleries/ground/g2-photo-01.jpg",
-      "../galleries/ground/g2-photo-02.jpg",
-      "../galleries/ground/g2-photo-03.jpg",
-      "../galleries/ground/g2-photo-04.jpg",
-      "../galleries/ground/g2-photo-05.jpg",
-      "../galleries/ground/g2-photo-06.jpg",
-      "../galleries/ground/g2-photo-07.jpg",
-      "../galleries/ground/g2-photo-08.jpg",
-      "../galleries/ground/g2-photo-09.jpg",
+      "../galleries/ground/g2-photo-00.webp",
+      "../galleries/ground/g2-photo-01.webp",
+      "../galleries/ground/g2-photo-02.webp",
+      "../galleries/ground/g2-photo-03.webp",
+      "../galleries/ground/g2-photo-04.webp",
+      "../galleries/ground/g2-photo-05.webp",
+      "../galleries/ground/g2-photo-06.webp",
+      "../galleries/ground/g2-photo-07.webp",
+      "../galleries/ground/g2-photo-08.webp",
+      "../galleries/ground/g2-photo-09.webp",
     ], 6))
   });
 

@@ -840,7 +840,6 @@ table.Table>tbody>tr.Odd {
 }
 
 .Gallery>.Container .CarouselSlide {
-  background-color: var(--sa-color-footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
