@@ -1,3 +1,5 @@
+import { $ } from './utils.js'
+
 /**
  * Swarm Animation Class
  *
@@ -67,6 +69,9 @@ export class Swarm {
   /** @private {HTMLElement|null} Home position element that triggers swarm behavior */
   #home = null;
 
+  /** @private {HTMLButtonElement|null} Toggle UX button to animate swarm */
+  #toggle = null;
+
   /** @private {number} RequestAnimationFrame ID for the animation loop */
   #updateID = 0;
 
@@ -116,13 +121,13 @@ export class Swarm {
    * @returns {Swarm} This swarm instance for method chaining
    */
   init() {
-    this.#home = document.querySelector('#swarm-home');
-    this.#home.onclick = () => this.toggle();
+    this.#home = $('#swarm-home');
+    this.#toggle = $('#swarm-toggle');
+    this.#toggle.onclick = () => this.toggle();
 
     this.#container = document.createElement('div');
     this.#container.style = Swarm.HIDE;
-    const container = document.querySelector('#swarm-container');
-    container.appendChild(this.#container);
+    $('#swarm-container').appendChild(this.#container);
 
     return this;
   }
@@ -218,7 +223,13 @@ export class Swarm {
    * Convenience method that calls start() or stop() based on current state.
    */
   toggle() {
-    this.animating ? this.stop() : this.start();
+    if (this.animating) {
+      this.stop();
+      this.#toggle.classList.remove("active");
+    } else {
+      this.start();
+      this.#toggle.classList.add("active");
+    }
   }
 
   /**

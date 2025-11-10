@@ -692,6 +692,52 @@ table.Table>tbody>tr.Odd {
   margin-block-end: 0;
 }
 
+.HeroContainer .AnimationContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.HeroContainer button.AnimationButton {
+  position: absolute;
+  z-index: 20;
+  bottom: var(--sa-space-md);
+  left: var(--sa-space-md);
+  display: flex;
+  gap: var(--sa-space-xs);
+  border-radius: var(--sa-radius-full);
+  border: 1px solid var(--sa-color-bright);
+  padding: 4px 12px;
+}
+
+.HeroContainer button.AnimationButton.active {
+  background-color: #ffffffa0;
+}
+
+.HeroContainer button.AnimationButton:hover {
+  transform: translateY(-3px);
+}
+
+.HeroContainer button.AnimationButton div {
+  margin-top: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50% 50% 50% 50% / 90% 90% 10% 10%;
+  background-color: #fdf041ff;
+}
+
+.HeroContainer button.AnimationButton span {
+  font-family: var(--sa-family-info);
+  color: #fff;
+  font-size: 12px;
+}
+
+.HeroContainer button.AnimationButton.active span {
+  color: #000;
+}
+
 /*************************************
   Section Artwork
  *************************************/
