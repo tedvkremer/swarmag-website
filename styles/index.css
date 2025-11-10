@@ -728,6 +728,19 @@ table.Table>tbody>tr.Odd {
   background-color: #fdf041ff;
 }
 
+.HeroContainer button.AnimationButton:hover div {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .HeroContainer button.AnimationButton span {
   font-family: var(--sa-family-info);
   color: #fff;
