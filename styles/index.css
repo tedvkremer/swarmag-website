@@ -471,7 +471,7 @@ table.Table {
 table.Table td, table.Table th {
   color: var(--sa-color-dark);
   padding: var(--sa-space-xs);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.3;
 }
 
