@@ -23,11 +23,7 @@ export default class PhotoCatalog {
       "../galleries/ground/ground-04.webp",
       "../galleries/ground/ground-05.webp",
       "../galleries/ground/ground-06.webp",
-      "../galleries/ground/ground-07.webp",
-      "../galleries/ground/ground-08.webp",
-      "../galleries/ground/ground-09.webp",
-      "../galleries/ground/ground-10.webp",
-    ], 6))
+    ]))
   });
 
   /**
