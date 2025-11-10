@@ -20,32 +20,32 @@ The swarmAg website is a modern, single-page web application built for a North T
 
 ```
 swarmag-website/
-├── architecture.md         # Project architecture documentation
-├── index.html              # Main HTML document with semantic structure
-├── styles/                 # CSS stylesheets and design system
-│   ├── normalize.css       # Cross-browser CSS reset
-│   ├── Carousel.css        # Carousel component styles
-│   └── index.css           # Main stylesheet with design tokens
-├── modules/                # JavaScript modules
-│   ├── Website.js          # Main application singleton & orchestration
-│   ├── Swarm.js            # Bee swarm animation system (Bee class)
-│   ├── Carousel.js         # Photo carousel component
-│   ├── PhotoCatalog.js     # Immutable gallery data management
-│   ├── page-contact.js     # Contact form initialization & EmailJS integration
-│   ├── page-dynamics.js    # Scroll animations & intersection observer effects
-│   ├── page-errors.js      # Error handling & logging utilities
-│   ├── page-galleries.js   # Gallery setup & carousel integration
-│   └── utils.js            # Utility functions ($/$$, immutable, shuffle)
-├── assets/                 # Static assets (optimized & self-hosted)
-│   ├── hero.mp4            # Hero background video
-│   ├── swarmag-logo-*.png  # Logo variants (tree, wordmark)
-│   ├── clipart-*.png       # Service illustrations (drones, mesquite, skidsteer)
-│   ├── apple-touch-icon*.png # PWA touch icons (57x57 to 180x180)
-│   └── *.ttf               # Self-hosted fonts (Inter, Playfair Display)
-├── galleries/              # Photo gallery organized by service type
-    ├── areal/              # Aerial drone spraying photos (7 images)
+├── architecture.md           # Project architecture documentation
+├── index.html                # Main HTML document with semantic structure
+├── styles/                   # CSS stylesheets and design system
+│   ├── normalize.css           # Cross-browser CSS reset
+│   ├── Carousel.css            # Carousel component styles
+│   └── index.css               # Main stylesheet with design tokens
+├── modules/                  # JavaScript modules
+│   ├── Website.js              # Main application singleton & orchestration
+│   ├── Swarm.js                # Bee swarm animation system (Bee class)
+│   ├── Carousel.js             # Photo carousel component
+│   ├── PhotoCatalog.js         # Immutable gallery data management
+│   ├── page-contact.js         # Contact form initialization & EmailJS integration
+│   ├── page-dynamics.js        # Scroll animations & intersection observer effects
+│   ├── page-errors.js          # Error handling & logging utilities
+│   ├── page-galleries.js       # Gallery setup & carousel integration
+│   └── utils.js                # Utility functions ($/$$, immutable, shuffle)
+├── assets/                   # Static assets (optimized & self-hosted)
+│   ├── hero.mp4                # Hero background video
+│   ├── swarmag-logo-*.png      # Logo variants (tree, wordmark)
+│   ├── clipart-*.png           # Service illustrations (drones, mesquite, skidsteer)
+│   ├── apple-touch-icon*.png   # PWA touch icons (57x57 to 180x180)
+│   └── *.ttf                   # Self-hosted fonts (Inter, Playfair Display)
+├── galleries/                # Photo gallery organized by service type
+    ├── aerial/                 # Aerial drone photos 
     │   └── g1-photo-*.jpg
-    └── ground/             # Ground brush mitigation photos (10 images)
+    └── ground/                 # Ground machinery photos
         └── g2-photo-*.jpg
 ```
 
@@ -301,7 +301,7 @@ The application uses a bootstrap pattern with dynamic ES6 module loading:
 ## Content Management
 
 ### Gallery System
-- **Organized by service type** (areal, ground)
+- **Organized by service type** (aerial, ground)
 - **Randomized display** for dynamic user experience
 - **Lazy loading** for performance
 - **Accessibility compliant** image presentation
