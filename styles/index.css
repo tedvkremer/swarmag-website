@@ -741,6 +741,7 @@ table.Table>tbody>tr.Odd {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -935,25 +936,31 @@ table.Table>tbody>tr.Odd {
 }
 
 /*************************************
-  Advantage & Equipment
+  Advantage: Equipment & Tools
  *************************************/
 
 .EquipmentLayout {
+  width: 100%;
+  max-width:700px;
+  margin-inline: auto;
+}
+
+.ToolLayout {
   display: grid;
   gap: var(--sa-space-xl);
 }
 
-@media (min-width: 758px) {
-  .EquipmentLayout {
+@media (min-width: 768px) {
+  .ToolLayout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.EquipmentLayout .Card {
+.ToolLayout .Card {
   height: 100%;
 }
 
-.EquipmentLayout .EquipmentIcon {
+.ToolLayout .EquipmentIcon {
   color: var(--sa-color-orange);
   height: 3rem;
   width: 3rem;
@@ -972,6 +979,15 @@ table.Table>tbody>tr.Odd {
   Get Started
  *************************************/
 
+#get-started .Card {
+  padding: var(--sa-space-lg);
+}
+
+#get-started .Card h3.Title {
+  font-size: 1.75rem;
+  padding-block-start: 0;
+}
+
 .ContactLayout {
   display: grid;
   gap: var(--sa-space-xl);
@@ -986,15 +1002,6 @@ table.Table>tbody>tr.Odd {
 .ContactInfo {
   display: grid;
   gap: var(--sa-space-xl);
-}
-
-#get-started .Card {
-  padding: var(--sa-space-lg);
-}
-
-#get-started .Card h3.Title {
-  font-size: 1.75rem;
-  padding-block-start: 0;
 }
 
 /*************************************
