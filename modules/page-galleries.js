@@ -33,7 +33,7 @@ function initGallery(gallery, photos) {
 
   Website.the.galleries[gid] = {
     'gallery': gallery,
-    'carousel': new Carousel(cid).init()
+    'carousel': new Carousel(cid).init(true)
   };
 
   function createSlide(photo, ndx) {
@@ -50,7 +50,7 @@ function initGallery(gallery, photos) {
     img.src = photo;
     img.alt = 'swarmAg';
     img.loading = 'lazy';
-    img.addEventListener('load', () => img.classList.add('Loaded'));
+    img.addEventListener('load', () => img.classList.add('loaded'));
     return img;
   }
 

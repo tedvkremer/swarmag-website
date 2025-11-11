@@ -930,7 +930,7 @@ table.Table>tbody>tr.Odd {
   filter: brightness(0.9);
 }
 
-.Gallery .CarouselSlide img.Photo.Loaded {
+.Gallery .CarouselSlide img.Photo.loaded {
   opacity: 1;
 }
 

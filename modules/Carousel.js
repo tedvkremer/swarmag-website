@@ -50,8 +50,9 @@ export default class Carousel {
    * Initialize the carousel by setting up DOM elements and event listeners.
    * Must be called after construction and after DOM is ready.
    * @returns {Carousel} This carousel instance for method chaining
+   * @param {boolean} start - Start carousel automation
    */
-  init() {
+  init(start) {
     const carousel = $(this.#id);
     this.#slides = $$('.CarouselSlide', carousel);
     this.#total = this.#slides.length;
@@ -68,6 +69,8 @@ export default class Carousel {
     carousel.addEventListener('touchend', e => this.#handleTouchEnd(e), { passive: false });
 
     this.#update();
+
+    if (start) this.startCarousel();
 
     return this;
   }
