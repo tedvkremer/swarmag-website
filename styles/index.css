@@ -721,7 +721,7 @@ table.Table>tbody>tr.Odd {
 }
 
 .HeroContainer button.AnimationButton div {
-  margin-top: 3px;
+  margin-top: 5px;
   width: 10px;
   height: 10px;
   border-radius: 50% 50% 50% 50% / 90% 90% 10% 10%;
