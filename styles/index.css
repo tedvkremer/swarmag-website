@@ -710,6 +710,7 @@ table.Table>tbody>tr.Odd {
   border-radius: var(--sa-radius-full);
   border: 1px solid var(--sa-color-bright);
   padding: 4px 12px;
+  background-color: #ffffff33;
 }
 
 .HeroContainer button.AnimationButton.active {
