@@ -8,11 +8,17 @@ import { $, $$ } from './utils.js'
  * transitions, indicator states, and user interactions.
  */
 export default class Carousel {
-  /** @static {number} Auto-play duration in milliseconds (8 seconds) */
-  static #DURATION = 8000;
+  /** @static {number} Auto-play duration in milliseconds (3.5 seconds) */
+  static #DURATION = 3500;
 
   /** @private {string} CSS selector ID for the carousel container */
   #id = 0;
+
+  /** @private {boolean} Automatically progress the carousel */
+  #automate = false;
+
+  /** @private {boolean} Auto-play duration in milliseconds */
+  #duration = false;
 
   /** @private {HTMLElement[]} Array of slide elements */
   #slides = [];
@@ -41,18 +47,21 @@ export default class Carousel {
   /**
    * Create a new Carousel instance.
    * @param {string} id - CSS selector ID for the carousel container
+   * @param {boolean} automate - Start carousel automation
+   * @param {number} duration - Auto-play duration in milliseconds (default DURATRION)
    */
-  constructor(id) {
+  constructor(id, automate, duration) {
     this.#id = id;
+    this.#automate = automate;
+    this.#duration = duration || Carousel.#DURATION;
   }
 
   /**
    * Initialize the carousel by setting up DOM elements and event listeners.
    * Must be called after construction and after DOM is ready.
    * @returns {Carousel} This carousel instance for method chaining
-   * @param {boolean} start - Start carousel automation
    */
-  init(start) {
+  init() {
     const carousel = $(this.#id);
     this.#slides = $$('.CarouselSlide', carousel);
     this.#total = this.#slides.length;
@@ -67,10 +76,12 @@ export default class Carousel {
     prevBtn.addEventListener('click', () => this.prevSlide());
     carousel.addEventListener('touchstart', e => this.#handleTouchStart(e), { passive: false });
     carousel.addEventListener('touchend', e => this.#handleTouchEnd(e), { passive: false });
+    carousel.addEventListener('mouseenter', () => this.pause());
+    carousel.addEventListener('mouseleave', () => this.unpause());
 
     this.#update();
 
-    if (start) this.startCarousel();
+    if (this.#automate) this.startCarousel();
 
     return this;
   }
@@ -190,5 +201,19 @@ export default class Carousel {
     if (!this.#interval) return;
     clearInterval(this.#interval);
     this.#interval = null;
+  }
+
+  /**
+   * Pause the carousel auto-play.
+   */
+  pause() {
+    this.stopCarousel();
+  }
+
+  /**
+   * Unpause the carousel auto-play if it was set to auto-play.
+   */
+  unpause() {
+    if (this.#automate) this.startCarousel();
   }
 }

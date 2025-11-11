@@ -33,7 +33,7 @@ function initGallery(gallery, photos) {
 
   Website.the.galleries[gid] = {
     'gallery': gallery,
-    'carousel': new Carousel(cid).init(true)
+    'carousel': new Carousel(cid, true).init()
   };
 
   function createSlide(photo, ndx) {

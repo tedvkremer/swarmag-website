@@ -170,6 +170,7 @@ p, span, li, td {
 
 strong {
   font-weight: var(--sa-weight-semibold);
+  text-shadow: var(--sa-shadow-text);
 }
 
 .hidden {
@@ -714,7 +715,7 @@ table.Table>tbody>tr.Odd {
   border-radius: var(--sa-radius-full);
   border: 1px solid var(--sa-color-bright);
   padding: 4px 12px;
-  background-color: #ffffff33;
+  background-color: #ffffff50;
 }
 
 .HeroContainer button.AnimationButton.active {
@@ -888,7 +889,7 @@ table.Table>tbody>tr.Odd {
  *************************************/
 
 .Gallery {
-  background-color: var(--sa-color-sky);
+  background-color: var(--sa-color-footer-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -911,13 +912,20 @@ table.Table>tbody>tr.Odd {
   overflow: hidden;
 }
 
-@media (min-width: 485px) {
+@media (min-width: 425px) {
   .Gallery {
-    padding-block: var(--sa-space-2xl);
+    background-color: var(--sa-color-sky);
+    padding-block: var(--sa-space-xl);
   }
 
   .Gallery>.Container .CarouselSlide {
     border-radius: var(--sa-radius-xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .Gallery {
+    padding-block: var(--sa-space-3xl);
   }
 }
 
@@ -941,7 +949,7 @@ table.Table>tbody>tr.Odd {
 
 .EquipmentLayout {
   width: 100%;
-  max-width:700px;
+  max-width: 700px;
   margin-inline: auto;
 }
 
