@@ -149,6 +149,29 @@ header, footer, main, section, aside {
   width: 100%;
 }
 
+h1 {
+  font-size: clamp(1.75rem, 1.5rem + 2vw, 3rem);
+  margin-block-start: 0.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 1.3rem + 1.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 1.1rem + 1vw, 2rem);
+}
+
+p, span, li, td {
+  color: var(--sa-color-dark);
+  font-size: var(--sa-font-normal);
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: var(--sa-weight-semibold);
+}
+
 .hidden {
   visibility: hidden;
 }
@@ -234,12 +257,6 @@ header, footer, main, section, aside {
   transform: translateY(0);
 }
 
-p, span, li, td {
-  color: var(--sa-color-dark);
-  font-size: var(--sa-font-normal);
-  text-wrap: pretty;
-}
-
 .Title {
   color: var(--sa-color-dark);
   font-family: var(--sa-family-heading);
@@ -247,19 +264,6 @@ p, span, li, td {
   line-height: 1.25;
   text-wrap: pretty;
   padding-block: var(--sa-space-sm);
-}
-
-h1.Title {
-  font-size: clamp(1.75rem, 1.5rem + 2vw, 3rem);
-  margin-block-start: 0.5rem;
-}
-
-h2.Title {
-  font-size: clamp(1.5rem, 1.3rem + 1.5vw, 2.5rem);
-}
-
-h3.Title {
-  font-size: clamp(1.25rem, 1.1rem + 1vw, 2rem);
 }
 
 .Subtitle {
@@ -822,7 +826,7 @@ table.Table>tbody>tr.Odd {
 
 .SectionSeparator>.SeparatorLayout>img {
   height: auto;
-  width: 7.5rem;
+  width: 6.5rem;
   padding: 0.5rem;
 }
 
