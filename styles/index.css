@@ -494,7 +494,7 @@ table.Table>thead th {
 
 table.Table>tbody>tr>td:nth-child(1) {
   padding-inline-start: var(--sa-space-md);
-  font-weight: var(--sa-weight-medium);
+  font-weight: var(--sa-weight-semibold);
 }
 
 table.Table>tbody>tr.TableSection {
