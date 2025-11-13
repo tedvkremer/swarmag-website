@@ -20,7 +20,7 @@ The swarmAg website is a modern, single-page web application built for a North T
 
 ```
 swarmag-website/
-├── architecture.md           # Project architecture documentation
+├── README.md                 # Project architecture documentation
 ├── index.html                # Main HTML document with semantic structure
 ├── styles/                   # CSS stylesheets and design system
 │   ├── normalize.css           # Cross-browser CSS reset
